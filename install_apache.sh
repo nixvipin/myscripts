@@ -70,3 +70,5 @@ else
 echo -e "\eApache Installation is failed.." 
 exit 1
 fi
+
+/data/apache2/bin/apachectl
