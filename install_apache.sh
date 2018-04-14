@@ -1,4 +1,3 @@
-#!/bin/bash
 
 APACHE_VER=2.4.33
 APR_VER=1.6.3
@@ -40,7 +39,9 @@ make install
 echo -e "\eOpen /data/apache2/conf/httpd.conf and Uncomment  LoadModule proxy_module modules/mod_proxy.so and LoadModule proxy_http_module modules/mod_proxy_http.so lines"
 echo -e "\eOpen /data/apache2/conf/httpd.conf and change "ServerName www.etlhive.com:80"\e"
 
-echo -e "\eOpen /data/apache2/extra/proxy-html.conf and  add below --> 
+echo -e "\eOpen /data/apache2/conf/httpd.conf and add "Include conf/extra/etlhive.conf""
+
+echo -e "\eOpen /data/apache2/conf/extra/etlhive.conf and  add below --> 
 
 
 <VirtualHost 192.168.56.101:80>
@@ -65,10 +66,11 @@ echo -e "\eOpen /data/apache2/extra/proxy-html.conf and  add below -->
 
 if [ $? = 0 ]
 then
-echo -e "\eApache Installation successfully completed.."
+echo -e "\eApache Installation successfully completed..Starting now.."
+/data/apache2/bin/apachectl
 else
-echo -e "\eApache Installation is failed.." 
+echo -e "\eApache validation syntax failed.. Please verify above installation logs.." 
 exit 1
 fi
 
-/data/apache2/bin/apachectl
+
