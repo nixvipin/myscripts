@@ -1,0 +1,314 @@
+    1  cat /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    2  i
+    3  vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    4  cat /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    5  ip a
+    6  ping google.com
+    7  dhclient
+    8  dmesg
+    9  ping google.coom
+   10  ping google..com
+   11  ifdown enp0s3
+   12  ifup enp0s3
+   13  systemctl restart network
+   14  ping google..com
+   15  ping google.com
+   16  ip a
+   17  cat /etc/resolv.conf
+   18  shutdown -r now
+   19  cat /etc/sysconfig/network-scripts/ifcfg-enp0s3
+   20  cat /etc/sysconfig/network-scripts/ifcfg-enp0s8
+   21  ping google.com
+   22  ip a
+   23  cat /etc/sysconfig/network-scripts/ifcfg-enp0s8
+   24  cat /etc/resolv.conf
+   25  ping google.com
+   26  pkill dhclient
+   27  dhclient
+   28  ping google.com
+   29  cat /etc/resolv.conf
+   30  ping google.com
+   31  cat /etc/sysconfig/network-scripts/ifcfg-enp0s8
+   32  shutdown -r now
+   33  ip a
+   34  cd /etc/sysconfig/network-scripts/
+   35  ll
+   36  vim ifcfg-enp0s3 
+   37  vi ifcfg-enp0s3 
+   38  ll
+   39  vim ifcfg-et8
+   40  vim ifcfg-enp0s8 
+   41  vi ifcfg-enp0s8 
+   42  cp -a ifcfg-enp0s3 ifcfg-enp0s8 
+   43  vi ifcfg-enp0s8 
+   44  vim ifcfg-enp0s3 
+   45  vi ifcfg-enp0s3 
+   46  /sbin/shutdown -r nw
+   47  /sbin/shutdown -r now
+   48  pwd
+   49  cd data
+   50  git clone https://github.com/nixvipin/myscripts.git
+   51  yum install git -y
+   52  git clone https://github.com/nixvipin/myscripts.git
+   53  whereis git
+   54  ls
+   55  cd myscripts
+   56  ls
+   57  yum install vim -y
+   58  vim install_jenkins.sh
+   59  sh -x install_jenkins.sh
+   60  yum install wget -y
+   61  sh -x install_jenkins.sh
+   62  git pull
+   63  sh -x install_jenkins.sh
+   64  git pull
+   65  sh -x install_jenkins.sh
+   66  tar -xzf jdk-8u161-linux-x64.tar
+   67  cd ..
+   68  tar -xzf jdk-8u161-linux-x64.tar
+   69  tar -xzf jdk-8u161-linux-x64.tar.gz 
+   70  ech $?
+   71  ll
+   72  cd jdk1.8.0_161/
+   73  ll
+   74  vim /root/.bash_profile
+   75  source /root/.bash_proofile
+   76  source /root/.bash_profile
+   77  echo $JAVA_HOME
+   78  echo $MAVEN_HOME
+   79  cd..
+   80  cd ..
+   81  cd /jenkins/bin
+   82  cd jenkins/bin
+   83  ll
+   84  pwd
+   85  cd /data
+   86  ll
+   87  pwd
+   88  cd jenkins/bin
+   89  ./startup.sh
+   90  java -version
+   91  echo $JAVA_HOME
+   92  source /root/.bash_profile
+   93  echo $JAVA_HOME
+   94  java -version
+   95  vim /root/.bash_profile 
+   96  cd /data/
+   97  ll
+   98  mv /root/data/jdk1.8.0_161/ .
+   99  java -version
+  100  ./startup.sh
+  101  cd jenkins/bin
+  102  java -version
+  103  ./startup.sh
+  104  tail -f ../logs/catalina.out 
+  105  cat /root/.jenkins/secrets/initialAdminPassword
+  106  tail -f ../logs/catalina.out
+  107  cd ../logs/
+  108  ls -lrt
+  109  tail -100f localhost_access_log.2018-04-14.txt
+  110  pwd
+  111  cd ..
+  112  pwd
+  113  cd ..
+  114  ls
+  115  cd root
+  116  cd ..
+  117  pw
+  118  pwd
+  119  sl
+  120  s
+  121  ls
+  122  cd root
+  123  lls
+  124  ls
+  125  cd data
+  126  ls
+  127  cd myscripts
+  128  ls
+  129  vim abc,sh
+  130  vim java_setup.sh
+  131  ls
+  132  git add .
+  133  git coommit -m "Java Variable Set Up"
+  134  git commit -m "Java Variable Set Up"
+  135  git push
+  136  pwd
+  137  ls
+  138  cd data/
+  139  ls
+  140  cd myscripts/
+  141  ls
+  142  git push
+  143  git status
+  144  ls
+  145  ping google.com
+  146  git push
+  147  git pull
+  148  git push
+  149  ls
+  150  cd ..
+  151  pwd
+  152  s
+  153  ls
+  154  cd Repository/
+  155  ls
+  156  cd ..
+  157  ls
+  158  cd ~
+  159  cd data
+  160  ls
+  161  cd ..
+  162  pwd
+  163  cd ..
+  164  pwd
+  165  cd data
+  166  ls
+  167  git clone https://github.com/nixvipin/myproject.git
+  168  ls
+  169  cd myproject/
+  170  s
+  171  ls
+  172  cd ..
+  173  ls
+  174  cd ..
+  175  pwd
+  176  cd root
+  177  pwd
+  178  ls
+  179  cd data
+  180  pwd
+  181  ls
+  182  cd myscripts/
+  183  ls
+  184  git pull
+  185  ls
+  186  sh -x install_maven.sh
+  187  ls
+  188  vim java_setup.sh 
+  189  mvn -version
+  190  echo $MAVVEN_HOME
+  191  echo $MAVEN_HOME
+  192  cd ..
+  193  pwd
+  194  cd ..
+  195  pwd
+  196  cd data
+  197  pwd
+  198  ls
+  199  cd myproject/
+  200  ls
+  201  cd employees/
+  202  ls
+  203  echo $MAVVEN_HOME
+  204  echo $MAVEN_HOME
+  205  ls -la
+  206  mvn clean install
+  207  pwd
+  208  ll
+  209  mvn clean install
+  210  ping google.com
+  211  pkill dhclient
+  212  ps -ef | grep dhclient
+  213  dhclient
+  214  ps -ef | grep dhclient
+  215  ping google.com
+  216  mvn clean install
+  217  ls
+  218  pwd
+  219  ls
+  220  cd ..
+  221  pwd
+  222  cd ..
+  223  ls
+  224  cd ..
+  225  ls
+  226  pwd
+  227  cd root
+  228  cd data
+  229  ls
+  230  cd myscripts/
+  231  ls
+  232  git pull
+  233  ls
+  234  sh -x install_tomcat.sh
+  235  cd /data/apache-tomcat/conf/
+  236  ls
+  237  vim server.xml
+  238  cd ../bin/
+  239  ls
+  240  cd ../
+  241  pwd
+  242  ls
+  243  cd webapps/
+  244  ls
+  245  mkdir employee
+  246  ls
+  247  cd employee/
+  248  cp -a /data/myproject/employees/target/
+  249  ls
+  250  cp -a /data/myproject/employees/target/SpringHibernateExample.war
+  251  cp -a /data/myproject/employees/target/SpringHibernateExample.war .
+  252  ll
+  253  jar -xf SpringHibernateExample.war
+  254  rm SpringHibernateExample.war
+  255  ls
+  256  vim WEB-INF/classes/application.properties
+  257  ps -ef | grep mysql
+  258  mysql -uroot -proot
+  259  whereis mysql
+  260  cd ..
+  261  pwd
+  262  cd root
+  263  cd data
+  264  ls
+  265  cd myscripts/
+  266  sh -x install_mysql.sh
+  267  lls
+  268  ls
+  269  pwd
+  270  cd ..
+  271  pwd
+  272  cd ..
+  273  cd data
+  274  pwd
+  275  ls
+  276  cd jenkins
+  277  cd bin
+  278  pwd
+  279  ./startup.sh
+  280  ps -ef | grep java
+  281  tail -n 100 -f../logs/catalina.out
+  282  tail -n 100 -f ../logs/catalina.out
+  283  iptables -F
+  284  iptables -L
+  285  systemctl disable firewall
+  286  systemctl disable firewalld
+  287  cd ..
+  288  pwd
+  289  ls
+  290  cd..
+  291  cd ..
+  292  pwd
+  293  cd root
+  294  cd data
+  295  pwd
+  296  ls
+  297* 
+  298  git pull
+  299  cd ..
+  300* 
+  301  pwd
+  302  cd data
+  303  ls
+  304  cd myscripts/
+  305  ls
+  306  cp -a /root/devopsrelated.txt .
+  307  ls
+  308  git add devopsrelated.txt 
+  309  git commit -m "DevOps Related MY File"
+  310  git push
+  311  history 
+  312  history > history_apr15.txt
+  313  ls
+  314  history > history_apr15.txt
