@@ -1,0 +1,111 @@
+mysql.conf - configuration in unix,default port is 3306
+mysql.ini - configuration in windows,default port is 3306
+
+grant all <dbname.*> to <<'user'@'<localhosot> identified by '<password>';
+flush privileges - existing connection breaks down
+grant select ......
+
+mysql -umytestuser -pmytestpass -hlocalhost
+
+show databases;
+
+
+https://github.com/nixvipin/myproject - our code repo
+forcefully exit cmd is :q!
+
+if[ -f /usr/bin/wget]
+then
+echo "ok.."
+
+else
+echo "installing wget..."
+yum install wget -y
+fi
+
+
+git add . - it will add eveything
+git add <filename> - it will add specific file
+git commit -m "initial commit" - m is for comment
+
+
+sh -x <shell script name> - x is for debug mode
+
+
+mysql is now known as mariadb
+
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+JAVA_HOME=/data/jdk1.8.0_161
+MAVEN_HOME=/data/apache-maven-3.5.3
+PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
+
+PATH=$PATH:$HOME/bin
+
+export PATH MAVEN_HOME
+
+shell speaks to kernel and kernel speaks to hardware
+we speak to shell
+
+
+#!/bin/bash - she bang ->to be kept in start of every script.
+
+bash - bourne again shell - centos by default support this shell
+
+00fc09ee71a340c4a3ba33071d97e973
+
+tail -f ../logs/catalina.out - to see live logsof catalina.out
+
+https://github.com/nixvipin/myscripts- scripts repo in git
+https://github.com/nixvipin/myproject - project repo in git
+
+ATiwariDevops/a123456 - github credentials
+
+how to resolve internet adapter issue ->
+
+Swap the connecttion i.e. adapter 1 shuold be NAT enp0s8
+and adapter 2 should be host only adapter enp0s3
+
+
+
+under myscripts one repo is cloned
+
+under / data another repo is cloned
+
+jenkins crdentials - admin/123456
+
+pom-project object model(pom.xml)
+
+.m2 is the default maven repository , we can change it in that case all we need to do is change the maven home path
+
+currently maven home is set to MAVEN_HOME = /data/apache-maven-3.5.3
+maven first search for dependent jar files in m2 repo, if it has to fetch sth from remote then we need to mention that repo location in pom.xml
+and then maven copies dependent jar files into local so that again next time if someone installs it installs from local repo only
+
+src/main/java - is the place where java code resides in maven structure
+how to know where is your default .m2 path
+mvn -X | head 20 = to see only 20 lines 
+
+
+cat pllugins_jenkins.txt - list of pllugins to install in jenkins inside myscripts
+do mvn -X to see where user local repository located
+
+post mysql installation steps.
+1. mysql -uroot -proot
+2. grant all on mydb.* to 'myuser'@'localhost' identified by 'mypass';
+3. shw databases;
+4. use mysql;
+5. show tables;
+6. Select * from user;
+7. use mydb;
+8. show tables;
+
+apache need not to be restarted - it takes care of static contents
+9. select * from employees;
+
+
+
+
+
