@@ -12,4 +12,6 @@
 
 6. run "sh install_jenkins.sh"
 
-7. 
+7. run "sh install_tomcat.sh"
+
+8.  
