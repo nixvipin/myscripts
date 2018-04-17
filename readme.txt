@@ -6,4 +6,10 @@
 
 3. WinSCP Java to /data/jdk1.8 from your windows machine
 
-4.  
+4. run "sh java_maven_path_setup.sh"
+
+5  run "sh install_mysql.sh"
+
+6. run "sh install_jenkins.sh"
+
+7. 

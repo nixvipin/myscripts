@@ -8,9 +8,6 @@ else
 echo "Install Java & try again"
 fi
 
-
-
-
 if [ -f /usr/bin/wget ]
 then
 echo "ok.."
@@ -40,7 +37,7 @@ start_jenkins()
 cd /data/jenkins/bin
 ./startup.sh
 sleep 10
-tail ../logs/catalina.out
+tail -n 50 ../logs/catalina.out
 echo -e "\eJenkins Started successfully\e"
 }
 

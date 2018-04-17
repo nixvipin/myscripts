@@ -5,4 +5,8 @@ wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-7/v7.0.85/bin/apache-
 tar -zxvf apache-tomcat-7.0.85.tar.gz
 mv apache-tomcat-7.0.85 apache-tomcat
 cd apache-tomcat/bin
-echo "change port in /data/apache-tomcat/conf/server.xml and execute ./startup.sh"
+sed -i.orig.bak 's/8080/8001/g' /data/apache-tomcat/conf/server.xml
+./startup.sh
+sleep 10
+tail -n 50 ../logs/catalina.out
+echo -e "\eTomcat installation is done.."
