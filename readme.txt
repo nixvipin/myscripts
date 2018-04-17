@@ -1,17 +1,48 @@
 # myscripts
 
-1. run "sh install_initial_sh"
+A. Clone Myscript 
 
-2. run "sh install_maven.sh"
+  1. mkdir /data
 
-3. WinSCP Java to /data/jdk1.8 from your windows machine
+  2. cd /data
 
-4. run "sh java_maven_path_setup.sh"
+  3. git clone https://github.com/nixvipin/myscripts.git
 
-5  run "sh install_mysql.sh"
+  4. cd myscripts
 
-6. run "sh install_jenkins.sh"
 
-7. run "sh install_tomcat.sh"
+==========Module 1==========
 
-8.  
+B. Execute scripts
+
+  1. run "sh install_initial_sh"
+
+  2. run "sh install_maven.sh"
+
+  3. WinSCP Java to /data/jdk1.8 from your windows machine
+
+  4. run "sh java_maven_path_setup.sh"
+
+  5  run "sh install_mysql.sh"
+
+
+==========Module 2==========
+
+
+C. Execute script
+
+  1. run "sh install_jenkins.sh"
+
+  2. run "sh install_tomcat.sh"
+
+  3. run "sh build_code_auto.sh"
+
+  4. run "sh install_apache.sh"
+
+  5. run "sh install_nginx.sh"
+
+
+==========Module 3==========
+
+
+D. Execute script
