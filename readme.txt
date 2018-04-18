@@ -15,7 +15,7 @@ A. Clone Myscript
 
 B. Execute scripts
 
-  1. run "sh install_initial_sh"
+  1. run "sh install_initial.sh"
 
   2. run "sh install_maven.sh"
 
