@@ -1,17 +1,15 @@
 #!/bin/bash
 
+askuser()
+{
+echo -e "\eWarning:[101mThis will override your existing paths"
 
-read -p "Would you like to setup Java & Maven  path.. (y/n)" ans
+echo -e "\eWhich path would you like to setup?\e1.Java path\e2.Maven path\e3.Both\e4.None\e\ePress option : " ans
+}
 
-if [ $ans = y ]
-then
-  if [ -d /data/jdk1.8 ]
-  then
-  echo -e "Setting up the path.. \e"
-
-   echo "
-
-# .bash_profile
+both_path()
+{
+echo "# .bash_profile
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
@@ -19,18 +17,78 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-JAVA_HOME=/data/jdk1.8
+JAVA_HOME=$java_path
 MAVEN_HOME=/data/maven
 PATH=\$JAVA_HOME/bin:\$MAVEN_HOME/bin:\$PATH
 
 PATH=\$PATH:\$HOME/bin
 
 export PATH
-" > ~/tmp_bash_profile
+" > ~/.bash_profile
+}
 
-   else
-   echo "Directory not found.. Install Java(/data/jdk1.8) or  maven(/data/maven) & try it again"
-   fi
-else
-echo "ok go home.. "
+java_path()
+{
+echo "# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
 fi
+
+# User specific environment and startup programs
+JAVA_HOME=$java_path
+PATH=\$JAVA_HOME/bin:\$PATH
+
+PATH=\$PATH:\$HOME/bin
+
+export PATH
+" > ~/.bash_profile
+}
+
+maven_path()
+{
+echo "# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+MAVEN_HOME=/data/maven
+PATH=\$MAVEN_HOME/bin:\$PATH
+
+PATH=\$PATH:\$HOME/bin
+
+export PATH
+" > ~/.bash_profile
+}
+
+askuser
+
+source_path(){
+source ~/.bash_profile
+}
+
+case $ans in
+1)
+java_path
+source_path
+;;
+
+2)
+maven_path
+source_path
+;;
+3)
+java_path
+source_path
+;;
+4)
+echo -e "\eselected None"
+;;
+*)
+askuser
+;;
+esac 
