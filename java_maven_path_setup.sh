@@ -2,9 +2,9 @@
 
 askuser()
 {
-echo -e "\eWarning:[101mThis will override your existing paths"
+echo -e "\e Warning:[101mThis will override your existing paths"echo -e "\e[31mHello World\e[0m"
 
-echo -e "\eWhich path would you like to setup?\e1.Java path\e2.Maven path\e3.Both\e4.None\e\ePress option : " ans
+read -p "\e Which path would you like to setup?\e1.Java path\e2.Maven path\e3.Both\e4.None\e\ePress option : " ans
 }
 
 both_path()
