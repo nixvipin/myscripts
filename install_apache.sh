@@ -21,12 +21,13 @@ echo -e "\n\e[32m ...Installing Apache... \e[0m\n"
 
 yum install openssl-devel -y
 
-wget https://www.apache.org/dist/httpd/httpd-$APACHE_VER.tar.gz
-wget http://www-eu.apache.org/dist//apr/apr-$APR_VER.tar.gz
-wget https://archive.apache.org/dist/apr/apr-util-$APR_UTIL_VER.tar.gz
+wget https://www.apache.org/dist/httpd/httpd-$APACHE_VER\.tar.gz
+wget http://www-eu.apache.org/dist/apr/apr-$APR_VER\.tar.gz
+wget https://archive.apache.org/dist/apr/apr-util-$APR_UTIL_VER\.tar.gz
 
-tar -zxf httpd-$APACHE_VER.tar.gz; tar -zxf apr-$APR_VER.tar.gz; tar -zxf apr-util-$APR_UTIL_VER.tar.gz
+tar -zxf httpd-$APACHE_VER\.tar.gz; tar -zxf apr-$APR_VER\.tar.gz; tar -zxf apr-util-$APR_UTIL_VER\.tar.gz
 
+mkdir -p  /data/packages/httpd-$APACHE_VER/srclib
 mv apr-$APR_VER /data/packages/httpd-$APACHE_VER/srclib/apr
 mv apr-util-$APR_UTIL_VER /data/packages/httpd-$APACHE_VER/srclib/apr-util
 
@@ -84,6 +85,6 @@ echo -e "\n5.\e[32m Verify if apache is running 'ps -ef' command.\e[0m\n"
 
 echo -e "Done!\n"
 
-cd /data/packages/
-rm apr-1.6.3.tar.gz apr-util-1.5.4.tar.gz httpd-2.4.33.tar.gz pcre-8.38.zip
+#cd /data/packages/
+#rm apr-1.6.3.tar.gz apr-util-1.5.4.tar.gz httpd-2.4.33.tar.gz pcre-8.38.zip
 
