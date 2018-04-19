@@ -3,7 +3,9 @@ APACHE_VER=2.4.33
 APR_VER=1.6.3
 APR_UTIL_VER=1.5.4
 
-echo -e "\e[32m ...Installing Pre-requisite for Apache...\e[0m "
+yum install unzip -y
+
+echo -e "\n\e[32m ...Installing Pre-requisite for Apache...\e[0m\e"
 
 mkdir -p /data/packages
 cd /data/packages
@@ -15,7 +17,7 @@ cd pcre-8.38
 make
 make install
 
-echo -e "\e[32m ...Installing Apache... "
+echo -e "\n\e[32m ...Installing Apache... \e[0m\n"
 
 yum install openssl-devel -y
 
@@ -34,43 +36,54 @@ cd httpd-$APACHE_VER
 make
 make install
 
-/data/apache2/bin/httpd -t
 
-echo -e "\eOpen /data/apache2/conf/httpd.conf and Uncomment  LoadModule proxy_module modules/mod_proxy.so and LoadModule proxy_http_module modules/mod_proxy_http.so lines"
-echo -e "\eOpen /data/apache2/conf/httpd.conf and change "ServerName www.etlhive.com:80"\e"
+echo -e "\n\e[32m ...Installing Pre-requisite for Apache...\e[0m\n"
 
-echo -e "\eOpen /data/apache2/conf/httpd.conf and add "Include conf/extra/etlhive.conf""
+echo -e "\n1.\e[32m Open /data/apache2/conf/httpd.conf and Uncomment Below modules\e[0m\n
 
-echo -e "\eOpen /data/apache2/conf/extra/etlhive.conf and  add below --> 
+LoadModule proxy_ajp_module modules/mod_proxy_ajp.so
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule proxy_connect_module modules/mod_proxy_connect.so
+LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
+LoadModule slotmem_plain_module modules/mod_slotmem_plain.so
+LoadModule proxy_express_module modules/mod_proxy_express.s
+LoadModule proxy_hcheck_module modules/mod_proxy_hcheck.so
+LoadModule lbmethod_byrequests_module modules/mod_lbmethod_byrequests.so
+LoadModule watchdog_module modules/mod_watchdog.so
+LoadModule proxy_hcheck_module modules/mod_proxy_hcheck.so
+
+"
+
+echo -e "\n2.\e[32m Open /data/apache2/conf/httpd.conf and add 'Include conf/extra/etlhive.conf'\e[0m\n"
+
+echo -e "\n3.\e[32m Open /data/apache2/conf/extra/etlhive.conf and  add below -->\e[0m\n
 
 
-<VirtualHost 192.168.56.101:80>
-   ServerName www.etlhive.com
-   Options ExecCGI
-   ProxyPreserveHost On
- 
-        ProxyPass / http://192.168.56.101:8001/employee
-        ProxyPassReverse / http://192.168.56.101:8001/employee
-		
-		ProxyPass /jenkins http://192.168.56.101:8007/jenkins/
-        ProxyPassReverse /jenkins http://192.168.56.101:8007/jenkins/
- 
-        ErrorLog logs/apache_error.log
-        CustomLog logs/apache_access.log combined
- 
+<VirtualHost *:80>
+    ServerName www.etlhive.com
+        ProxyPreserveHost On
+
+                   ProxyPass /employee "http://192.168.56.101:8001/employee"
+                   ProxyPassReverse /employee "http://192.168.56.101:8001/employee"
+
+                   ProxyPass /jenkins "http://192.168.56.101:8007/jenkins"
+                   ProxyPassReverse /jenkins "http://192.168.56.101:8007/jenkins"
+         
+
+         ErrorLog logs/apache_error.log
+         CustomLog logs/apache_access.log combined
 </VirtualHost>
 
 "
 
-/data/apache2/bin/httpd -t
+echo -e "\n4.\e[32m Execute "/data/apache2/bin/apachectl" to start apache\e[0m"
 
-if [ $? = 0 ]
-then
-echo -e "\eApache Installation successfully completed..Starting now.."
-/data/apache2/bin/apachectl
-else
-echo -e "\eApache validation syntax failed.. Please verify above installation logs.." 
-exit 1
-fi
+echo -e "\n5.\e[32m Verify if apache is running 'ps -ef' command.\e[0m\n"
 
+echo -e "Done!\n"
+
+cd /data/packages/
+rm apr-1.6.3.tar.gz apr-util-1.5.4.tar.gz httpd-2.4.33.tar.gz pcre-8.38.zip
 
