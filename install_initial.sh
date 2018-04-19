@@ -1,3 +1,4 @@
 #!/bin/bash
 
-yum install git vim -y
+yum update -y
+yum install git vim unzip -y
