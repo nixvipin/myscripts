@@ -1,16 +1,18 @@
 #!/bin/bash
 
 java -version
+
 if [ $? = 0 ]
 then
-echo "ok to proceed.."
+echo "ok to proceed..java is installed.."
 else
 echo "Install Java & try again"
+exit 1
 fi
 
 if [ -f /usr/bin/wget ]
 then
-echo "ok.."
+echo "ok to proceed..wget is installed.."
 else
 echo "wget is not installed..installing it now.."
 yum install wget -y
@@ -47,3 +49,5 @@ setup_tomcat
 set_war
 start_jenkins
 }
+
+setup_jenkins
