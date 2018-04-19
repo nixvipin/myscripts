@@ -6,7 +6,5 @@ tar -zxvf apache-tomcat-7.0.85.tar.gz
 mv apache-tomcat-7.0.85 apache-tomcat
 cd apache-tomcat/bin
 sed -i.orig.bak 's/8080/8001/g' /data/apache-tomcat/conf/server.xml
-./startup.sh
-sleep 10
-tail -n 50 ../logs/catalina.out
+rm /data/apache-tomcat-7.0.85.tar.gz
 echo -e "\eTomcat installation is done.."

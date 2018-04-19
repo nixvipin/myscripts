@@ -25,6 +25,7 @@ cd /data
 wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-7/v7.0.85/bin/apache-tomcat-7.0.85.tar.gz
 tar -zxvf apache-tomcat-7.0.85.tar.gz
 mv /data/apache-tomcat-7.0.85 /data/jenkins
+rm /data/apache-tomcat-7.0.85.tar.gz
 sed -i.orig.bak 's/8080/8002/g' /data/jenkins/conf/server.xml
 }
 

@@ -2,7 +2,8 @@
 
 export CATALINA_BASE=/data/apache-tomcat
 
-rm -rf /data/myproject
+cd /data/
+rm -rf /data/myproject/
 git clone https://github.com/nixvipin/myproject.git
 cd /data/myproject/employees
 mvn clean install
