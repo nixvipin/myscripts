@@ -22,5 +22,5 @@ cd /data/apache-tomcat/bin
 ./startup.sh
 sleep 10
 tail -n 100 ../logs/catalina.out
-echo -e "\eDeployment is successfull..\e"
+echo -e "\nDeployment is successfull..\n"
 
