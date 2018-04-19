@@ -21,6 +21,7 @@ echo -e "\n\e[32m ...Installing Apache... \e[0m\n"
 
 yum install openssl-devel -y
 
+cd /data/packages
 wget https://www.apache.org/dist/httpd/httpd-$APACHE_VER\.tar.gz
 wget http://www-eu.apache.org/dist/apr/apr-$APR_VER\.tar.gz
 wget https://archive.apache.org/dist/apr/apr-util-$APR_UTIL_VER\.tar.gz
@@ -40,7 +41,7 @@ make install
 
 echo -e "\n\e[32m ...Installing Pre-requisite for Apache...\e[0m\n"
 
-echo -e "\n1.\e[32m Open /data/apache2/conf/httpd.conf and Uncomment Below modules\e[0m\n
+echo -e "1.\e[32m Open /data/apache2/conf/httpd.conf and Uncomment Below modules\e[0m\n
 
 LoadModule proxy_ajp_module modules/mod_proxy_ajp.so
 LoadModule proxy_module modules/mod_proxy.so
@@ -57,9 +58,9 @@ LoadModule proxy_hcheck_module modules/mod_proxy_hcheck.so
 
 "
 
-echo -e "\n2.\e[32m Open /data/apache2/conf/httpd.conf and add 'Include conf/extra/etlhive.conf'\e[0m\n"
+echo -e "2.\e[32m Open /data/apache2/conf/httpd.conf and add 'Include conf/extra/etlhive.conf'\e[0m\n"
 
-echo -e "\n3.\e[32m Open /data/apache2/conf/extra/etlhive.conf and  add below -->\e[0m\n
+echo -e "3.\e[32m Open /data/apache2/conf/extra/etlhive.conf and  add below -->\e[0m\n
 
 
 <VirtualHost *:80>
@@ -79,12 +80,12 @@ echo -e "\n3.\e[32m Open /data/apache2/conf/extra/etlhive.conf and  add below --
 
 "
 
-echo -e "\n4.\e[32m Execute "/data/apache2/bin/apachectl" to start apache\e[0m"
+echo -e "4.\e[32m Execute "/data/apache2/bin/apachectl" to start apache\e[0m"
 
-echo -e "\n5.\e[32m Verify if apache is running 'ps -ef' command.\e[0m\n"
+echo -e "5.\e[32m Verify if apache is running 'ps -ef' command.\e[0m\n"
 
 echo -e "Done!\n"
 
-#cd /data/packages/
-#rm apr-1.6.3.tar.gz apr-util-1.5.4.tar.gz httpd-2.4.33.tar.gz pcre-8.38.zip
+cd /data/packages/
+rm apr-1.6.3.tar.gz apr-util-1.5.4.tar.gz httpd-2.4.33.tar.gz pcre-8.38.zip
 
