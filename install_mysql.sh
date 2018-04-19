@@ -17,7 +17,7 @@ mysql_secure_installation
 
 mysql -V
 mysqld --print-defaults
-read -p "what is MySQL root password" password
+read -p "Enter MySQL root password to login -->" password
 mysql -u root -p$password
 
 echo -e "\eYou're all set!"
