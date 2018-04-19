@@ -39,7 +39,7 @@ make
 make install
 
 
-echo -e "\n\e[32m ...Installing Pre-requisite for Apache...\e[0m\n"
+echo -e "\n\e[32m ...Follow below steps manually to configure the site...\e[0m\n"
 
 echo -e "1.\e[32m Open /data/apache2/conf/httpd.conf and Uncomment Below modules\e[0m\n
 
