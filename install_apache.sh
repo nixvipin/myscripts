@@ -3,7 +3,7 @@ APACHE_VER=2.4.33
 APR_VER=1.6.3
 APR_UTIL_VER=1.5.4
 
-echo -e "\e[32m ...Installing Pre-requisite for Apache... "
+echo -e "\e[32m ...Installing Pre-requisite for Apache...\e[0m "
 
 mkdir -p /data/packages
 cd /data/packages
