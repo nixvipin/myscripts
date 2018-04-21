@@ -1,13 +1,5 @@
 #!/bin/bash
 
-export CATALINA_BASE=/data/apache-tomcat
-
-cd /data/
-rm -rf /data/myproject/
-git clone https://github.com/nixvipin/myproject.git
-cd /data/myproject/employees
-mvn clean install
-
 cd /data/apache-tomcat/bin
 ./shutdown.sh
 sleep 10
