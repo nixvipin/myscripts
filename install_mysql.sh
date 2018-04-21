@@ -18,7 +18,7 @@ mysql_secure_installation
 mysql -V
 mysqld --print-defaults
 read -p "Enter MySQL root password to login -->" password
-mysql -u root -p$password
+echo -r " mysql -u root -p$password"
 
 echo -e "\n Installation is done!\n"
 
@@ -29,6 +29,8 @@ echo -e "mysql -uroot -p$password"
 echo -e "\ncreate database mydb;\n"
 
 echo "grant all on mydb.* to myuser@'localhost' identified by 'mypass';\n"
+
+echo "exit"
 
 echo "mysql -umyuser -pmypass mydb"
 
@@ -44,6 +46,10 @@ CREATE TABLE EMPLOYEE(
 );
 
 "
+
+echo "desc EMPLOYEE;"
+
+echo "select * from EMPLOYEE;"
 
 echo -e "\nexit\n"
 

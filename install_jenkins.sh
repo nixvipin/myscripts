@@ -22,7 +22,7 @@ setup_tomcat()
 {
 mkdir -p /data
 cd /data
-wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-7/v7.0.85/bin/apache-tomcat-7.0.85.tar.gz
+wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
 tar -zxvf apache-tomcat-7.0.85.tar.gz
 mv /data/apache-tomcat-7.0.85 /data/jenkins
 rm /data/apache-tomcat-7.0.85.tar.gz
