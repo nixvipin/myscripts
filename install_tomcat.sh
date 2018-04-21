@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p /data
 cd /data
-http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
+wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
 tar -zxvf apache-tomcat-8.5.30.tar.gz
 mv apache-tomcat-8.5.30 apache-tomcat
 cd apache-tomcat/bin
