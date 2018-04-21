@@ -35,14 +35,14 @@ C. Execute script
 
   2. run "sh install_tomcat.sh"
 
-  3. run "sh build_code_auto.sh"
+  3. run "sh build_code.sh"
 
-  4. run "sh install_apache.sh"
+  4. run "sh deploy_code.sh"
 
-  5. run "sh install_nginx.sh"
+  5. run "sh install_apache.sh"
 
+  6. run "sh install_nginx.sh"
 
 ==========Module 3==========
-
 
 D. Execute script
