@@ -30,7 +30,9 @@ echo -e "\ncreate database mydb;\n"
 
 echo "grant all on mydb.* to myuser@'localhost' identified by 'mypass';\n"
 
-echo "mysql -umyuser -pmypass mydb
+echo "mysql -umyuser -pmypass mydb"
+
+echo "Now execute Below command
 
 CREATE TABLE EMPLOYEE(
     id INT NOT NULL auto_increment, 
