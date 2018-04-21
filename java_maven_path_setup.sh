@@ -18,7 +18,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-JAVA_HOME=$java_path
+JAVA_HOME=$jdk_path
 MAVEN_HOME=/data/maven
 PATH=\$JAVA_HOME/bin:\$MAVEN_HOME/bin:\$PATH
 
@@ -39,7 +39,7 @@ fi
 
 # User specific environment and startup programs
 JAVA_HOME=$jdk_path
-PATH=$jdk_path/bin:\$PATH
+PATH=\$JAVA_HOME/bin:\$PATH
 
 PATH=\$PATH:\$HOME/bin
 
@@ -58,7 +58,7 @@ fi
 
 # User specific environment and startup programs
 MAVEN_HOME=$mvn_path
-PATH=$mvn_path/bin:\$PATH
+PATH=\$MAVEN_HOME/bin:\$PATH
 
 PATH=\$PATH:\$HOME/bin
 
@@ -91,8 +91,7 @@ echo -e "\nLogout and Login again or execute 'source ~/.bash_profile' command on
 3 )
 read -p "Enter Java install path.. i.e. /data/jdk1.8 --> " jdk_path
 read -p "Enter Maven install path.. i.e. /data/maven --> " mvn_path
-java_path
-maven_path
+both_path
 echo -e "\nLogout and Login again or execute 'source ~/.bash_profile' command once.\n"
 ;;
 
