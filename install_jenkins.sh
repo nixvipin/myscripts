@@ -52,3 +52,9 @@ start_jenkins
 }
 
 setup_jenkins
+
+echo -e "\nPlease install below plugins into Jenkins"
+
+cat plugins_jenkins.txt
+
+echo -e "\n"
