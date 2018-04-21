@@ -1,0 +1,8 @@
+
+80   - HAProxy
+8001 - Tomcat1
+8002 - Jenkins
+8004 - Nginx
+8010 - Tomcat1 AJP
+8011 - Tomca2
+8015 - Tomcat1 Shutdown port
