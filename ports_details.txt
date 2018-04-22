@@ -1,8 +1,12 @@
 
+
+Server - 192.168.56.101
+
 80   - HAProxy
-8001 - Tomcat1
 8002 - Jenkins
+
+Client - 192.168.56.102
+
+8001 - Apache-Tomcat
+8002 - Apache
 8004 - Nginx
-8010 - Tomcat1 AJP
-8011 - Tomca2
-8015 - Tomcat1 Shutdown port
