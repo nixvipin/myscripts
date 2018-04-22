@@ -4,6 +4,7 @@ Server - 192.168.56.101
 
 80   - HAProxy
 8002 - Jenkins
+8003 - Apache
 
 Client - 192.168.56.102
 
