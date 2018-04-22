@@ -7,7 +7,8 @@ cd /data/apache-tomcat/webapps
 rm -rf /data/apache-tomcat/webapps/employee/*
 mkdir -p /data/apache-tomcat/webapps/employee/
 #cp -a /data/backup/$JOB_NUMBER/SpringHibernateExample.war /data/apache-tomcat/webapps/employee/
-wget http://192.168.56.101:8003/$JOB_NUMBER/SpringHibernateExample.war /data/apache-tomcat/webapps/employee/
+cd /data/apache-tomcat/webapps/employee/
+wget http://192.168.56.101:8003/$JOB_NUMBER/SpringHibernateExample.war
 cd /data/apache-tomcat/webapps/employee/
 jar -xf SpringHibernateExample.war
 rm SpringHibernateExample.war
