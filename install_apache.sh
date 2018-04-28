@@ -67,12 +67,9 @@ echo -e "3.\e[32m Open /data/apache2/conf/extra/etlhive.conf and  add below -->\
     ServerName www.etlhive.com
         ProxyPreserveHost On
 
-                   ProxyPass /employee "http://192.168.56.101:8001/employee"
-                   ProxyPassReverse /employee "http://192.168.56.101:8001/employee"
+                   ProxyPass /employee "http://127.0.0.1:8001/employee"
+                   ProxyPassReverse /employee "http://127.0.0.1:8001/employee"
 
-                   ProxyPass /jenkins "http://192.168.56.101:8007/jenkins"
-                   ProxyPassReverse /jenkins "http://192.168.56.101:8007/jenkins"
-         
 
          ErrorLog logs/apache_error.log
          CustomLog logs/apache_access.log combined
@@ -80,7 +77,7 @@ echo -e "3.\e[32m Open /data/apache2/conf/extra/etlhive.conf and  add below -->\
 
 "
 
-echo -e "4.\e[32m Execute "/data/apache2/bin/apachectl" to start apache\e[0m"
+echo -e "4.\e[32m Execute "/data/apache2/bin/apachectl -k restart" to restart apache\e[0m"
 
 echo -e "5.\e[32m Verify if apache is running 'ps -ef' command.\e[0m\n"
 
