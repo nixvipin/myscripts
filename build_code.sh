@@ -1,12 +1,17 @@
 #!/bin/bash
 
-export CATALINA_BASE=/data/apache-tomcat
+JAVA_HOME=/data/jdk1.8
+MAVEN_HOME=/data/maven
+PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
+CATALINA_BASE=/data/apache-tomcat
+
+export PATH JAVA_HOME MAVEN_HOME CATALINA_BASE BUILD_NUMBER
 
 cd /data/
 rm -rf /data/myproject/
 git clone https://github.com/nixvipin/myproject.git
 cd /data/myproject/employees
-/data/maven/bin/mvn clean install
+mvn clean install
 
 if [ $? = 0 ]
 then
@@ -17,3 +22,4 @@ else
 echo -e "\n*** Build is Failed ***\n"
 exit 1
 fi
+

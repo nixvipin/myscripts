@@ -1,13 +1,16 @@
 
-
-Server - 192.168.56.101
-
-80   - HAProxy
-8002 - Jenkins
-8003 - Apache
-
-Client - 192.168.56.102
+###Client###
 
 8001 - Apache-Tomcat
-8002 - Apache
+8002 - Jenkins
+8003 - Apache Directory Based
+
+###Server###
+
+80   - HAProxy
+8001 - Tomcat
+8003 - Apache WS
 8004 - Nginx
+8007 - Nagios
+
+
