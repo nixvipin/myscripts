@@ -6,7 +6,7 @@ cd /data/
 rm -rf /data/myproject/
 git clone https://github.com/nixvipin/myproject.git
 cd /data/myproject/employees
-mvn clean install
+/data/maven/bin/mvn clean install
 
 if [ $? = 0 ]
 then
