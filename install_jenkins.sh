@@ -53,7 +53,4 @@ start_jenkins
 
 setup_jenkins
 
-echo -e "\nJenkins accessible on - http://<Server_IP>:8002/jenkins\n"
-
-rm /data/apache-tomcat-8.5.30.tar.gz 
-echo -e "\n"
+echo -e "\nJenkins accessible on - http://<Node_IP>:8002/jenkins\n"
