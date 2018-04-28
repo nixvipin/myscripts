@@ -21,6 +21,7 @@ MySQL
 Tomcat
 Java Path
 Puppet Agent
+Nagios
 
 ==============
 
