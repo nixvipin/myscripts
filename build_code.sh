@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BUILD_NUMBER=$BUILD_NUMBER
 echo $BUILD_NUMBER
 exit 1
 
