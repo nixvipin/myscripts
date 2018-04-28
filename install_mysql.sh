@@ -17,41 +17,64 @@ mysql_secure_installation
 
 mysql -V
 mysqld --print-defaults
-read -p "Enter MySQL root password to login -->" password
-echo -r " mysql -u root -p$password"
 
-echo -e "\n Installation is done!\n"
+read -p "\nEnter MySQL root password which you entered above --> " my_password
 
-echo -e "\nSet the MySQL privileges using below commands\n"
+echo -e "\n========== Execute commands in\e[32m green\e[0m ==========\n
 
-echo -e "mysql -uroot -p$password"
 
-echo -e "\ncreate database mydb;\n"
+mysql -uroot -p$my_password
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.1.32-MariaDB MariaDB Server
 
-echo "grant all on mydb.* to myuser@'localhost' identified by 'mypass';\n"
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
-echo "exit"
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-echo "mysql -umyuser -pmypass mydb"
+MariaDB [(none)]>\e[32m create database mydb;\e[0m
+Query OK, 1 row affected (0.00 sec)
 
-echo "Now execute Below command
+MariaDB [(none)]>\e[32m grant all on mydb.* to myuser@'localhost' identified by 'mypass';\e[0m
+Query OK, 0 rows affected (0.00 sec)
 
-CREATE TABLE EMPLOYEE(
-    id INT NOT NULL auto_increment, 
-    name VARCHAR(50) NOT NULL,
-    joining_date DATE NOT NULL,
-    salary DOUBLE NOT NULL,
-    ssn VARCHAR(30) NOT NULL UNIQUE,
-    PRIMARY KEY (id)
-);
+MariaDB [(none)]> \e[32m exit\e[0m
+Bye
+[root@ip-172-31-30-44 myscripts]#\e[32m mysql -umyuser -pmypass mydb \e[0m
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.1.32-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [mydb]>\e[32m CREATE TABLE EMPLOYEE(
+    ->     id INT NOT NULL auto_increment,
+    ->     name VARCHAR(50) NOT NULL,
+    ->     joining_date DATE NOT NULL,
+    ->     salary DOUBLE NOT NULL,
+    ->     ssn VARCHAR(30) NOT NULL UNIQUE,
+    ->     PRIMARY KEY (id)
+    -> );\e[0m
+Query OK, 0 rows affected (0.02 sec)
+
+MariaDB [mydb]> \e[32m desc EMPLOYEE; \e[0m
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| id           | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(50) | NO   |     | NULL    |                |
+| joining_date | date        | NO   |     | NULL    |                |
+| salary       | double      | NO   |     | NULL    |                |
+| ssn          | varchar(30) | NO   | UNI | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+MariaDB [mydb]> \e[32m select * from EMPLOYEE; \e[0m
+Empty set (0.00 sec)
+
+MariaDB [mydb]>\e[32m exit \e[0m
 
 "
-
-echo "desc EMPLOYEE;"
-
-echo "select * from EMPLOYEE;"
-
-echo -e "\nexit\n"
-
-echo "Done\n"
 
