@@ -11,9 +11,11 @@ A. Clone Myscript
 
   2. cd /data (CS)
 
-  3. git clone https://github.com/nixvipin/myscripts.git (CS)
+  3. yum install git -y (CS)
 
-  4. cd myscripts (CS)
+  4. git clone https://github.com/nixvipin/myscripts.git (CS)
+
+  5. cd myscripts (CS)
 
 
 ==========Module 1==========
