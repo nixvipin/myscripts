@@ -1,5 +1,8 @@
 #!/bin/bash
 
+JAVA_HOME=/data/jdk1.8
+PATH=$JAVA_HOME/bin:$PATH
+export PATH JAVA_HOME
 cd /data/apache-tomcat/bin
 ./shutdown.sh
 sleep 10
