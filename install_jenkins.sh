@@ -53,10 +53,6 @@ start_jenkins
 
 setup_jenkins
 
-echo -e "\nPlease install below plugins into Jenkins\n"
-
-cat /data/myscript/plugins_jenkins.txt
-
 echo -e "\nJenkins accessible on - http://<Server_IP>:8002/jenkins\n"
 
 rm /data/apache-tomcat-8.5.30.tar.gz 
