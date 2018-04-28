@@ -41,7 +41,7 @@ cd /data/jenkins/bin
 ./startup.sh
 sleep 10
 tail -n 50 ../logs/catalina.out
-echo -e "\eJenkins Started successfully\e"
+echo -e "\nJenkins Started successfully\n"
 }
 
 setup_jenkins()
@@ -53,8 +53,11 @@ start_jenkins
 
 setup_jenkins
 
-echo -e "\nPlease install below plugins into Jenkins"
+echo -e "\nPlease install below plugins into Jenkins\n"
 
-cat plugins_jenkins.txt
+cat /data/myscript/plugins_jenkins.txt
 
+echo -e "\nJenkins accessible on - http://<Server_IP>:8002/jenkins\n"
+
+rm /data/apache-tomcat-8.5.30.tar.gz 
 echo -e "\n"
