@@ -9,4 +9,4 @@ sed -i.orig.bak 's/8080/8001/g' /data/apache-tomcat/conf/server.xml
 sed -i 's/8009/8010/g' /data/apache-tomcat/conf/server.xml
 sed -i 's/8005/8015/g' /data/apache-tomcat/conf/server.xml
 rm /data/apache-tomcat-8.5.30.tar.gz
-echo -e "\eTomcat installation is done.."
+echo -e "\nTomcat installation is complete."
