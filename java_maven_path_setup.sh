@@ -1,106 +1,67 @@
 #!/bin/bash
 
-askuser()
+read -p "This is a client or server ? > " mac_type 
+
+cp -a /etc/profile /etc/profile_bak
+
+its_client()
 {
-echo -e "Warning: \e[31mThis will override your existing paths\e[0m"
-echo -e "\nWhich path would you like to setup?\n1.Java path\n2.Maven path\n3.Both\n4.None\n"
+if [ -d /data/jdk1.8 ]
+then
+  if [ -d /data/maven ] 
+  then
+  echo -e "\nGive below 4 lines in /etc/profile file in last\n
 
-read -p "Press option : " ans
-}
-
-both_path()
-{
-echo "# .bash_profile
-
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-fi
-
-# User specific environment and startup programs
-JAVA_HOME=$jdk_path
+JAVA_HOME=/data/jdk1.8
 MAVEN_HOME=/data/maven
 PATH=\$JAVA_HOME/bin:\$MAVEN_HOME/bin:\$PATH
+export PATH JAVA_HOME MAVEN_HOME\n
 
-PATH=\$PATH:\$HOME/bin
+And Execute 'source /etc/profile' and check java version by executing 'java -version' and maven version 'mvn -version'\n"
 
-export PATH JAVA_HOME MAVEN_HOME
-" > ~/.bash_profile
-}
+  else
+  echo -e "\nDirectory not found '/data/maven'"
+  exit 1
+  fi
 
-java_path()
-{
-echo "# .bash_profile
+else
+echo -e "\nDirectory not found '/data/jdk1.8'"
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
 fi
 
-# User specific environment and startup programs
-JAVA_HOME=$jdk_path
+}
+
+its_server()
+{
+if [ -d /data/jdk1.8 ]
+then
+echo -e "\nGive below 3 lines in /etc/profile file in last\n
+
+JAVA_HOME=/data/jdk1.8
 PATH=\$JAVA_HOME/bin:\$PATH
+export PATH JAVA_HOME \n
 
-PATH=\$PATH:\$HOME/bin
+#And Execute 'source /etc/profile' and check java version by executing 'java -version'"
 
-export PATH JAVA_HOME
-" > ~/.bash_profile
-}
+else
 
-maven_path()
-{
-echo "# .bash_profile
+echo -e "\nDirectory not found '/data/jdk1.8'"
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
 fi
-
-# User specific environment and startup programs
-MAVEN_HOME=$mvn_path
-PATH=\$MAVEN_HOME/bin:\$PATH
-
-PATH=\$PATH:\$HOME/bin
-
-export PATH MAVEN_HOME
-" > ~/.bash_profile
 }
 
-source_path()
-{
-source ~/.bash_profile
-echo "Done!"
-}
-
-askuser
-
-
-case $ans in
-1 )
-read -p "Enter Java install path.. i.e. /data/jdk1.8 --> " jdk_path
-java_path
-echo -e "\nLogout and Login again or execute 'source ~/.bash_profile' command once.\n"
+case $mac_type in
+client)
+its_client
 ;;
 
-2 )
-read -p "Enter Maven install path.. i.e. /data/maven --> " mvn_path
-maven_path
-echo -e "\nLogout and Login again or execute 'source ~/.bash_profile' command once.\n"
+server)
+its_server
 ;;
 
-3 )
-read -p "Enter Java install path.. i.e. /data/jdk1.8 --> " jdk_path
-read -p "Enter Maven install path.. i.e. /data/maven --> " mvn_path
-both_path
-echo -e "\nLogout and Login again or execute 'source ~/.bash_profile' command once.\n"
-;;
-
-4 )
-echo -e "\eselected None"
+*)
+echo "select one client/server"
 exit 1
 ;;
 
-* )
-askuser
-;;
 esac 
