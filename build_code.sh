@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo $BUILD_NUMBER
+exit 1
+
 JAVA_HOME=/data/jdk1.8
 MAVEN_HOME=/data/maven
 PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
