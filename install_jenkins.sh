@@ -60,8 +60,8 @@ echo -e "Add below line in /data/jenkins/conf/context.xml
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
-    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
-\e[32m <Resources cachingAllowed=\"true\" cacheMaxSize=\"100000\" /> \e[0m
+    <WatchedResource>\${catalina.base}/conf/web.xml</WatchedResource>
+   \e[32m <Resources cachingAllowed=\"true\" cacheMaxSize=\"100000\" /> \e[0m
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
