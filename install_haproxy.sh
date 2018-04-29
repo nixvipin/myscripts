@@ -23,7 +23,6 @@ Add below configuration in /etc/haproxy/haproxy.cfg
 backend myproject
     balance roundrobin
     server web1 127.0.0.1:8001 check
-    server web1 127.0.0.1:8002 check
 
 \n\e[32mRestart HAProxy service 'systemctl restart haproxy'\e[0m\n"
 
