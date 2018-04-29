@@ -53,7 +53,7 @@ set_war
 
 setup_jenkins
 
-echo -e "\nAdd below line in /data/jenkins/conf/context.xml\n
+echo -e "Add below line in /data/jenkins/conf/context.xml
 
 <Context>
 
@@ -61,11 +61,11 @@ echo -e "\nAdd below line in /data/jenkins/conf/context.xml\n
     <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
-\e[32m<Resources cachingAllowed="true" cacheMaxSize="100000" />\e[0m
+\e[32m <Resources cachingAllowed=\"true\" cacheMaxSize=\"100000\" /> \e[0m
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
-    <Manager pathname="" />
+    <Manager pathname=\"\" />
     -->
 </Context>
 
