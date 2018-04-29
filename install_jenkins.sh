@@ -48,9 +48,33 @@ setup_jenkins()
 {
 setup_tomcat
 set_war
-start_jenkins
+#start_jenkins
 }
 
 setup_jenkins
 
-echo -e "\nJenkins accessible on - http://<Node_IP>:8002/jenkins\n"
+echo -e "\nAdd below line in /data/jenkins/conf/context.xml\n
+
+<Context>
+
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+\e[32m<Resources cachingAllowed="true" cacheMaxSize="100000" />\e[0m
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+</Context>
+
+"
+echo -e "\nStart Jenkins by following below commands 
+
+cd /data/jenkins/bin
+./startup.sh
+
+"
+
+echo -e "\nOnce started, Jenkins will be accessible on - http://<Node_IP>:8002/jenkins\n"
