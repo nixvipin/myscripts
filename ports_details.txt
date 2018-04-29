@@ -8,8 +8,9 @@
 ###Server###
 
 80   - HAProxy
-8001 - Tomcat
-8003 - Apache WS
+8001 - Tomcat App1
+8002 - Tomcat App2
+8003 - Apache web
 8004 - Nginx
 8007 - Nagios
 

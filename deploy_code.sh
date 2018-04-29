@@ -11,7 +11,7 @@ rm -rf /data/apache-tomcat/webapps/employee/*
 mkdir -p /data/apache-tomcat/webapps/employee/
 #cp -a /data/backup/$JOB_NUMBER/SpringHibernateExample.war /data/apache-tomcat/webapps/employee/
 cd /data/apache-tomcat/webapps/employee/
-scp -i /home/centos/classroom_server01_aws.pem centos@172.31.31.22:/data/backup/$DEPLOY_JOB_NUM/SpringHibernateExample.war .
+scp -i /home/centos/classroom_server01_aws.pem centos@172.31.31.22:/data/backup/$1/SpringHibernateExample.war .
 jar -xf SpringHibernateExample.war
 rm SpringHibernateExample.war
 cd /data/apache-tomcat/bin
