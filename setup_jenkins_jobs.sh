@@ -2,7 +2,7 @@
 
 rm -rf /tmp/Deploy_Project_Main_duplicate /tmp/My_Project_Main_duplicate
 
-/data/jenkins/bin
+cd /data/jenkins/bin
 ./shutdown.sh
 cp  /data/myscripts/jenkins_jobs.zip /tmp/
 cd /tmp
