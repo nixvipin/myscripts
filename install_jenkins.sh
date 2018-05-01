@@ -18,6 +18,10 @@ echo "wget is not installed..installing it now.."
 yum install wget -y
 fi
 
+
+cd /data/
+mv jenkins jenkins_bak
+
 setup_tomcat()
 {
 mkdir -p /data
@@ -53,27 +57,50 @@ set_war
 
 setup_jenkins
 
-echo -e "Add below line in /data/jenkins/conf/context.xml
-
+echo -e "\n
 <Context>
-
-    <!-- Default set of monitored resources. If one of these changes, the    -->
-    <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
-    <WatchedResource>\${catalina.base}/conf/web.xml</WatchedResource>
-   \e[32m <Resources cachingAllowed=\"true\" cacheMaxSize=\"100000\" /> \e[0m
-
-    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
-    <!--
-    <Manager pathname=\"\" />
-    -->
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+    <Resources cachingAllowed="true" cacheMaxSize="100000" />
 </Context>
-
-"
-echo -e "\nStart Jenkins by following below commands 
+\n
+" > /data/jenkins/conf/context.xml
 
 cd /data/jenkins/bin
 ./startup.sh
+sleep 30
+./shutdown.sh
+cp  /data/myscripts/jenkins_jobs.zip /tmp/
+cd /tmp
+yum install unzip  -y
+unzip jenkins_jobs.zip
+
+if [ -d ~/.jenkins/jobs/My_Project_Main ]
+then
+mv ~/.jenkins/jobs/My_Project_Main ~/.jenkins/jobs/My_Project_Main_duplicate
+cd /tmp
+cp jenkins_jobs/My_Project_Main ~/.jenkins/jobs/
+else
+cp jenkins_jobs/My_Project_Main ~/.jenkins/jobs/
+fi
+
+if [ -d ~/.jenkins/jobs/Deploy_Project_Main ]
+then
+mv ~/.jenkins/jobs/Deploy_Project_Main ~/.jenkins/jobs/Deploy_Project_Main_duplicate
+cd /tmp
+cp jenkins_jobs/Deploy_Project_Main ~/.jenkins/jobs/
+else
+cp jenkins_jobs/Deploy_Project_Main ~/.jenkins/jobs/
+fi
+
+
+cd /tmp/
+rm -rf jenkins_jobs
+rm jenkins_jobs.zip
+
+cd /data/jenkins/bin/
+./startup.sh
+
 
 "
 
