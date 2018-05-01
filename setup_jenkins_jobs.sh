@@ -33,4 +33,5 @@ rm /tmp/jenkins_jobs.zip
 cd /data/jenkins/bin/
 ./startup.sh
 
+sleep 5
 echo -e "\nJenkins jobs are loaded successfully\n"
