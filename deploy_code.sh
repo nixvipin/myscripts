@@ -19,7 +19,7 @@ jar -xf SpringHibernateExample.war
 rm SpringHibernateExample.war
 cd /data/apache-tomcat/bin
 ./startup.sh
-sleep 10
+sleep 30
 tail -n 100 ../logs/catalina.out
 echo -e "\e[42m...Deployment is successfull on Tomcat1..\e[0m"
 
@@ -37,9 +37,9 @@ jar -xf SpringHibernateExample.war
 rm SpringHibernateExample.war
 cd /data/apache-tomcat2/bin
 ./startup.sh
-sleep 10
+sleep 30
 tail -n 100 ../logs/catalina.out
 echo -e "\e[42m...Deployment is successfull on Tomcat2..\e[0m"
 else
 echo "\nDone.\n"
-
+fi
