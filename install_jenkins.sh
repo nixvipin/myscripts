@@ -39,20 +39,31 @@ cd /data/jenkins/webapps
 wget "https://updates.jenkins-ci.org/latest/jenkins.war"
 }
 
+set_context_file()
+{
+echo -e "\n
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+    <Resources cachingAllowed="true" cacheMaxSize="100000" />
+</Context>
+\n
+" > /data/jenkins/conf/context.xml
+}
+
 start_jenkins()
 {
 cd /data/jenkins/bin
 ./startup.sh
-sleep 10
-tail -n 50 ../logs/catalina.out
-echo -e "\nJenkins Started successfully\n"
+echo -e "\nJenkins installation is complete - http://<Client_IP>:8002/jenkins\n"
 }
 
 setup_jenkins()
 {
 setup_tomcat
 set_war
-#start_jenkins
+set_context_file
+start_jenkins
 }
 
 setup_jenkins
@@ -66,42 +77,4 @@ echo -e "\n
 \n
 " > /data/jenkins/conf/context.xml
 
-cd /data/jenkins/bin
-./startup.sh
-sleep 30
-./shutdown.sh
-cp  /data/myscripts/jenkins_jobs.zip /tmp/
-cd /tmp
-yum install unzip  -y
-unzip jenkins_jobs.zip
 
-if [ -d ~/.jenkins/jobs/My_Project_Main ]
-then
-mv ~/.jenkins/jobs/My_Project_Main ~/.jenkins/jobs/My_Project_Main_duplicate
-cd /tmp
-cp jenkins_jobs/My_Project_Main ~/.jenkins/jobs/
-else
-cp jenkins_jobs/My_Project_Main ~/.jenkins/jobs/
-fi
-
-if [ -d ~/.jenkins/jobs/Deploy_Project_Main ]
-then
-mv ~/.jenkins/jobs/Deploy_Project_Main ~/.jenkins/jobs/Deploy_Project_Main_duplicate
-cd /tmp
-cp jenkins_jobs/Deploy_Project_Main ~/.jenkins/jobs/
-else
-cp jenkins_jobs/Deploy_Project_Main ~/.jenkins/jobs/
-fi
-
-
-cd /tmp/
-rm -rf jenkins_jobs
-rm jenkins_jobs.zip
-
-cd /data/jenkins/bin/
-./startup.sh
-
-
-"
-
-echo -e "\nOnce started, Jenkins will be accessible on - http://<Node_IP>:8002/jenkins\n"
