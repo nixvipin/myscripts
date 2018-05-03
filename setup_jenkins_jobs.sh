@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 rm -rf /tmp/Deploy_Project_Main_duplicate /tmp/My_Project_Main_duplicate
 
 cd /data/jenkins/bin
@@ -29,6 +31,17 @@ fi
 
 rm -rf /tmp/jenkins_jobs
 rm /tmp/jenkins_jobs.zip
+
+install_plugins()
+{
+cd ~/.jenkins/plugins/
+https://updates.jenkins-ci.org/latest/multiple-scms.hpi
+https://updates.jenkins-ci.org/latest/rebuild.hpi
+https://updates.jenkins-ci.org/latest/parameterized-trigger.hpi
+}
+
+install_plugins
+
 
 cd /data/jenkins/bin/
 ./startup.sh
