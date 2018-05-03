@@ -1,4 +1,9 @@
 
+echo -e "\nPlease install using puppet/ansible\n"
+
+exit 1
+
+
 APACHE_VER=2.4.33
 APR_VER=1.6.3
 APR_UTIL_VER=1.5.4
