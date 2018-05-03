@@ -51,6 +51,14 @@ echo -e "\n
 " > /data/jenkins/conf/context.xml
 }
 
+install_plugins()
+{
+cd ~/.jenkins/plugins/
+https://updates.jenkins-ci.org/latest/multiple-scms.hpi
+https://updates.jenkins-ci.org/latest/rebuild.hpi
+https://updates.jenkins-ci.org/latest/parameterized-trigger.hpi
+}
+
 start_jenkins()
 {
 cd /data/jenkins/bin
@@ -63,6 +71,7 @@ setup_jenkins()
 setup_tomcat
 set_war
 set_context_file
+install_plugins
 start_jenkins
 }
 
