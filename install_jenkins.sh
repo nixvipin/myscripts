@@ -44,8 +44,8 @@ set_context_file()
 echo -e "\n
 <Context>
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
-    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
-    <Resources cachingAllowed="true" cacheMaxSize="100000" />
+    <WatchedResource>\${catalina.base}/conf/web.xml</WatchedResource>
+    <Resources cachingAllowed=\"true\" cacheMaxSize=\"100000\" />
 </Context>
 \n
 " > /data/jenkins/conf/context.xml
