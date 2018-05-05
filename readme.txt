@@ -14,7 +14,7 @@ cd myscripts
 GiTclient (done)
 Jenkins (done)
 Java & Maven Path (done)
-Puppet Server (waiting)
+Puppet Server (in progress
 Ansible (waiting)
 Chef (waiting)
 Slat Stack (waiting)
@@ -29,7 +29,7 @@ Nginx (done)
 MySQL (done)
 Tomcat (done)
 Java Path (done)
-Puppet Agent (waiting)
+Puppet Agent (in progress)
 Nagios (waiting)
 
 ===============
@@ -37,5 +37,5 @@ Nagios (waiting)
 ###Jenkins###
 
 sh build_code.sh (done)
-sh deploy_code.sh (in progress)
+sh deploy_code.sh (done)
 
