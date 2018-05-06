@@ -14,7 +14,7 @@ cd myscripts
 GiTclient (done)
 Jenkins (done)
 Java & Maven Path (done)
-Puppet Server (in progress
+Puppet Server (done)
 Ansible (waiting)
 Chef (waiting)
 Slat Stack (waiting)
