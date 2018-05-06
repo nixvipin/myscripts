@@ -15,7 +15,7 @@ then
 echo -e "\n*** Build Succesfull ***\n"
 mkdir -p /data/backup/$BUILD_NUMBER
 cp -a /data/workspace/$JOB_NAME/myproject_local/employees/target/SpringHibernateExample.war /data/backup/$BUILD_NUMBER/
-chown -R centos:centos /data/backup/$BUILD_NUMBER/
+chown -R centos:centos /data/backup
 else
 echo -e "\n*** Build is Failed ***\n"
 exit 1
