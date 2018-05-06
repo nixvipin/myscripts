@@ -7,7 +7,7 @@ CATALINA_BASE=/data/apache-tomcat
 
 export PATH JAVA_HOME MAVEN_HOME CATALINA_BASE BUILD_NUMBER
 
-cd /data/workspace/$JOB_NAME/myproject_local/employee
+cd /data/workspace/$JOB_NAME/myproject_local/employees
 mvn clean install
 
 if [ $? = 0 ]
