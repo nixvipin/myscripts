@@ -15,7 +15,7 @@ GiTclient (done)
 Jenkins (done)
 Java & Maven Path (done)
 Puppet Server (done)
-Ansible (waiting)
+Ansible (in progress)
 Chef (waiting)
 Slat Stack (waiting)
 
@@ -29,7 +29,7 @@ Nginx (done)
 MySQL (done)
 Tomcat (done)
 Java Path (done)
-Puppet Agent (in progress)
+Puppet Agent (done)
 Nagios (waiting)
 
 ===============
