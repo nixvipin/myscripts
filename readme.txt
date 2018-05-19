@@ -13,6 +13,8 @@ cd myscripts
 
 GiTclient (done)
 Jenkins (done)
+Java install (self)
+Maven install (done)
 Java & Maven Path (done)
 Puppet Server (done)
 Ansible (in progress)
