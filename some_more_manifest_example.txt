@@ -1,0 +1,20 @@
+##Example 1
+
+  file { '/var/www/html':
+        ensure => directory,
+        mode => '0755',
+        owner => 'centos',
+        group => 'root',
+    }
+
+    file { "/var/www/html/data.txt":
+        mode => "0644",
+        owner => 'centos',
+        group => 'root',
+        source => 'puppet:///modules/mymodule/data.txt',
+    }
+
+
+##Example 2
+
+
