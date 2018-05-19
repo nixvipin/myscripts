@@ -9,11 +9,12 @@ systemctl restart puppetserver
 systemctl enable puppetserver
 /opt/puppetlabs/bin/puppet module install puppetlabs-apache
 
-echo -e "\nPlease make 'server' entry in /etc/hosts file. For Example
+echo -e "\nPlease make below entries in /etc/hosts file. For Example
 
 \e[32m
 172.31.30.44 server01 server01.us-west-2.compute.internal
 172.31.31.22 puppet client01.us-west-2.compute.internal
 \e[0m
 
-#Replace IPs with you Server Private IP Address\n and exeute 'sh install_puppet_agent.sh'"
+# Replace IPs with you Server and Client Private IP Address repectively
+# and exeute 'sh install_puppet_agent.sh' on client machine"
