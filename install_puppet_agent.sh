@@ -44,6 +44,21 @@ node default {}
    mode    => '0644',
    content => "Here is my file data",
    }
+
+file { '/var/www/html':
+        ensure => directory,
+        mode => '0755',
+        owner => 'centos',
+        group => 'root',
+    }
+
+file { "/var/www/html/data.txt":
+        mode => "0644",
+        owner => 'centos',
+        group => 'root',
+        source => 'puppet:///modules/mymodule/data.txt',
+    }
+
 \n\e[0m"
 
 echo -e"\nThen hit http://YourServerIP in browser, the site should be accessible"
