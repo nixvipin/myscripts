@@ -10,6 +10,9 @@ systemctl enable puppetserver
 
 echo -e "\nPlease make 'server' entry in /etc/hosts file. For Example
 
-\e[32m11.22.33.44 server01\e[0m
+\e[32m
+172.31.30.44 server01 server01.us-west-2.compute.internal
+172.31.31.22 puppet client01.us-west-2.compute.internal
+\e[0m
 
-#Replace 11.22.33.44 with you Server Private IP Address\n"
+#Replace IPs with you Server Private IP Address\n"
