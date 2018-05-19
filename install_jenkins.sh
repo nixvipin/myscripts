@@ -26,11 +26,11 @@ setup_tomcat()
 {
 mkdir -p /data
 cd /data
-#wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.30.tar.gz
+#wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
 wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
-tar -zxvf apache-tomcat-8.5.30.tar.gz
-mv /data/apache-tomcat-8.5.30 /data/jenkins
-rm /data/apache-tomcat-8.5.30.tar.gz
+tar -zxvf apache-tomcat-8.5.31.tar.gz
+mv /data/apache-tomcat-8.5.31 /data/jenkins
+rm /data/apache-tomcat-8.5.31.tar.gz
 sed -i.orig.bak 's/8080/8002/g' /data/jenkins/conf/server.xml
 }
 
