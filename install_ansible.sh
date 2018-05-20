@@ -58,6 +58,21 @@ Note: Replace IP Address with your server machine private IP
 
 13. If the process is running hit your IP address in brower and see nginx default page 'http://YourServerIP'.
 
-14. That's it.
+14. Create anothe yaml to start Nginx service in your client machine(Ansible Tower) 'vim nginx_start.yml'
+
+---
+- hosts: server01
+  tasks:
+    - name: Start NGiNX
+      service: name=nginx state=started
+      name: nginx
+      state: started
+      become: yes
+      become_method: sudo
+      become_user: root
+
+15. Now execute if the Nginx service is not running 'ansible-playbook nginx_start.yml'
+
+16. That's it.
 
 \e[0m\n"
