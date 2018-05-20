@@ -19,5 +19,5 @@ echo -e "\nPlease make below entries in /etc/hosts file. For Example
 # Replace IPs with you Server and Client Private IP Address repectively
 # and exeute 'sh install_puppet_agent.sh' on client machine"
 
-mkdir -p /etc/puppetlabs/code/modules/mymodule/{files1,manifests1}
+mkdir -p /etc/puppetlabs/code/modules/mymodule/{files,manifests}
 echo "This file was present on puppet master" > /etc/puppetlabs/code/modules/mymodule/files/data.txt
