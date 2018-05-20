@@ -17,8 +17,8 @@ Java install (self)
 Maven install (done)
 Java & Maven Path (done)
 Puppet Server (done)
-Ansible (in progress)
-Chef (waiting)
+Ansible (done)
+Chef (in progress)
 Slat Stack (waiting)
 
 ===============
