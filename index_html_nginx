@@ -5,8 +5,12 @@
         <title>Test Page</title>
     <body>
         <h1>My name is <strong>Nginx</strong>.. Are you learning Ansible? 007 </h1>
+<p>
 NAME=eth0
+</p>
+<p>
 IPADDR=11.22.33.44
+</p>
     </body>
 </html>
 
