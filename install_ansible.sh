@@ -58,7 +58,7 @@ Note: Replace IP Address with your server machine private IP
 
 12. Now go to server machine and see process is running or not 'ps -ef | grep nginx'.
 
-13. If the process is running hit your IP address in brower and see nginx default page 'http://YourServerIP'.
+13. If the process is running hit your IP address in brower and see nginx default page 'http://YourServerPublicIP'.
 
 14. Create another yaml to start Nginx service in client machine(Ansible Tower) 'vim nginx_start.yml'. Jump to (step 16) if process Nginx is already running.
 
@@ -101,6 +101,21 @@ Note: Replace IP Address with your server machine private IP
 
 17. And execute 'ansible-playbook user_create.yml'. Use 'ansible-playbook -vvv user_create.yml' to execute in debug mode.
 
-16. That's it.
+18. Create a yaml to copy file 'file_copy.yml' and execute.
+
+---
+- hosts: server01
+  tasks:
+      - name: template configuration file
+        become: yes
+        become_method: sudo
+        become_user: root
+        template:
+            src:  /data/myscripts/index_html_nginx
+            dest: /usr/share/nginx/html/index.html
+
+19. Now see nginx page 'http://YourServerPublicIP'.
+
+20. That's it.
 
 \e[0m\n"
