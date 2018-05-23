@@ -19,7 +19,7 @@ Java & Maven Path (done)
 Puppet Server (done)
 Ansible (done)
 Chef (waiting)
-Slat Stack (in progress)
+Salt Stack (in progress)
 
 ===============
 
