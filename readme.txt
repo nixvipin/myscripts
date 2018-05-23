@@ -18,8 +18,8 @@ Maven install (done)
 Java & Maven Path (done)
 Puppet Server (done)
 Ansible (done)
-Chef (in progress)
-Slat Stack (waiting)
+Chef (waiting)
+Slat Stack (in progress)
 
 ===============
 
