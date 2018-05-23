@@ -1,7 +1,7 @@
 #!/bin/bash
 
-yum install epel-release -y
-yum install ansible -y
+#yum install epel-release -y
+#yum install ansible -y
 
 
 echo -e "\e[32m
@@ -32,7 +32,7 @@ Note: Replace IP Address with your server machine private IP
 
 10. Execute  'ansible all -m ping' and 'ansible -m shell -a 'free -m' server01' and 'ansible -m ping server01' on your client machine.
 
-10. Now create a file 'vim nginx_install.yml' and copy contents below
+11. Now create a file 'vim nginx_install.yml' and copy contents below
 
 
 ---
@@ -54,13 +54,13 @@ Note: Replace IP Address with your server machine private IP
       become_user: root
 
 
-11. And your first playbook 'ansible-playbook nginx_install.yml' on client machine.
+12. And your first playbook 'ansible-playbook nginx_install.yml' on client machine.
 
-12. Now go to server machine and see process is running or not 'ps -ef | grep nginx'.
+13. Now go to server machine and see process is running or not 'ps -ef | grep nginx'.
 
-13. If the process is running hit your IP address in brower and see nginx default page 'http://YourServerPublicIP'.
+14. If the process is running hit your IP address in brower and see nginx default page 'http://YourServerPublicIP'.
 
-14. Create another yaml to start Nginx service in client machine(Ansible Tower) 'vim nginx_start.yml'. Jump to (step 16) if process Nginx is already running.
+15. Create another yaml to start Nginx service in client machine(Ansible Tower) 'vim nginx_start.yml'. Jump to (step 16) if process Nginx is already running.
 
 ---
 - hosts: server01
@@ -73,9 +73,9 @@ Note: Replace IP Address with your server machine private IP
       become_method: sudo
       become_user: root
 
-15. Now execute if the Nginx service is not running 'ansible-playbook nginx_start.yml'
+16. Now execute if the Nginx service is not running 'ansible-playbook nginx_start.yml'
 
-16. Create another yaml to create a user, install package, create a file 'vim user_create.yml'.
+17. Create another yaml to create a user, install package, create a file 'vim user_create.yml'.
 
 ---
 - hosts: server01
@@ -99,14 +99,14 @@ Note: Replace IP Address with your server machine private IP
             state: latest
 
 
-17. And execute 'ansible-playbook user_create.yml'. Use 'ansible-playbook -vvv user_create.yml' to execute in debug mode.
+18. And execute 'ansible-playbook user_create.yml'. Use 'ansible-playbook -vvv user_create.yml' to execute in debug mode.
 
-18. Create a yaml to copy file 'file_copy.yml' and execute.
+19. Create a yaml to copy file 'vim file_copy.yml' and execute.
 
 ---
 - hosts: server01
   tasks:
-      - name: template configuration file
+      - name: Nginx default home page
         become: yes
         become_method: sudo
         become_user: root
@@ -114,8 +114,31 @@ Note: Replace IP Address with your server machine private IP
             src:  /data/myscripts/index_html_nginx
             dest: /usr/share/nginx/html/index.html
 
-19. Now see nginx page 'http://YourServerPublicIP'.
+20. Now see nginx page 'http://YourServerPublicIP'.
 
-20. That's it.
+21. Create a yaml to edit file 'vim file_edit.yml' and execute.
+
+---
+- hosts: server01
+  tasks:
+      - lineinfile:
+                    dest: /usr/share/nginx/html/index.html
+                    regexp: '^NAME='
+                    line: 'NAME=eth1'
+        become: yes
+        become_method: sudo
+        become_user: root
+      - lineinfile:
+                    dest: /usr/share/nginx/html/index.html
+                    regexp: '^IPADDR='
+                    line: 'IPADDR=8.8.8.8'
+        become: yes
+        become_method: sudo
+        become_user: root
+
+
+22. Now you should see variable changes on 'http://YourServerPublicIP'.
+
+23. That's it.
 
 \e[0m\n"
