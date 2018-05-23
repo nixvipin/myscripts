@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#yum install epel-release -y
-#yum install ansible -y
+yum install epel-release -y
+yum install ansible -y
 
 
 echo -e "\e[32m
