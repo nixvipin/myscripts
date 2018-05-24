@@ -39,11 +39,12 @@ Nagios NPRE client (done)
 
 ###Jenkins###
 
-Chef (waiting)
-Docker (waiting)
 sh build_code.sh (done)
 sh deploy_code.sh (done)
 
 ==============
 
 ###Laptop###
+
+Chef (waiting)
+Docker (waiting)
