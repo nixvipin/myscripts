@@ -18,8 +18,9 @@ Maven install (done)
 Java & Maven Path (done)
 Puppet Server (done)
 Ansible (done)
-Chef (waiting)
-Salt Stack (in progress)
+Salt Stack (waiting)
+Nagios Server (done)
+Nagios NPRE server (done)
 
 ===============
 
@@ -32,12 +33,17 @@ MySQL (done)
 Tomcat (done)
 Java Path (done)
 Puppet Agent (done)
-Nagios (waiting)
+Nagios NPRE client (done)
 
 ===============
 
 ###Jenkins###
 
+Chef (waiting)
+Docker (waiting)
 sh build_code.sh (done)
 sh deploy_code.sh (done)
 
+==============
+
+###Laptop###
