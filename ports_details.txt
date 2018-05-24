@@ -1,9 +1,9 @@
 
 ###Client###
 
+80   - Apache
 8001 - Apache-Tomcat
 8002 - Jenkins
-8003 - Apache Directory Based
 
 ###Server###
 
@@ -12,6 +12,5 @@
 8002 - Tomcat App2
 8003 - Apache web
 8004 - Nginx
-8007 - Nagios
 
 
