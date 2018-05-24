@@ -4,7 +4,7 @@ yum remove httpd -y
 cd /etc
 rm -rf httpd
 setenforce 0
-yum install httpd php php-cli gcc glibc glibc-common gd gd-devel net-snmp openssl-devel wget unzip 
+yum install httpd php php-cli gcc glibc glibc-common gd gd-devel net-snmp openssl-devel wget unzip -y 
 -y
 useradd nagios
 groupadd nagcmd
@@ -24,7 +24,7 @@ make install-config
 make install-commandmode
 make install-webconf
 
-echo -e "\nSet Nagios console password"
+echo -e "\n\e[32mSet Nagios GUI console password.\e[0m\n"
 
 htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
@@ -36,5 +36,4 @@ service httpd start
 service nagios start
 
 
-echo "\nYou should now be able to access your machine by navigating to 
-http://ClientPublicIP/nagios/"
+echo -e "\nYou should now be able to access Nagios GUI console by navigating to http://ClientPublicIP/nagios/"
