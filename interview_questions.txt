@@ -22,4 +22,4 @@ what is tr?
 Given a file,  replace all occurrence of word “ABC” with “DEF” from 5th line till end in only those lines that contains word “MNO”   
 Print the 10th line with using sed command.
 Execute any command and  direct all output to file2 and error to file 3, how can I achieve this? 
-Write a command sequence to find all the files modified in less than 2 days and print the record count of each. 
+Write a command sequence to find all the files modified in less than 2 days and print the record count of each.
