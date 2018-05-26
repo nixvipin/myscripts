@@ -37,7 +37,8 @@ sed -i.orig.bak 's/8080/8002/g' /data/jenkins/conf/server.xml
 set_war()
 {
 cd /data/jenkins/webapps
-wget "https://updates.jenkins-ci.org/latest/jenkins.war"
+#wget "https://updates.jenkins-ci.org/latest/jenkins.war"
+wget "https://updates.jenkins-ci.org/download/war/2.118/jenkins.war"
 }
 
 set_context_file()
