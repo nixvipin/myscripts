@@ -1,13 +1,13 @@
 rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y install nagios-plugins-nrpe
 
-echo -e "\n\e[32mSet Nagios GUI console password.\e[0m\n"
+read -p "Enter server private IP Address" SERVERPRIVATE_IP
 
 mkdir /usr/local/nagios/etc/servers
 
 echo "\n1.\e[32mEdit the Nagios configuration file to include all “*.cfg” files inside the “/usr/local/nagios/etc/servers” directory.
 
-Add or uncomment the following line 'vi /usr/local/nagios/etc/nagios.cfg'
+Add or uncomment the following line 'vim /usr/local/nagios/etc/nagios.cfg'
 
 cfg_dir=/usr/local/nagios/etc/servers
 
@@ -19,7 +19,7 @@ Add the following Nagios command definition to the file.
 # .check_nrpe. command definition
 define command{
 command_name check_nrpe
-command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -t 30 -c $ARG1$
+command_line /usr/lib64/nagios/plugins/check_nrpe -H \$HOSTADDRESS$ -t 30 -c \$ARG1$
 }
 
 
@@ -34,7 +34,7 @@ define host{
 
             alias                   server01
 
-            address                 172.31.30.44
+            address                 $SERVERPRIVATE_IP
 
 }
 
