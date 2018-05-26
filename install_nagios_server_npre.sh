@@ -8,16 +8,16 @@ echo -e "\n"
 
 mkdir /usr/local/nagios/etc/servers
 
-echo "\n1.\e[32mEdit the Nagios configuration file to include all “*.cfg” files inside the “/usr/local/nagios/etc/servers” directory.
+echo -e "\n1.\e[32mEdit the Nagios configuration file to include all “*.cfg” files inside the “/usr/local/nagios/etc/servers” directory.
 
-Add or uncomment the following line 'vim /usr/local/nagios/etc/nagios.cfg'
+Add or uncomment the following line 'vim /usr/local/nagios/etc/nagios.cfg (line 51)'
 
 cfg_dir=/usr/local/nagios/etc/servers
 
 
-2. Now it’s time to configure the Nagios server to monitor the remote client machine, and You’ll need to create a command definition in Nagios object configuration file to use the “check_nrpe” plugin. Open the “commands.cfg” file…. 'vi /usr/local/nagios/etc/objects/commands.cfg'
+2. Now configure the Nagios server to monitor the remote client machine, open the “commands.cfg” file…. 'vim /usr/local/nagios/etc/objects/commands.cfg'
 
-Add the following Nagios command definition to the file.
+Add the following Nagios command definition to the file in last.
 
 # .check_nrpe. command definition
 define command{
@@ -115,7 +115,8 @@ define service{
 
 /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
 
-5. Now check the Nagios GUI console to view the new services we added just now.
+5. Now execute 'service nagios restart' to take changes effect.
+
+6. Now check the Nagios GUI console to view the new services we added just now.
 \e[0m\n
 "
-service nagios restart
