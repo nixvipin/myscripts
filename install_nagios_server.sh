@@ -1,7 +1,11 @@
 #!/bin/bash
 
 
-#yum remove httpd -y 
+yum remove httpd -y 
+systemctl stop mysqld
+systemctl disable mysqld
+yum remove MariaDB-server MariaDB-client -y
+sleep 5
 cd /etc
 rm -rf httpd
 setenforce 0
