@@ -1,0 +1,25 @@
+iiwhat is -ef in ps command?
+what is #!/bin/bash in shell script?
+when you hit www.google.com how your request flow goes end-to-end?
+what is soft link?
+what is hard link?
+how to create table in MySQL?
+how to give grant in MYSQL?
+what is default port of puppet?
+what is maven?
+what is Jenkins?
+what is Git?
+what is nagios?
+Let's say there are 1000 server and you want to set a variable what will you do?
+what is docker?
+what is syntax for while loop in shell scripting?
+what is Elastic search?
+Explain a scenario where you had to go against management to achieve something?
+write a program in shell scripting to swap two variables without using third variable?
+If a java process causing issues what action will you take?
+what is swap memory?
+what is tr?
+Given a file,  replace all occurrence of word “ABC” with “DEF” from 5th line till end in only those lines that contains word “MNO”   
+Print the 10th line with using sed command.
+I want to read all input to the command from file1 direct all output to file2 and error to file 3, how can I achieve this? 
+Write a command sequence to find all the files modified in less than 2 days and print the record count of each. 
