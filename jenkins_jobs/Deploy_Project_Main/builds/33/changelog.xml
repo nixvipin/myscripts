@@ -1,0 +1,16 @@
+<multi-scm-log>
+<sub-log scm="git https://github.com/nixvipin/myscripts.git">
+<![CDATA[commit 14ec2ce3340d558999e3e9d3a09b3110d0eb0268
+tree a9664dbd3607c12690dc1d679bc186af4a9e7cbc
+parent 7e7cb4fa06f2d531e2a794b0b53c35a23926e32b
+author root &lt;root@ip-172-31-31-22.us-west-2.compute.internal&gt; 2018-04-29 12:58:19 +0000
+committer root &lt;root@ip-172-31-31-22.us-west-2.compute.internal&gt; 2018-04-29 12:58:19 +0000
+
+    initial-commit
+
+
+
+:100755 100755 1fe4a13a3d851e428ea08881eba904cb1d80a344 046f72fbec9b76a8e03c32bf60119fc768f97461 M	install_jenkins.sh
+]]>
+</sub-log>
+</multi-scm-log>

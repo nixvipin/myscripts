@@ -1,0 +1,52 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>DEPLOY_BUILD</name>
+          <description></description>
+          <value>$DEPLOY_JOB_NUM</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>DEPLOY_JOB_NUM</name>
+          <value>BUILD_NUMBER</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>DEPLOY_BUILD</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UpstreamCause>
+            <upstreamProject>My_Project1</upstreamProject>
+            <upstreamUrl>job/My_Project1/</upstreamUrl>
+            <upstreamBuild>14</upstreamBuild>
+            <upstreamCauses>
+              <hudson.triggers.SCMTrigger_-SCMTriggerCause/>
+            </upstreamCauses>
+          </hudson.model.Cause_-UpstreamCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.tasks.MailMessageIdAction plugin="mailer@1.21">
+      <messageId>&lt;2036933257.0.1524918169012.JavaMail.root@ip-172-31-31-22.us-west-2.compute.internal&gt;</messageId>
+    </hudson.tasks.MailMessageIdAction>
+  </actions>
+  <queueId>17</queueId>
+  <timestamp>1524918168498</timestamp>
+  <startTime>1524918168500</startTime>
+  <result>FAILURE</result>
+  <duration>656</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn>server_172.31.30.44</builtOn>
+  <workspace>/data/workspace/Deploy_Project</workspace>
+  <hudsonVersion>2.118</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>
