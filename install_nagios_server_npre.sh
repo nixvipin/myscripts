@@ -2,7 +2,9 @@
 rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y install nagios-plugins-nrpe
 
-read -p "Enter server private IP Address" SERVERPRIVATE_IP
+echo -e "\n"
+read -p "Enter server private IP Address >" SERVERPRIVATE_IP
+echo -e "\n"
 
 mkdir /usr/local/nagios/etc/servers
 
