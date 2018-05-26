@@ -41,4 +41,4 @@ service httpd start
 service nagios start
 
 
-echo -e "\nYou should now be able to access Nagios GUI console by navigating to http://ClientPublicIP/nagios/"
+echo -e "\n\e[32mYou should now be able to access Nagios GUI console by navigating to http://ClientPublicIP/nagios/. Default username: nagiosadmin.\e[0m\n"
