@@ -1,0 +1,18 @@
+Ans 1 - -ef is recursive search function used with ps commands to list of processes running.
+Ans 2 - It is written in the very begining of the code to ensure it runs as bash file.
+Ans 11 - Git is the repository where we can store or share or codes and create and maintain different versions of
+         code.
+Ans 10 - Jenkins is a CI/CD tool for building and deploying the codes in server.
+Ans 9 - Maven is a CI tool which is used for building a job. A PEM file is created (similar to build xml if ANT)
+Ans 8 - Port 8140.
+Ans 7-  " grant -uname -upassword "
+Ans 6 - " create table table_name "
+Ans 4 - Soft Link is a temporary link created for time being.
+Ans 5 - Hard Link is a permanant link created by manualy hard coding in sysconfig files fo network-scripts.
+Ans 12 - Nagios is a monitoring tool where we can check the status of our work for eg. it may be marked as Completed,
+         In Progress, Pending.
+Ans 19 - I will pkill javaprocess by taking out the identification number using command ps -ef | grep java then 
+         the first four identification digit i will kill it using command pkill identification_digit. Then i will 
+         go to /java/bin directory then use command ./startup.sh to start the process. Or using 
+         systemctl stop Java_Process_name to stop it.
+Ans 16 - Elastic Search is used for taking out indept logs for data analytics.

@@ -65,7 +65,7 @@ setup_jenkins()
 {
 setup_tomcat
 set_war
-set_context_file
+#set_context_file
 start_jenkins
 }
 
