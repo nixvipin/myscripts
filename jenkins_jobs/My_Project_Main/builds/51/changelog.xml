@@ -1,0 +1,19 @@
+<multi-scm-log>
+<sub-log scm="git https://github.com/nixvipin/myscripts.git">
+<![CDATA[]]>
+</sub-log>
+<sub-log scm="git https://github.com/nixvipin/myproject.git">
+<![CDATA[commit 4fd19b3f84e2fc7e6a70ee4417eeb0cf1aef1a14
+tree bc7954ed398e4099b6c3059f159e576e6867c9ed
+parent 4ffadd7d8d3be892bb7656ccda663d873572ce89
+author Vipin Khemani &lt;nix.vipin@gmail.com&gt; 2018-05-01 06:58:29 +0000
+committer Vipin Khemani &lt;nix.vipin@gmail.com&gt; 2018-05-01 06:58:29 +0000
+
+    code fix
+
+
+
+:100644 100644 4fb08274b09a0f50ab154eb982ecd9207b27f0c5 dcd640ec81daf7a5cc4b7ce95900ada8e8316782 M	employees/src/main/webapp/WEB-INF/views/allemployees.jsp
+]]>
+</sub-log>
+</multi-scm-log>

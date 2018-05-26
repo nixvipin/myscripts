@@ -1,0 +1,19 @@
+<multi-scm-log>
+<sub-log scm="git https://github.com/nixvipin/myscripts.git">
+<![CDATA[]]>
+</sub-log>
+<sub-log scm="git https://github.com/nixvipin/myproject.git">
+<![CDATA[commit d08760251a0c7aa5306ac19599be7b55559a21da
+tree 1016571308ca5afc229c71fa2edb58a795e59ba2
+parent aca4fb5419bb29f5217dc0a59ff1b7a156c8b9e1
+author root &lt;root@ip-172-31-31-22.us-west-2.compute.internal&gt; 2018-04-29 09:26:08 +0000
+committer root &lt;root@ip-172-31-31-22.us-west-2.compute.internal&gt; 2018-04-29 09:26:08 +0000
+
+    alter code
+
+
+
+:100644 100644 3efc20b45d7e7c192526a464c48f740732249d55 104dd05167a129f24808d61292d07a40a8daafa2 M	employees/src/main/webapp/WEB-INF/views/allemployees.jsp
+]]>
+</sub-log>
+</multi-scm-log>

@@ -1,0 +1,17 @@
+Started on Apr 29, 2018 10:54:00 AM
+Using strategy: Default
+[poll] Last Built Revision: Revision 565b3dd508b50d304007f48f6bf0d8af525a6447 (refs/remotes/origin/master)
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/nixvipin/myscripts.git # timeout=10
+Found 1 remote heads on https://github.com/nixvipin/myscripts.git
+[poll] Latest remote head revision on refs/heads/master is: a3f218ce30e04b1ca55c63de1a8bcbc513f9085e
+Using strategy: Default
+[poll] Last Built Revision: Revision e27ebc0b19796e27b4c05f6816c044a140db559c (refs/remotes/origin/master)
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/nixvipin/myproject.git # timeout=10
+Found 1 remote heads on https://github.com/nixvipin/myproject.git
+[poll] Latest remote head revision on refs/heads/master is: e27ebc0b19796e27b4c05f6816c044a140db559c - already built by 43
+Done. Took 0.39 sec
+Changes found
