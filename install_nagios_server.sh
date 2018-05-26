@@ -5,7 +5,6 @@ cd /etc
 rm -rf httpd
 setenforce 0
 yum install httpd php php-cli gcc glibc glibc-common gd gd-devel net-snmp openssl-devel wget unzip -y 
--y
 useradd nagios
 groupadd nagcmd
 usermod -a -G nagcmd nagios
