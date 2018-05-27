@@ -33,14 +33,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 MariaDB [(none)]> \e[32m exit\e[0m
 Bye
-[root@ip-172-31-30-44 myscripts]#\e[32m mysql -umyuser -pmypass mydb \e[0m
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 11
-Server version: 10.1.32-MariaDB MariaDB Server
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.
+[root@server01 myscripts]#\e[32m mysql -umyuser -pmypass mydb \e[0m
 
 MariaDB [mydb]>\e[32m CREATE TABLE EMPLOYEE(
     ->     id INT NOT NULL auto_increment,
