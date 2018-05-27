@@ -21,8 +21,9 @@ fi
 
 
 cd /data/
-mv jenkins jenkins_bak1
-mv ~/.jenkins ~/.jenkins_bak1
+rm -rf jenkins_bak ~/.jenkins_bak
+mv jenkins jenkins_bak
+mv ~/.jenkins ~/.jenkins_bak
 
 setup_tomcat()
 {
