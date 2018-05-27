@@ -33,7 +33,7 @@ tar -zxvf apache-tomcat-8.5.31.tar.gz
 mv /data/apache-tomcat-8.5.31 /data/jenkins
 rm /data/apache-tomcat-8.5.31.tar.gz
 sed -i.orig.bak 's/8080/8002/g' /data/jenkins/conf/server.xml
-echo -e "export JAVA_OPTS=\"-Xms256m -Xmx256m\"" > /data/jenkins/bin/setenv.sh
+echo -e "export JAVA_OPTS=\"-Xms128m -Xmx512m\"" > /data/jenkins/bin/setenv.sh
 chmod +x /data/jenkins/bin/setenv.sh
 }
 
