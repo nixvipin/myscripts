@@ -25,14 +25,6 @@ echo -e "\n========== Execute commands in\e[32m green\e[0m ==========\n
 
 mysql -uroot -p$my_password
 
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 10
-Server version: 10.1.32-MariaDB MariaDB Server
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.
-
 MariaDB [(none)]>\e[32m create database mydb;\e[0m
 Query OK, 1 row affected (0.00 sec)
 
