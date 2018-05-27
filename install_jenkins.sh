@@ -62,7 +62,8 @@ start_jenkins()
 {
 cd /data/jenkins/bin
 ./startup.sh
-echo -e "\nJenkins installation is complete - http://<Client_IP>:8002/jenkins\n"
+echo -e "\n\e[32mSet Nagios GUI console password.\e[0m\n"
+echo -e "\n\e[32mJenkins installation is complete - http://<Client_IP>:8002/jenkins.\e[0m\n"
 }
 
 setup_jenkins()
