@@ -1,6 +1,7 @@
 #!/bin/bash
 
 java -version
+PID=`ps -ef | grep jenkins | grep -v grep | awk '{print $2}'`
 
 if [ $? = 0 ]
 then
@@ -25,6 +26,7 @@ mv ~/.jenkins ~/.jenkins_bak1
 
 setup_tomcat()
 {
+kill -9 $PID
 mkdir -p /data
 cd /data
 #wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
