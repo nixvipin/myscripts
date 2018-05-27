@@ -8,7 +8,10 @@ echo -e "\n\e[32mModify the NRPE configuration file to accept the connection fro
 
 allowed_hosts=127.0.0.1,$ser_pip
 
+Anad Execute below commands
+
+systemctl restart nrpe
+systemctl enable nrpe
 \e[0m\n
 "
-systemctl start nrpe
-systemctl enable nrpe
+
