@@ -6,19 +6,19 @@ baseurl = http://yum.mariadb.org/10.1/centos7-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1" > /etc/yum.repos.d/MariaDB.repo
 
-#yum install MariaDB-server MariaDB-client -y
+yum install MariaDB-server MariaDB-client -y
 
-#systemctl start mariadb
-#systemctl enable mariadb
-#systemctl status mariadb
+systemctl start mariadb
+systemctl enable mariadb
+systemctl status mariadb
 
-#mysql_secure_installation
+mysql_secure_installation
 
 
-#mysql -V
-#mysqld --print-defaults
+mysql -V
+mysqld --print-defaults
 
-#read -p "\nEnter MySQL root password which you entered above --> " my_password
+read -p "\nEnter MySQL root password which you entered above --> " my_password
 
 echo -e "\n========== Execute commands in\e[32m green\e[0m ==========\n
 
@@ -62,5 +62,5 @@ Empty set (0.00 sec)
 
 MariaDB [mydb]>\e[32m exit \e[0m
 
-"
+\n"
 
