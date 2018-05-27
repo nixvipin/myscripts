@@ -1,7 +1,7 @@
 #!/bin/bash
 
 java -version
-PID=`ps -ef | grep jenkins | grep -v grep | awk '{print $2}'`
+PID=`ps -ef | grep /data/jenkins | grep -v grep | awk '{print $2}'`
 
 if [ $? = 0 ]
 then
