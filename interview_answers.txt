@@ -1,0 +1,131 @@
+what is -ef in ps command?
+  - -e     Select all processes,  -f     Do full-format listing.
+ 
+what is #!/bin/bash in shell script?
+ - #!/bin/bash is also called hash bang. Used to execute shell script explicitly using bash shell.
+
+when you hit www.google.com how your request flow goes end-to-end?
+ - Firstly it will check it browser cache, then it will check DNS entry in my local host file. Then it will go to my router DNS to resolve the IP at the ISP end. If it is unable to find at ISP end the request will go the ISPs DNS. At the end once the IP is resovled it will go to google's server using the IP Address and the request will be reversed.
+
+what is soft link?
+ - It is a short cut link like windows shortcut. The inodes will be different of original file and soft link.
+
+what is hard link?
+ - It is a exact copy of my original file. The PID will be same but files will be different.
+ 
+how to create table in MySQL?
+ - create table table1(studentId int(10), class int(4));
+
+how to give grant in MYSQL?
+ - grant all on mydb.* to myuser@'localhost' identified by 'mypass';
+
+what is default port of puppet?
+ - 8140
+ 
+what is maven
+ - Maven is a build automation tool used primarily for Java projects. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information. 
+ 
+what is Jenkins?
+ - Jenkins is a Continuous Integration (CI) server or tool which is written in java. It provides Continuous Integration services for software development, which can be started via command line or web application server.
+ 
+what is Git?
+ - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
+ 
+what is nagios?
+ - Nagios is a powerful monitoring system that enables organizations to identify and resolve IT infrastructure problems before they affect critical business processes.
+ 
+Let's say there are 1000 server and you want to set a variable what will you do?
+ - I will write a ansible playbook and use "lineinfile" module under the task for group of servers. Then I will execute that playbook to make the variable change on 1000 servers. It will be easy and quick.
+ 
+what is docker?
+ - Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package
+ 
+what is syntax for while loop in shell scripting?
+ - 
+
+#!/bin/sh
+
+a=0
+
+while [ $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
+
+what is Elastic search?
+ - Elasticsearch is a search engine based on Lucene. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents
+ 
+Explain a scenario where you had to go against management to achieve something?
+ - 
+ 
+Write a program in shell scripting to swap two variables without using third variable?
+ - 
+ 
+#!/bin/bash
+echo "enter first number"
+read a
+echo "enter second number"
+read b
+echo "a before swapping is $a and b is $b"
+#swapping
+a=$((a+b))
+b=$((a - b))
+a=$((a-b))
+echo "a after swapping is  $a and b is $b"
+
+If a java process causing issues what action will you take?
+ - I will check the catalina logs and system health, disk space which are common issues. If the problem is related to heap size that means system utilization is high and issue is memory related in that case I will take heap dump and thread dump and I will provide the heap dump and thread dump to development team for further investigation with raising the proper bugs and informing to the stakeholders and will follow-up on that issue with the development team.
+ 
+what is swap memory?
+ - Swap space in Linux is used when the amount of physical memory (RAM) is full. If the system needs more memory resources and the RAM is full, inactive pages in memory are moved to the swap space
+ 
+what is tr command?
+ - 'tr' command stands for translate, it is used to replacing or removing characters.
+ 
+Given a file,  replace all occurrence of word “ABC” with “DEF” from 5th line till end in only those lines that contains word “MNO”
+-  sed –n '5,$p' file1|sed '/MNO/s/ABC/DEF/'
+ 
+Print the 10th line with using sed command.
+ - sed –n '10p' file1
+ 
+Execute any command direct all output to file2 and error to file 3, how can I achieve this? 
+- ls > file2 2> file3
+ 
+Write a command sequence to find all the files modified in less than 2 days and print the record count of each.
+ - find . –mtime -2 –exec wc –l {} \;
+ 
+Write a script to print the Fibonacci series.
+ - 
+
+#/bin/bash
+a=1
+b=1
+c=0
+
+read -p "enter limit" n
+
+echo -n "$a "
+echo -n "$b "
+#series login
+while((c<$n))
+do
+c=`expr $a + $b`
+echo -n "$c "
+a=$b
+b=$c
+done
+
+how to take heap dump? %
+ - jmap -dump:format=b,file=heapdump_`hostname`_`date +%H%M%S%d%m%Y`.hprof {PID}
+
+how to take thread dump?   %
+ - jstack -l {PID} > threaddump_`hostname`_`date +%H%M%S%d%m%Y`.out
+ 
+How will you parameterize jenkins jobs
+ - I will configure job and use an option "This build is parameterized" and enter variables.
+ 
+How to install a plugin in Jenkins manually?
+ - Download the Plugin (*.hpi File) and put it in the following directory: 
+   
+<jenkinsHome>/plugins/
