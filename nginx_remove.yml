@@ -1,0 +1,8 @@
+---
+-hosts: server01
+  tasks:
+    - name: Installs nginx web server
+      yum: pkg=nginx state=remove
+      become: yes
+      become_method: sudo
+      become_user: root
