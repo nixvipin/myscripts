@@ -10,6 +10,7 @@ cd myscripts
 ==============
 
 ###Client###
+#check git
 
 GiTclient (done)
 Jenkins (done)
