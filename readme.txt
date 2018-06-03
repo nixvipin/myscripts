@@ -23,8 +23,8 @@ Salt Stack (waiting)
 Nagios Server (done)
 Nagios NPRE server (done)
 Elastic search (done)
-Logstash (in progress)
-Kibana (waiting)
+Logstash (done)
+Kibana (in progress)
 
 ===============
 
