@@ -22,8 +22,8 @@ Ansible (done)
 Salt Stack (waiting)
 Nagios Server (done)
 Nagios NPRE server (done)
-Elastic search (in progress)
-Logstash (waiting)
+Elastic search (done)
+Logstash (in progress)
 Kibana (waiting)
 
 ===============
