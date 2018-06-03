@@ -22,6 +22,9 @@ Ansible (done)
 Salt Stack (waiting)
 Nagios Server (done)
 Nagios NPRE server (done)
+Elastic search (in progress)
+Logstash (in progress)
+Kibana (in progress)
 
 ===============
 
@@ -35,6 +38,7 @@ Tomcat (done)
 Java Path (done)
 Puppet Agent (done)
 Nagios NPRE client (done)
+Filebeat (in progress)
 
 ===============
 
