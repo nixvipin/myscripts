@@ -34,3 +34,5 @@ systemctl enable firewalld
 
 firewall-cmd --add-port=9200/tcp
 firewall-cmd --add-port=9200/tcp --permanent
+
+echo -e "\n\eDone!\e[0m\n"
