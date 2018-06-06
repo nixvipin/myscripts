@@ -26,7 +26,7 @@ sed -i -e "s/^\(http\.port\s*:\s*\).*\$/\19200/" /etc/elasticsearch/elasticsearc
 
 systemctl daemon-reload
 systemctl enable elasticsearch
-systemctl start elasticsearch
+systemctl restart elasticsearch
 
 yum install firewalld -y
 systemctl start firewalld
@@ -35,4 +35,4 @@ systemctl enable firewalld
 firewall-cmd --add-port=9200/tcp
 firewall-cmd --add-port=9200/tcp --permanent
 
-echo -e "\n\eDone!\e[0m\n"
+echo -e "\n\e[32m..Done!..\e[0m\n"
