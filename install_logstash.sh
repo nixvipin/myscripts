@@ -48,7 +48,7 @@ echo -e "filter {
 }" > /etc/logstash/conf.d/filter.conf
 
 sed -i 's/-Xms256m/-Xms128m/g' /etc/logstash/jvm.options
-sed -i 's/-Xmx1g/-Xmx384m/g' /etc/logstash/jvm.options
+sed -i 's/-Xmx1g/-Xmx128m/g' /etc/logstash/jvm.options
 
 systemctl daemon-reload
 systemctl enable logstash
