@@ -21,14 +21,14 @@ sed -i 's/-Xmx2g/-Xmx384m/g' /etc/elasticsearch/jvm.options
 
 #sed -i '/cluster.name/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 #sed -i '/node.name/s/^#//g' /etc/elasticsearch/elasticsearch.yml
-#sed -i '/network.host/s/^#//g' /etc/elasticsearch/elasticsearch.yml
+sed -i '/network.host/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 #sed -i '/http.port/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 #sed -i '/path.data/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 #sed -i '/path.logs/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 #sed -i '/discovery.zen.minimum_master_nodes/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 
 #sed -i -e "s/^\(node\.name\s*:\s*\).*\$/\1client01/" /etc/elasticsearch/elasticsearch.yml
-#sed -i -e "s/^\(network\.host\s*:\s*\).*\$/\10\.0\.0\.0/" /etc/elasticsearch/elasticsearch.yml
+sed -i -e "s/^\(network\.host\s*:\s*\).*\$/\10\.0\.0\.0/" /etc/elasticsearch/elasticsearch.yml
 #sed -i -e "s/^\(http\.port\s*:\s*\).*\$/\19200/" /etc/elasticsearch/elasticsearch.yml
 #sed -i -e "s/^\(path\.data\s*:\s*\).*\$/\1\/data\/elasticsearch\/data/" /etc/elasticsearch/elasticsearch.yml
 #sed -i -e "s/^\(path\.logs\s*:\s*\).*\$/\1\/data\/elasticsearch\/logs/" /etc/elasticsearch/elasticsearch.yml
