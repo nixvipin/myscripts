@@ -12,7 +12,7 @@
 8002 - Tomcat App2
 8003 - Apache web
 8004 - Nginx
-8007 - Elastic search
+9200 - Elastic search
 8008 - Kibana
 
 
