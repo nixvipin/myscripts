@@ -37,6 +37,11 @@ sed -i -e "s/^\(discovery\.zen\.minimum_master_nodes\s*:\s*\).*\$/\11/" /etc/ela
 
 mkdir -p /data/elasticsearch/{data,logs} -p
 chown -R elasticsearch. /data/elasticsearch/
+usermod -s /usr/bin/bash elasticsearch
+mkdir -p /home/elasticsearch
+cd /etc/skel
+cp -a .bash* /home/elasticsearch/
+chown -R elasticsearch. /home/elasticsearch
 
 sed -i '/elasticsearch/d' /etc/security/limits.conf
 echo -e "elasticsearch soft nofile 65536
