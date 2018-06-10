@@ -1,0 +1,145 @@
+Started by upstream project "[8mha:////4FzVYFzoT+DKhiX54CPa5iBuDmRNHlJilxX4XvouL2kTAAAAnR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzuEgZB/az8JH3fyviAovys1OQSQ30A0eR1jsYAAAA=[0mMy_Project1" build number [8mha:////4KQyLwY/rN9H5kZ00t1B41sBpcYljvkrgRBS23hPKRpQAAAAnx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgZh/az8JH3fyviAovys1OQSQ30TYwAqA2MryAAAAA==[0m43
+originally caused by:
+ Started by an SCM change
+Building remotely on [8mha:////4CKTdvTATRe0GyoUPPaN8NBMhG29XyloT4oxBjoc1ZlPAAAAqR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzhEgZZ/eT83ILSktQi/eLUorLUonhDcyM9Y0M9YwM9ExMA11Wg/dIAAAA=[0mserver_172.31.30.44 in workspace /data/workspace/Deploy_Project
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/nixvipin/myscripts.git # timeout=10
+Fetching upstream changes from https://github.com/nixvipin/myscripts.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/nixvipin/myscripts.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 565b3dd508b50d304007f48f6bf0d8af525a6447 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 565b3dd508b50d304007f48f6bf0d8af525a6447
+Commit message: "initial-commit"
+ > git rev-list --no-walk 565b3dd508b50d304007f48f6bf0d8af525a6447 # timeout=10
+[Deploy_Project] $ /bin/sh -xe /tmp/jenkins2720729877563045381.sh
++ BUILD_ID=dontkillme
++ sudo sh -x /data/workspace/Deploy_Project/deploy_code.sh 43 172.31.31.22 /home/centos/classroom_server01_aws.pem
++ PAM_FULL_PATH=/home/centos/classroom_server01_aws.pem
++ CLIENT_PRIVATE_IP=172.31.31.22
++ SOURCE_BUILD_NUMBER=43
++ JAVA_HOME=/data/jdk1.8
++ PATH=/data/jdk1.8/bin:/sbin:/bin:/usr/sbin:/usr/bin
++ export PATH JAVA_HOME
++ cd /data/apache-tomcat/bin
++ ./shutdown.sh
++ sleep 10
++ cd /data/apache-tomcat/webapps
++ rm -rf /data/apache-tomcat/webapps/employee/META-INF /data/apache-tomcat/webapps/employee/WEB-INF
++ mkdir -p /data/apache-tomcat/webapps/employee/
++ cd /data/apache-tomcat/webapps/employee/
++ scp -i /home/centos/classroom_server01_aws.pem centos@172.31.31.22:/data/backup/43/SpringHibernateExample.war .
++ jar -xf SpringHibernateExample.war
++ rm SpringHibernateExample.war
++ cd /data/apache-tomcat/bin
++ ./startup.sh
+Tomcat started.
++ sleep 10
++ tail -n 100 ../logs/catalina.out
+        this_.SALARY as SALARY4_0_0_,
+        this_.SSN as SSN5_0_0_ 
+    from
+        EMPLOYEE this_
+Hibernate: 
+    select
+        this_.id as id1_0_0_,
+        this_.JOINING_DATE as JOINING_2_0_0_,
+        this_.NAME as NAME3_0_0_,
+        this_.SALARY as SALARY4_0_0_,
+        this_.SSN as SSN5_0_0_ 
+    from
+        EMPLOYEE this_
+29-Apr-2018 10:11:43.295 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+29-Apr-2018 10:11:43.295 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8001"]
+29-Apr-2018 10:11:43.346 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8010"]
+29-Apr-2018 10:11:43.397 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+29-Apr-2018 10:11:43.445 INFO [localhost-startStop-2] org.springframework.web.context.support.AnnotationConfigWebApplicationContext.doClose Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Apr 29 10:07:03 UTC 2018]; root of context hierarchy
+29-Apr-2018 10:11:43.470 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [employee] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+29-Apr-2018 10:11:43.482 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [employee] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:41)
+29-Apr-2018 10:11:43.488 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8001"]
+29-Apr-2018 10:11:43.494 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8010"]
+29-Apr-2018 10:11:43.496 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8001"]
+29-Apr-2018 10:11:43.496 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8010"]
+29-Apr-2018 10:11:55.220 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.30
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2018 20:04:09 UTC
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.30.0
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.10.0-693.21.1.el7.x86_64
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /data/jdk1.8/jre
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_161-b12
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /data/apache-tomcat
+29-Apr-2018 10:11:55.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /data/apache-tomcat
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/data/apache-tomcat/conf/logging.properties
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/data/apache-tomcat
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/data/apache-tomcat
+29-Apr-2018 10:11:55.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/data/apache-tomcat/temp
+29-Apr-2018 10:11:55.225 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+29-Apr-2018 10:11:55.509 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8001"]
+29-Apr-2018 10:11:55.536 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+29-Apr-2018 10:11:55.553 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8010"]
+29-Apr-2018 10:11:55.554 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+29-Apr-2018 10:11:55.567 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1066 ms
+29-Apr-2018 10:11:55.601 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+29-Apr-2018 10:11:55.601 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.30
+29-Apr-2018 10:11:55.647 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/data/apache-tomcat/webapps/ROOT]
+29-Apr-2018 10:11:56.266 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/data/apache-tomcat/webapps/ROOT] has finished in [619] ms
+29-Apr-2018 10:11:56.267 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/data/apache-tomcat/webapps/docs]
+29-Apr-2018 10:11:56.289 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/data/apache-tomcat/webapps/docs] has finished in [21] ms
+29-Apr-2018 10:11:56.289 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/data/apache-tomcat/webapps/examples]
+29-Apr-2018 10:11:56.742 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/data/apache-tomcat/webapps/examples] has finished in [453] ms
+29-Apr-2018 10:11:56.742 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/data/apache-tomcat/webapps/host-manager]
+29-Apr-2018 10:11:56.800 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/data/apache-tomcat/webapps/host-manager] has finished in [58] ms
+29-Apr-2018 10:11:56.800 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/data/apache-tomcat/webapps/manager]
+29-Apr-2018 10:11:56.823 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/data/apache-tomcat/webapps/manager] has finished in [23] ms
+29-Apr-2018 10:11:56.823 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/data/apache-tomcat/webapps/employee]
+29-Apr-2018 10:11:58.251 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+29-Apr-2018 10:11:58.634 INFO [localhost-startStop-1] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization started
+29-Apr-2018 10:11:58.652 INFO [localhost-startStop-1] org.springframework.web.context.support.AnnotationConfigWebApplicationContext.prepareRefresh Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Apr 29 10:11:58 UTC 2018]; root of context hierarchy
+29-Apr-2018 10:11:58.750 INFO [localhost-startStop-1] org.springframework.web.context.support.AnnotationConfigWebApplicationContext.loadBeanDefinitions Registering annotated classes: [class com.websystique.springmvc.configuration.AppConfig]
+29-Apr-2018 10:11:59.646 INFO [localhost-startStop-1] org.springframework.jdbc.datasource.DriverManagerDataSource.setDriverClassName Loaded JDBC driver: com.mysql.jdbc.Driver
+29-Apr-2018 10:11:59.888 INFO [localhost-startStop-1] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+29-Apr-2018 10:11:59.924 INFO [localhost-startStop-1] org.hibernate.Version.logVersion HHH000412: Hibernate Core {4.3.6.Final}
+29-Apr-2018 10:11:59.925 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+29-Apr-2018 10:11:59.926 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.buildBytecodeProvider HHH000021: Bytecode provider name : javassist
+29-Apr-2018 10:12:00.823 INFO [localhost-startStop-1] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+29-Apr-2018 10:12:01.098 INFO [localhost-startStop-1] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator.initiateService HHH000399: Using default transaction strategy (direct JDBC transactions)
+29-Apr-2018 10:12:01.113 INFO [localhost-startStop-1] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory.<init> HHH000397: Using ASTQueryTranslatorFactory
+29-Apr-2018 10:12:01.208 INFO [localhost-startStop-1] org.hibernate.validator.internal.util.Version.<clinit> HV000001: Hibernate Validator 5.1.3.Final
+29-Apr-2018 10:12:02.031 INFO [localhost-startStop-1] org.springframework.orm.hibernate4.HibernateTransactionManager.afterPropertiesSet Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@35091c1] of Hibernate SessionFactory for HibernateTransactionManager
+29-Apr-2018 10:12:02.382 INFO [localhost-startStop-1] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod Mapped "{[//edit-{ssn}-employee],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.websystique.springmvc.controller.AppController.updateEmployee(com.websystique.springmvc.model.Employee,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap,java.lang.String)
+29-Apr-2018 10:12:02.383 INFO [localhost-startStop-1] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod Mapped "{[//new],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.websystique.springmvc.controller.AppController.newEmployee(org.springframework.ui.ModelMap)
+29-Apr-2018 10:12:02.383 INFO [localhost-startStop-1] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod Mapped "{[//edit-{ssn}-employee],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.websystique.springmvc.controller.AppController.editEmployee(java.lang.String,org.springframework.ui.ModelMap)
+29-Apr-2018 10:12:02.383 INFO [localhost-startStop-1] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod Mapped "{[// || //list],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.websystique.springmvc.controller.AppController.listEmployees(org.springframework.ui.ModelMap)
+29-Apr-2018 10:12:02.383 INFO [localhost-startStop-1] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod Mapped "{[//new],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.websystique.springmvc.controller.AppController.saveEmployee(com.websystique.springmvc.model.Employee,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+29-Apr-2018 10:12:02.383 INFO [localhost-startStop-1] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod Mapped "{[//delete-{ssn}-employee],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.websystique.springmvc.controller.AppController.deleteEmployee(java.lang.String)
+29-Apr-2018 10:12:02.597 INFO [localhost-startStop-1] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization completed in 3963 ms
+29-Apr-2018 10:12:02.598 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/data/apache-tomcat/webapps/employee] has finished in [5,775] ms
+29-Apr-2018 10:12:02.615 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8001"]
+29-Apr-2018 10:12:02.676 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8010"]
+29-Apr-2018 10:12:02.700 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 7127 ms
+Hibernate: 
+    select
+        this_.id as id1_0_0_,
+        this_.JOINING_DATE as JOINING_2_0_0_,
+        this_.NAME as NAME3_0_0_,
+        this_.SALARY as SALARY4_0_0_,
+        this_.SSN as SSN5_0_0_ 
+    from
+        EMPLOYEE this_
++ echo -e '\e[42m...Deployment is successfull..\e[0m'
+[42m...Deployment is successfull..[0m
+Finished: SUCCESS
