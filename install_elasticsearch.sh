@@ -16,8 +16,8 @@ type=rpm-md" > /etc/yum.repos.d/elasticsearch.repo
 
 yum install elasticsearch -y
 
-sed -i 's/-Xms2g/-Xms384m/g' /etc/elasticsearch/jvm.options
-sed -i 's/-Xmx2g/-Xmx384m/g' /etc/elasticsearch/jvm.options
+#sed -i 's/-Xms2g/-Xms384m/g' /etc/elasticsearch/jvm.options
+#sed -i 's/-Xmx2g/-Xmx384m/g' /etc/elasticsearch/jvm.options
 
 sed -i '/cluster.name/s/^#//g' /etc/elasticsearch/elasticsearch.yml
 sed -i '/node.name/s/^#//g' /etc/elasticsearch/elasticsearch.yml
