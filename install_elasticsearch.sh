@@ -47,17 +47,16 @@ sed -i '/elasticsearch/d' /etc/security/limits.conf
 echo -e "elasticsearch soft nofile 65536
 elasticsearch hard nofile 65536" >> /etc/security/limits.conf
 
-#systemctl daemon-reload
-#systemctl enable elasticsearch
-#systemctl restart elasticsearch
+systemctl daemon-reload
+systemctl enable elasticsearch
+systemctl restart elasticsearch
 
-yum install firewalld -y
-systemctl start firewalld
-systemctl enable firewalld
+#yum install firewalld -y
+#systemctl start firewalld
+#systemctl enable firewalld
 
-firewall-cmd --add-port=9200/tcp
-firewall-cmd --add-port=9200/tcp --permanent
+#firewall-cmd --add-port=9200/tcp
+#firewall-cmd --add-port=9200/tcp --permanent
 
-systemctl start elasticsearch
 
 echo -e "\n\e[32m ...Done... \e[0m\n"
