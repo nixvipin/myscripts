@@ -14,9 +14,9 @@ gpgcheck=1" > /etc/yum.repos.d/filebeat.repo
 
 yum -y  install filebeat
 
-sed -i "22i - /data/apache-tomcat/logs/*.log" /etc/filebeat/filebeat.yml
-sed -i '23d' /etc/filebeat/filebeat.yml
-sed -i "83ihosts: ["$ela_ser_ip:9200"]" /etc/filebeat/filebeat.yml
+#sed -i "22i - /data/apache-tomcat/logs/*.log" /etc/filebeat/filebeat.yml
+#sed -i '23d' /etc/filebeat/filebeat.yml
+#sed -i "83ihosts: ["$ela_ser_ip:9200"]" /etc/filebeat/filebeat.yml
 systemctl enable filebeat
 
 echo -e "\n\e[32mFollow steps below
