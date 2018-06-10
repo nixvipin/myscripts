@@ -13,7 +13,7 @@ cd /data/apache-tomcat/webapps
 rm -rf /data/apache-tomcat/webapps/employee/*
 mkdir -p /data/apache-tomcat/webapps/employee/
 cd /data/apache-tomcat/webapps/employee/
-scp  SpringHibernateExample.war jenkins@$CLIENT_PRIVATE_IP:/data/backup/$SOURCE_BUILD_NUMBER/SpringHibernateExample.war .
+scp jenkins@$CLIENT_PRIVATE_IP:/data/backup/$SOURCE_BUILD_NUMBER/SpringHibernateExample.war .
 jar -xf SpringHibernateExample.war
 rm SpringHibernateExample.war
 cd /data/apache-tomcat/bin
