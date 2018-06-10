@@ -24,7 +24,7 @@ Nagios Server (done)
 Nagios NPRE server (done)
 Elastic search (done)
 Logstash (done)
-Kibana (in progress)
+Kibana (done)
 
 ===============
 
@@ -38,7 +38,7 @@ Tomcat (done)
 Java Path (done)
 Puppet Agent (done)
 Nagios NPRE client (done)
-Filebeat (waiting)
+Filebeat (done)
 
 ===============
 
