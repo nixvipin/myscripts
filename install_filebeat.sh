@@ -6,7 +6,7 @@ rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch
 
 echo -e "[filebeat]
 name=Filebeat for ELK clients
-baseurl=https://packages.elastic.co/beats/yum/el/$basearch
+baseurl=https://packages.elastic.co/beats/yum/el/\$basearch
 enabled=1
 gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
 gpgcheck=1" > /etc/yum.repos.d/filebeat.repo
