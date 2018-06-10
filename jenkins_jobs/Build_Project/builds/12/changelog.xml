@@ -1,0 +1,19 @@
+<multi-scm-log>
+<sub-log scm="git https://github.com/nixvipin/myscripts.git">
+<![CDATA[commit c43c3ac8394cda5f56ef070273f7d20ab982dee3
+tree 11f3cbe6b27233bab2e64335c60987d526f0cd72
+parent db316d3db6f90b22a23ffa7022ca9dfbd3c99e1c
+author root &lt;root@ip-172-31-31-22.us-west-2.compute.internal&gt; 2018-04-28 08:31:59 +0000
+committer root &lt;root@ip-172-31-31-22.us-west-2.compute.internal&gt; 2018-04-28 08:31:59 +0000
+
+    initial-commit
+
+
+
+:100755 100755 d4fff0e23a58b9700529461d202dde32a9ee5843 d85573ca87409d498b1659f2d2f6b67ff41acd21 M	build_code.sh
+]]>
+</sub-log>
+<sub-log scm="git https://github.com/nixvipin/myproject.git">
+<![CDATA[]]>
+</sub-log>
+</multi-scm-log>

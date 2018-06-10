@@ -1,0 +1,104 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>SOURCE_BUILD_NUMBER</name>
+          <value>31</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>SOURCE_BUILD_NUMBER</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UpstreamCause>
+            <upstreamProject>My_Project1</upstreamProject>
+            <upstreamUrl>job/My_Project1/</upstreamUrl>
+            <upstreamBuild>31</upstreamBuild>
+            <upstreamCauses>
+              <hudson.model.Cause_-UserIdCause>
+                <userId>admin</userId>
+              </hudson.model.Cause_-UserIdCause>
+            </upstreamCauses>
+          </hudson.model.Cause_-UpstreamCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.multiplescms.MultiSCMRevisionState plugin="multiple-scms@0.6">
+      <revisionStates/>
+    </org.jenkinsci.plugins.multiplescms.MultiSCMRevisionState>
+    <hudson.plugins.git.util.BuildData plugin="git@3.8.0">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@2.7.1">
+              <sha1>3989b94c72d3aa417051d80f35b23a58156d50c8</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/master</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>18</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/nixvipin/myscripts.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <hudson.plugins.git.GitTagAction plugin="git@3.8.0">
+      <tags class="hudson.util.CopyOnWriteMap$Tree">
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <list/>
+        </entry>
+      </tags>
+      <ws>/data/workspace/Deploy_Project</ws>
+    </hudson.plugins.git.GitTagAction>
+    <com.sonyericsson.rebuild.RebuildAction plugin="rebuild@1.28"/>
+  </actions>
+  <queueId>50</queueId>
+  <timestamp>1524993646138</timestamp>
+  <startTime>1524993646140</startTime>
+  <result>SUCCESS</result>
+  <duration>397</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn>server_172.31.30.44</builtOn>
+  <workspace>/data/workspace/Deploy_Project</workspace>
+  <hudsonVersion>2.118</hudsonVersion>
+  <scm class="org.jenkinsci.plugins.multiplescms.MultiSCMChangeLogParser" plugin="multiple-scms@0.6">
+    <scmLogParsers>
+      <entry>
+        <string>git https://github.com/nixvipin/myscripts.git</string>
+        <hudson.plugins.git.GitChangeLogParser plugin="git@3.8.0">
+          <authorOrCommitter>false</authorOrCommitter>
+        </hudson.plugins.git.GitChangeLogParser>
+      </entry>
+    </scmLogParsers>
+    <scmDisplayNames>
+      <entry>
+        <string>git https://github.com/nixvipin/myscripts.git</string>
+        <string>Git (git https://github.com/nixvipin/myscripts.git)</string>
+      </entry>
+    </scmDisplayNames>
+    <scmRepositoryBrowsers>
+      <entry>
+        <string>git https://github.com/nixvipin/myscripts.git</string>
+        <null/>
+      </entry>
+    </scmRepositoryBrowsers>
+  </scm>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>
