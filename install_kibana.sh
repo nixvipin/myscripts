@@ -13,6 +13,7 @@ yum install kibana -y
 
 sed -i "2iserver.port: 5601" /etc/kibana/kibana.yml
 sed -i "7iserver.host: \"192.168.56.101\"" /etc/kibana/kibana.yml
+sed -i "23ielasticsearch.url: \"http://192.168.56.101:9200\"" /etc/kibana/kibana.yml
 
 systemctl daemon-reload
 systemctl enable kibana
