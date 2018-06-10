@@ -15,7 +15,7 @@ systemctl daemon-reload
 systemctl enable kibana
 systemctl start kibana
 
-firewall-cmd --add-port=5601/tcp
-firewall-cmd --add-port=5601/tcp --permanent
+#firewall-cmd --add-port=5601/tcp
+#firewall-cmd --add-port=5601/tcp --permanent
 
 echo -e "\n\e[32mLaunch Kibana (http://ClientPublicIP:5601) to verify that you can access the web interface\e[0m\n" 
