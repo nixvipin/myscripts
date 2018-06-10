@@ -1,6 +1,5 @@
 #!/bin/bash
 
-PAM_FULL_PATH=$3
 CLIENT_PRIVATE_IP=$2
 SOURCE_BUILD_NUMBER=$1
 
@@ -14,7 +13,7 @@ cd /data/apache-tomcat/webapps
 rm -rf /data/apache-tomcat/webapps/employee/*
 mkdir -p /data/apache-tomcat/webapps/employee/
 cd /data/apache-tomcat/webapps/employee/
-scp -i $PAM_FULL_PATH centos@$CLIENT_PRIVATE_IP:/data/backup/$SOURCE_BUILD_NUMBER/SpringHibernateExample.war .
+scp -i centos@$CLIENT_PRIVATE_IP:/data/backup/$SOURCE_BUILD_NUMBER/SpringHibernateExample.war .
 jar -xf SpringHibernateExample.war
 rm SpringHibernateExample.war
 cd /data/apache-tomcat/bin
