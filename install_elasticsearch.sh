@@ -58,9 +58,6 @@ systemctl enable firewalld
 firewall-cmd --add-port=9200/tcp
 firewall-cmd --add-port=9200/tcp --permanent
 
-echo -e "\n\e[32mExecute below command to start Elasticsearch
+systemctl start elasticsearch
 
-su - elasticsearch
-nohup /usr/share/elasticsearch/bin/elasticsearch -p elasticsearch.pid -Edefault.path.logs=/data/elasticsearch/logs/ -Edefault.path.data=/data/elasticsearch/data/ -Edefault.path.conf=/etc/elasticsearch/ &
-
-\e[0m\n"
+echo -e "\n\e[32m ...Done... \e[0m\n"
