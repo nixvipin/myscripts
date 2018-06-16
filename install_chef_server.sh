@@ -89,7 +89,7 @@ echo -e "\n
 
 27. knife node show $NODE_NAME
 
-28. Verifying it from the Management console "Nodes".
+28. Verifying it from the Management console \"Nodes\".
 
 29. We can get more information regarding the added node by selecting the node and viewing the Attributes section.
 
