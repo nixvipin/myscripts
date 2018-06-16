@@ -8,6 +8,8 @@ cd apache-tomcat2/conf
 sed -i '69s/8080/8008/' server.xml
 sed -i '116s/8010/8011/' server.xml
 sed -i '22s/8015/8016/' server.xml
+cd /data/apache-tomcat2/bin
+./startup.sh
 
 echo -e "\nTomcat2 installation is complete."
 
