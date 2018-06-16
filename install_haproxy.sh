@@ -2,17 +2,13 @@
 
 yum install haproxy -y
 
-#!/bin/bash
-mkdir -p /data
 cd /data
-wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
-tar -zxvf apache-tomcat-8.5.30.tar.gz
-mv apache-tomcat-8.5.30 apache-tomcat2
+cp -arf apache-tomcat apache-tomcat2
 cd apache-tomcat2/conf
 sed -i '69s/8080/8008/' server.xml
 sed -i '116s/8010/8011/' server.xml
 sed -i '22s/8015/8016/' server.xml
-rm /data/apache-tomcat-8.5.30.tar.gz
+
 echo -e "\nTomcat2 installation is complete."
 
 
