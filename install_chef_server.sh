@@ -9,6 +9,11 @@ echo "Please take VM snapshot and come again.. "
 exit 1
 fi
 
+read -p "Enter your mail id > " MAIL_ID
+read -p "Enter your Chef Server IP Address > " CHEF_SERVIP
+read -p "Enter your workstation/Node IP Address. > " WSIP
+
+yum  install ntpdate -y; ntpdate 1.ro.pool.ntp.org
 
 wget https://packages.chef.io/files/stable/chef-server/12.15.8/el/7/chef-server-core-12.15.8-1.el7.x86_64.rpm
 rpm -ivh chef-server-core-12.15.8-1.el7.x86_64.rpm
@@ -19,10 +24,12 @@ chef-server-ctl install chef-manage
 opscode-manage-ctl reconfigure
 chef-server-ctl reconfigure
 mkdir ~/.chef
-chef-server-ctl user-create $USERADMIN $FIRSTNAME $LASTNAME $MAIL_ID '$PASSWORD' --filename /root/.chef/chefadmin.pem
+chef-server-ctl user-create chefadmin Tom Cruise $MAIL_ID 'redhat' --filename /root/.chef/chefadmin.pem
 chef-server-ctl org-create chef-organization 'Chef Oraganization' --association_user $USERADMIN --filename /root/.chef/chefvalidator.pem
-ssh 192.168.56.102 'mkdir -p /root/chef-repo/.chef/'
-scp /root/.chef/chefadmin.pem /root/.chef/chefvalidator.pem root@192.168.56.102:/root/chef-repo/.chef/
+echo -e "\nEnter below workstation root password..\n" 
+ssh $WSIP 'mkdir -p /root/chef-repo/.chef/'
+echo -e "\nAgain enter below workstation root password..\n"
+scp /root/.chef/chefadmin.pem /root/.chef/chefvalidator.pem root@$WSIP:/root/chef-repo/.chef/
 
 echo -e "\n
 
@@ -30,66 +37,63 @@ Add below line in /etc/hosts and start from step 1 below.
 
 $IPADDRESS `hostname`
 
-1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password $PASSWORD --  http://192.168.56.101
+1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://`CHEF_SERVIP`
 
-2. It'll ask to create an organization from the Panel on Sign up. Just create a different one.
+2. Download the Starter Kit for WorkStation. Administration > Choose Organization > Click Settings Icon > Download Starter Kit
 
-3. Download the Starter Kit for WorkStation. Administration > Choose Organization > Click Settings Icon > Download Starter Kit
+3. After downloading this kit on Desktop. Use WinSCP and copy this Kit to your Workstation(`WSIP`) /root folder and extract. This provides you with a default Starter Kit to start up with your Chef server. It includes a chef-repo.
 
-4. After downloading this kit. Move it your Workstation /root folder and extract. This provides you with a default Starter Kit to start up with your Chef server. It includes a chef-repo.
+4. mv /root/chef-repo /root/chef-repo_bak; yum install unzip -y; cd ~; unzip chef-starter.zip; cd chef-repo
 
-5. WinSCP chef-starter.zip on 56.102 node.
+5. tree
 
-6. yum install unzip -y; cd; unzip chef-starter.zip; cd chef-repo
+6. This is the file structure for the downloaded Chef repository. It contains all the required file structures to start with.
 
-7. tree
+7. cd /root/chef-repo/cookbooks; knife cookbook site download learn_chef_httpd
 
-8. This is the file structure for the downloaded Chef repository. It contains all the required file structures to start with.
+8. tar -xvf learn_chef_httpd-0.2.0.tar.gz
 
-9. cd /root/chef-repo/cookbooks; knife cookbook site download learn_chef_httpd
+9. All the required files are automatically created under this cookbook. We didn't require to make any modifications. Let's check our recipe description inside our recipe folder.
 
-10. tar -xvf learn_chef_httpd-0.2.0.tar.gz
+10. cat learn_chef_httpd/recipes/default.rb
 
-11. All the required files are automatically created under this cookbook. We didn't require to make any modifications. Let's check our recipe description inside our recipe folder.
+11. Validating the Connection b/w Server and Workstation. Before uploading the cookbook, we need to check and confirm the connection between our Chef server and Workstation. First of all, make sure you've proper Knife configuration file.
 
-12. cat  /root/chef-repo/cookbooks/learn_chef_httpd/recipes/default.rb
+12. cat /root/chef-repo/.chef/knife.rb
 
-13. Validating the Connection b/w Server and Workstation. Before uploading the cookbook, we need to check and confirm the connection between our Chef server and Workstation. First of all, make sure you've proper Knife configuration file.
+13. knife client list
 
-14. First of all, make sure you've proper Knife configuration file.
+14. knife ssl fetch
 
-15. cat /root/chef-repo/.chef/knife.rb
+15. ls -l /root/chef-repo/.chef/trusted_certs
 
-16. knife client list
+16. knife ssl check
 
-17. knife ssl fetch
+17. knife client list
 
-18. ls -l /root/chef-repo/.chef/trusted_certs
+18. knife user list
 
-19. knife ssl check
+19. knife cookbook upload learn_chef_httpd.
 
-20. yum  install ntpdate -y; ntpdate 1.ro.pool.ntp.org; knife client list
+20. Verify the cookbook from the Chef Server Management console. Chef Manage > Policy.
 
-21. knife user list
+21. Now let's Add a Node. Execute below commands on Workstation.
 
-22. knife cookbook upload learn_chef_httpd.
+22. knife bootstrap 192.168.56.102 --ssh-user root --ssh-password redhat --node-name devopsclient
 
-23. Verify the cookbook from the Chef Server Management console.
-
-24. Now Adding a Node
-
-25. knife bootstrap 192.168.56.102 --ssh-user root --ssh-password redhat --node-name devopsclient
-
-26. knife node list
+23. knife node list
 
 27. knife node show devopsclient
 
-28. Verifying it from the Management console "Nodes".
+28. Now verify it from the Management console "Nodes". Chef Manage > Nodes.
 
-29. We can get more information regarding the added node by selecting the node and viewing the Attributes section.
+29. You can get more information regarding the added node by selecting the node and viewing the Attributes section.
 
-30. Add a cookbook to the node and manage its runlist from the Chef server. Node > Settings Icon > Edit Runlist. In the Available Recipes,  you can see our learn_chef_httpd recipe, you can drag that from the available packages to the current run list and save the runlist.
+30. Now add a cookbook to the node and manage its runlist from the Chef server. Chef Manage > Nodes > Action settings Icon > Edit Runlist. In the Available Recipes,  you can see our learn_chef_httpd recipe, you can drag that from the available packages to the current run list and save the runlist.
 
 31. Now login to your node and just run the command 'chef-client' to execute your runlist.
 
-32. Similarly, we can add any number of nodes to your Chef Server depending on its configuration and hardware\n"
+32. You should be able to see your Node IP runnig a webserver. http://`WSIP`/
+
+Similarly, later on you can add any number of nodes to your Chef Server depending on its configuration and hardware\n"
+
