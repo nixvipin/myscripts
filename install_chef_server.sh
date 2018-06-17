@@ -83,17 +83,81 @@ $IPADDRESS `hostname`
 
 23. knife node list
 
-27. knife node show devopsclient
+24. knife node show devopsclient
 
-28. Now verify it from the Management console "Nodes". Chef Manage > Nodes.
+25. Now verify it from the Management console "Nodes". Chef Manage > Nodes.
 
-29. You can get more information regarding the added node by selecting the node and viewing the Attributes section.
+26. You can get more information regarding the added node by selecting the node and viewing the Attributes section.
 
-30. Now add a cookbook to the node and manage its runlist from the Chef server. Chef Manage > Nodes > Action settings Icon > Edit Runlist. In the Available Recipes,  you can see our learn_chef_httpd recipe, you can drag that from the available packages to the current run list and save the runlist.
+27. Now add a cookbook to the node and manage its runlist from the Chef server. Chef Manage > Nodes > Action settings Icon > Edit Runlist. In the Available Recipes,  you can see our learn_chef_httpd recipe, you can drag that from the available packages to the current run list and save the runlist.
 
-31. Now login to your node and just run the command 'chef-client' to execute your runlist.
+28. Now login to your node and just run the command 'chef-client' to execute your runlist.
 
-32. You should be able to see your Node IP runnig a webserver. http://`WSIP`/
+29. You should be able to see your Node IP runnig a webserver. http://`WSIP`/.
+ - Similarly, later on you can add any number of nodes to your Chef Server depending on its configuration and hardware.
 
-Similarly, later on you can add any number of nodes to your Chef Server depending on its configuration and hardware\n"
+30. Now let's add some Recipes. Execute below on Workstation
 
+31. cd /root/chef-repo/cookbooks; knife recipe list
+
+32. knife cookbook create file_create
+
+33. cd file_create/recipes/
+
+34. vim default.rb
+
+file '/tmp/i_m_chef.txt' do
+   mode '0600'
+      owner 'root'
+      end
+
+35. knife cookbook upload file_create
+
+36. Drag that from the available packages to the current run list and save the runlist in Chef Manage.
+
+37. Execute 'chef-client' on Node machine (In you case workstation).
+
+38. cd /root/chef-repo/cookbooks; knife recipe list
+
+39. knife cookbook create user_create
+
+40. vim user_create/recipes/default.rb
+
+user 'tcruise' do
+  comment 'Tom Cruise'
+  home '/home/tcruise'
+  shell '/bin/bash'
+  password 'redhat'
+end
+
+41. knife cookbook upload user_create
+
+42. Drag that from the available packages to the current run list and save the runlist in Chef Manage.
+
+43. chef-client
+
+44. knife cookbook create filecopy
+
+45. echo -e "My current time is: " > filecopy/templates/default/current_time.txt
+
+46. vim filecopy/recipes/default.rb
+
+execute 'date_cmd' do
+  command 'echo `date` >> /tmp/current_time.txt'
+end
+
+template '/tmp/current_time.txt' do
+  source 'current_time.txt'
+  notifies :run, 'execute[date_cmd]', :delayed
+end
+
+
+47. knife cookbook upload filecopy
+
+48. Drag that from the available packages to the current run list and save the runlist in Chef Manage.
+
+49. chef-client
+
+50. There are many resource example avaialble at https://docs.chef.io/
+
+\n"
