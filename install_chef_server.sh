@@ -1,4 +1,3 @@
-#!/bin/bash
 read -p "Have you taken snapshop of your VM (y/n) > " ans
 
 if [ $ans = y ]
@@ -10,30 +9,26 @@ echo "Please take VM snapshot and come again.. "
 exit 1
 fi
 
-read -p "Enter your first name > " FIRSTNAME
-read -p "Enter your last name > " LASTNAME
-read -p "Enter your mail id > " MAIL_ID
-read -p "Enter new admin username > " USERADMIN
-read -p "Enter new admnin password > " PASSWORD
 
 wget https://packages.chef.io/files/stable/chef-server/12.15.8/el/7/chef-server-core-12.15.8-1.el7.x86_64.rpm
-
 rpm -ivh chef-server-core-12.15.8-1.el7.x86_64.rpm
-
 chmod 600 ~/.netrc
-
 chef-server-ctl reconfigure
 chef-server-ctl status
 chef-server-ctl install chef-manage
 opscode-manage-ctl reconfigure
 chef-server-ctl reconfigure
 mkdir ~/.chef
-chef-server-ctl user-create $USERADMIN $FIRSTNAME $LASTNAME $MAIL_ID $PASSWORD --filename /root/.chef/chefadmin.pem
+chef-server-ctl user-create $USERADMIN $FIRSTNAME $LASTNAME $MAIL_ID '$PASSWORD' --filename /root/.chef/chefadmin.pem
 chef-server-ctl org-create chef-organization 'Chef Oraganization' --association_user $USERADMIN --filename /root/.chef/chefvalidator.pem
 ssh 192.168.56.102 'mkdir -p /root/chef-repo/.chef/'
 scp /root/.chef/chefadmin.pem /root/.chef/chefvalidator.pem root@192.168.56.102:/root/chef-repo/.chef/
 
 echo -e "\n
+
+Add below line in /etc/hosts and start from step 1 below.
+
+$IPADDRESS `hostname`
 
 1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password $PASSWORD --  http://192.168.56.101
 
@@ -43,15 +38,15 @@ echo -e "\n
 
 4. After downloading this kit. Move it your Workstation /root folder and extract. This provides you with a default Starter Kit to start up with your Chef server. It includes a chef-repo.
 
-5. unzip chef-starter.zip
+5. WinSCP chef-starter.zip on 56.102 node.
 
-6. cd chef-repo
+6. yum install unzip -y; cd; unzip chef-starter.zip; cd chef-repo
 
 7. tree
 
 8. This is the file structure for the downloaded Chef repository. It contains all the required file structures to start with.
 
-9. knife cookbook site download learn_chef_httpd
+9. cd /root/chef-repo/cookbooks; knife cookbook site download learn_chef_httpd
 
 10. tar -xvf learn_chef_httpd-0.2.0.tar.gz
 
@@ -73,28 +68,28 @@ echo -e "\n
 
 19. knife ssl check
 
-20. knife client list
+20. yum  install ntpdate -y; ntpdate 1.ro.pool.ntp.org; knife client list
 
 21. knife user list
 
-22. knife cookbook upload learn_chef_httpd
+22. knife cookbook upload learn_chef_httpd.
 
 23. Verify the cookbook from the Chef Server Management console.
 
 24. Now Adding a Node
 
-25. knife bootstrap 192.168.56.102 --ssh-user root --ssh-password $ROOT_PASSWORD --node-name devopsclient
+25. knife bootstrap 192.168.56.102 --ssh-user root --ssh-password redhat --node-name devopsclient
 
 26. knife node list
 
-27. knife node show $NODE_NAME
+27. knife node show devopsclient
 
-28. Verifying it from the Management console \"Nodes\".
+28. Verifying it from the Management console "Nodes".
 
 29. We can get more information regarding the added node by selecting the node and viewing the Attributes section.
 
-30. Add Reciepe for new node.
+30. Add a cookbook to the node and manage its runlist from the Chef server. Node > Settings Icon > Edit Runlist. In the Available Recipes,  you can see our learn_chef_httpd recipe, you can drag that from the available packages to the current run list and save the runlist.
 
 31. Now login to your node and just run the command 'chef-client' to execute your runlist.
 
-32. Similarly, we can add any number of nodes to your Chef Server depending on its configuration and hardware"
+32. Similarly, we can add any number of nodes to your Chef Server depending on its configuration and hardware\n"
