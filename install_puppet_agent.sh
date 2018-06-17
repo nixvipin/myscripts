@@ -52,8 +52,8 @@ file { '/var/www/html':
         group => 'root',
     }
 
-file { "/var/www/html/data.txt":
-        mode => "0644",
+file { '/var/www/html/data.txt':
+        mode => '0644',
         owner => 'centos',
         group => 'root',
         source => 'puppet:///modules/mymodule/data.txt',
