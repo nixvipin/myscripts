@@ -27,7 +27,7 @@ command_line /usr/lib64/nagios/plugins/check_nrpe -H \$HOSTADDRESS$ -t 30 -c \$A
 
 define command{
         command_name    check_http_url
-        command_line    $USER1$/check_http -I $HOSTADDRESS$ -u $ARG1$
+        command_line    \$USER1$/check_http -I \$HOSTADDRESS$ -u \$ARG1$
 }
 
 3. Now create a client configuration file (/usr/local/nagios/etc/servers/server01.cfg) to define the host and service definitions of remote Linux host.
@@ -92,7 +92,7 @@ define service{
 define service{
             host_name                       server01
             service_description             URL: My_webserver1
-            check_command                   check_http_url!http://172.31.30.44:8001
+            check_command                   check_http!http://172.31.30.44:8001
             max_check_attempts              5
             check_interval                  3
             retry_interval                  1
