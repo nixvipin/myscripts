@@ -86,9 +86,6 @@ Note: Replace IP Address with your server machine private IP
             state: touch
 
 - hosts: server01
-  become_user: yes
-  become_method: sudo
-  become_user: root
   tasks:
       - name: Create user
         user:
