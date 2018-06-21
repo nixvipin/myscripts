@@ -1,11 +1,15 @@
+#!/bin/bash
+
+IPADDRESS=`ip a | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
+
 read -p "Have you taken snapshop of your VM (y/n) > " ans
 
 if [ $ans = y ]
 then
-echo "Starting Installtion.. "
+echo "\n\e[32mStarting Installtion.. \e[0m\n"
 sleep 5
 else
-echo "Please take VM snapshot and come again.. "
+echo "\n\e[32mPlease take VM snapshot and come again..\e[0m\n"
 exit 1
 fi
 
@@ -25,23 +29,23 @@ opscode-manage-ctl reconfigure
 chef-server-ctl reconfigure
 mkdir ~/.chef
 chef-server-ctl user-create chefadmin Tom Cruise $MAIL_ID 'redhat' --filename /root/.chef/chefadmin.pem
-chef-server-ctl org-create chef-organization 'Chef Oraganization' --association_user $USERADMIN --filename /root/.chef/chefvalidator.pem
-echo -e "\nEnter below workstation root password..\n" 
+chef-server-ctl org-create chef-organization 'Chef Oraganization' --association_user chefadmin --filename /root/.chef/chefvalidator.pem
+echo -e "\n\e[32mEnter below workstation root password..Type "yes" (if asked) \e[0m\n" 
 ssh $WSIP 'mkdir -p /root/chef-repo/.chef/'
-echo -e "\nAgain enter below workstation root password..\n"
+echo -e "\n\e[32mAgain enter below workstation root password..\e[0m\n"
 scp /root/.chef/chefadmin.pem /root/.chef/chefvalidator.pem root@$WSIP:/root/chef-repo/.chef/
 
-echo -e "\n
+echo -e "\n\e[32m
 
 Add below line in /etc/hosts and start from step 1 below.
 
 $IPADDRESS `hostname`
 
-1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://`CHEF_SERVIP`
+1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://$IPADDRESS
 
 2. Download the Starter Kit for WorkStation. Administration > Choose Organization > Click Settings Icon > Download Starter Kit
 
-3. After downloading this kit on Desktop. Use WinSCP and copy this Kit to your Workstation(`WSIP`) /root folder and extract. This provides you with a default Starter Kit to start up with your Chef server. It includes a chef-repo.
+3. After downloading this kit on Desktop. Use WinSCP and copy this Kit to your Workstation($WSIP) /root folder and extract. This provides you with a default Starter Kit to start up with your Chef server. It includes a chef-repo.
 
 4. mv /root/chef-repo /root/chef-repo_bak; yum install unzip -y; cd ~; unzip chef-starter.zip; cd chef-repo
 
@@ -93,7 +97,7 @@ $IPADDRESS `hostname`
 
 28. Now login to your node and just run the command 'chef-client' to execute your runlist.
 
-29. You should be able to see your Node IP runnig a webserver. http://`WSIP`/.
+29. You should be able to see your Node IP runnig a webserver. http://$WSIP/.
  - Similarly, later on you can add any number of nodes to your Chef Server depending on its configuration and hardware.
 
 30. Now let's add some Recipes. Execute below on Workstation
@@ -160,4 +164,4 @@ end
 
 50. There are many resource example avaialble at https://docs.chef.io/
 
-\n"
+\e[0m\n"
