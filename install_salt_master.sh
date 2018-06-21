@@ -12,5 +12,6 @@ interface: 0.0.0.0
 hash_type: sha256
 " >> /etc/salt/master
 
+mkdir -p /srv/salt/
 systemctl start salt-master.service
 systemctl enable salt-master.service
