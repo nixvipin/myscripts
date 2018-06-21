@@ -50,7 +50,7 @@
 
 1.  Filebeat (done)
 2.  Chef Workstation(done)
-3.  SaltStack Master(in progress)
+3.  SaltStack Master(done)
 4.  Docker (waiting)
 
 ====Client01====
