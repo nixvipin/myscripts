@@ -7,6 +7,10 @@ yum clean expire-cache -y
 yum install salt-minion -y
 
 read -p "Please enter your salt master IP Address: > " saltmas_ip
+read -p "Please enter your name: > " MYNAME
+NEWUSER=`echo $MYNAME | tr '[A-Z]' '[a-z]'`
+
+SERVHOST=`hostname`
 
 echo -e "\n
 master: $saltmas_ip
@@ -19,10 +23,10 @@ systemctl enable salt-minion.service
 echo -e "\n\e[32mNow execute below on Salt Master Server..
 
 1. salt-key -L
-2. salt-key --accept=`hostname`
-3. salt `hostname` test.ping
-4. salt `hostname` cmd.run pwd
-5. salt `hostname` cmd.run "ls -l"
+2. salt-key --accept=$SERVHOST
+3. salt $SERVHOST test.ping
+4. salt $SERVHOST cmd.run pwd
+5. salt $SERVHOST cmd.run "ls -l"
 6. salt $SERVHOST disk.usage
 7. salt $SERVHOST pkg.install banner
 8. salt $SERVHOST cmd.run "banner HELLO $MYNAME"
