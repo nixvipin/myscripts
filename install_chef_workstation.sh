@@ -1,3 +1,4 @@
+#!/bin/bash
 read -p "Have you taken snapshop of your VM (y/n) > " ans
 
 if [ $ans = y ]
@@ -5,7 +6,7 @@ then
 echo "Starting Installtion.. "
 sleep 5
 else
-echo "Please take VM snapshot and come again.. "
+echo -e "\n\e[32mPlease take VM snapshot and come again..\e[0m\n"
 exit 1
 fi
 
@@ -18,18 +19,19 @@ ntpdate 1.ro.pool.ntp.org
 
 wget https://packages.chef.io/stable/el/7/chefdk-0.14.25-1.el7.x86_64.rpm
 rpm -ivh chefdk-0.14.25-1.el7.x86_64.rpm
+IPADDRESS=`ip a | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
 
-echo -e "
+echo -e "\n\e[32m
 Add below line in /etc/hosts and start from step 1 below.
 
 $IPADDRESS `hostname`
 
-\n"
+\e[0m\n"
 
 mkdir chef-repo
 cd chef-repo
 
-echo -e "\npackage 'httpd'
+echo -e "package 'httpd'
 service 'httpd' do
 action [:enable, :start] end
 
@@ -39,7 +41,7 @@ end" > hello.rb
 
 chef-apply hello.rb
 
-echo -e "\nwe can verify it by running the server IP in the browser.\n"
+echo -e "\n\e[32mwe can verify it by running the server IP in the browser..\e[0m\n"
 
 mkdir cookbooks
 cd cookbooks/
