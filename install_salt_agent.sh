@@ -46,11 +46,11 @@ elinks:
     - user: root
     - group: root
   
-13. salt $SERVHOST state.apply filecopy
+13. salt $SERVHOST* state.apply filecopy
 
-salt $SERVHOST service.stop httpd
+14. salt $SERVHOST* service.stop httpd
 
-14. vim /srv/salt/nginx_pkg.sls
+15. vim /srv/salt/nginx_pkg.sls
 
 nginx:
   pkg.installed: []
@@ -58,6 +58,6 @@ nginx:
     - require:
       - pkg: nginx
 
-15. salt $SERVHOST state.apply nginx_pkg
+16. salt $SERVHOST* state.apply nginx_pkg
 
 \e[0m\e"
