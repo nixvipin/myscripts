@@ -23,20 +23,20 @@ systemctl enable salt-minion.service
 echo -e "\n\e[32mNow execute below on Salt Master Server..
 
 1. salt-key -L
-2. salt-key --accept=$SERVHOST
-3. salt $SERVHOST test.ping
-4. salt $SERVHOST cmd.run pwd
-5. salt $SERVHOST cmd.run "ls -l"
-6. salt $SERVHOST disk.usage
-7. salt $SERVHOST pkg.install banner
-8. salt $SERVHOST cmd.run "banner HELLO $MYNAME"
+2. salt-key --accept=$SERVHOST*
+3. salt $SERVHOST* test.ping
+4. salt $SERVHOST* cmd.run pwd
+5. salt $SERVHOST* cmd.run \"ls -l\"
+6. salt $SERVHOST* disk.usage
+7. salt $SERVHOST* pkg.install banner
+8. salt $SERVHOST* cmd.run \"banner HELLO $MYNAME\"
 9. vim /srv/salt/somepkg.sls
 
 elinks:
   pkg.installed: []
   
-10. salt $SERVHOST state.apply somepkg
-11. echo "Hi $MYNAME, This is a test file" > imtestfile.txt
+10. salt $SERVHOST* state.apply somepkg
+11. echo \"Hi $MYNAME, This is a test file\" > imtestfile.txt
 12. vim /srv/salt/filecopy.sls
 
 /tmp/testfile:
