@@ -23,7 +23,7 @@ systemctl enable salt-minion.service
 echo -e "\n\e[32mNow execute below on Salt Master Server..
 
 1. salt-key -L
-2. salt-key --accept=$SERVHOST*
+2. salt-key --accept=$SERVHOST
 3. salt $SERVHOST* test.ping
 4. salt $SERVHOST* cmd.run pwd
 5. salt $SERVHOST* cmd.run \"ls -l\"
