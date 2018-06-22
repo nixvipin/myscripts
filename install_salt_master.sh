@@ -2,7 +2,7 @@
 yum remove salt-master -y
 rm /etc/salt/master
 rpm -e epel-release-7-11.noarch
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 yum clean expire-cache -y 
 yum install salt-master -y
 
