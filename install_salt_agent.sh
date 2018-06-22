@@ -2,7 +2,7 @@
 yum remove salt-minion -y
 rm /etc/salt/minion
 rpm -e epel-release-7-11.noarch
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 yum clean expire-cache -y 
 yum install salt-minion -y
 
