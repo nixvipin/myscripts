@@ -23,7 +23,7 @@ echo -e "\n\e[32m
 #This is sample image
 FROM centos
 #Maintainer name
-MAINTAINER nix.vipin@gmail.com
+MAINTAINER <YOUR_MAIL_ID>
 #Execute Run
 RUN yum install httpd -y
 #Export port
