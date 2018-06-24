@@ -15,6 +15,7 @@ echo -e "\n\e[32m
 4.  Execute 'docker login' and enter your docker hub login details on your server
 5.  docker images
 6.  docker search centos
+--> Let's start build docker image
 7.  cd
 8.  mkdir mydocker
 9.  cd mydocker
@@ -42,24 +43,37 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 </body>
 
 12.  docker build /mydocker/ -t mydocker:1.0
-13.  docker run -d -p 8080:80 myapache:web1 /usr/sbin/httpd -D FOREGROUND
-14.  docker images
+13.  docker images
+14.  docker run -d -p 8080:80 mydocker:1.0 /usr/sbin/httpd -D FOREGROUND
 15.  docker ps
-16.  Now let's setup Nginx container
-17.  docker pull nginx
-18.  docker run --name docker-nginx-new -p 8080:80 -e TERM=xterm -d nginx
-19.  docker exec -it CONTAINER_ID bash
-20.  You should be able to see Nginx default home page on when you hit http://192.168.56.102 in browser.
-21.  Now let's have one more example setup Jenkins on port 8080.
-22.  docker pull jenkins
-23.  docker run -p 8080:8080 -p 50000:50000 jenkins
-24.  docker run -d -p 8080:8080 -p 50000:50000 jenkins
-25.  docker images
-26.  docker ps -l
-27.  docker exec -it  CONTAINER_ID  bash
-28.  docker tag jenkins nixvipin/jenkinsimage
-29.  docker image push nixvipin/jenkinsimage
-30.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage.
-
+16.  docker exec -it <CONTAINER_ID> bash
+17.  Let's push this image into your repository
+18.  docker tag mydocker:1.0 <DOCKER_USER_NAME>/mydockerimg
+19.  docker images
+20.  docker image push nixvipin/mydockerimg
+-->  Now let's setup Nginx container
+21.  docker pull nginx
+22.  docker run --name docker-nginx-new -p 8081:80 -e TERM=xterm -d nginx
+23.  docker exec -it <CONTAINER_ID> bash
+24.  You should be able to see Nginx default home page on when you hit http://192.168.56.102:8081 in browser.
+-->  Now let's have one more example setup Jenkins on port 8082
+25.  docker search jenkins
+26.  docker pull jenkins
+27.  docker images
+28.  docker run -d -p 8082:8080 -p 50000:50000 jenkins
+29.  You should be able to see Jenkins default home page on when you hit http://192.168.56.102:8082 in browser. 
+30.  docker ps
+31.  docker exec -it  CONTAINER_ID  bash
+32.  yum install git -y
+33.  mkdir /docker-data
+34.  cd /docker-data
+35.  git clone https://github.com/nixvipin/myscripts.git
+36.  cd myscripts
+37.  sh initial_install.sh
+38.  exit
+-->  Now if you want to save this image
+39.  docker tag jenkins nixvipin/jenkinsimage
+40.  docker image push nixvipin/jenkinsimage
+41.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage.
 
 \e[0m\e"
