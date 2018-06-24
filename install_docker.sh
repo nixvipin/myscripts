@@ -42,7 +42,7 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 
 </body>
 
-12.  docker build /mydocker/ -t mydocker:1.0
+12.  docker build -t mydocker:1.0 .
 13.  docker images
 14.  docker run -d -p 8080:80 mydocker:1.0 /usr/sbin/httpd -D FOREGROUND
 15.  docker ps
