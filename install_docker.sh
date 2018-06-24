@@ -47,15 +47,18 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 14.  docker run -d -p 8080:80 mydocker:1.0 /usr/sbin/httpd -D FOREGROUND
 15.  docker ps
 16.  docker exec -it <CONTAINER_ID> bash
-17.  Let's push this image into your repository
+17.  exit
+###  Let's push this image into your repository
 18.  docker tag mydocker:1.0 <DOCKER_USER_NAME>/mydockerimg
 19.  docker images
 20.  docker image push nixvipin/mydockerimg
+
 -->  Now let's setup Nginx container
 21.  docker pull nginx
 22.  docker run --name docker-nginx-new -p 8081:80 -e TERM=xterm -d nginx
 23.  docker exec -it <CONTAINER_ID> bash
 24.  You should be able to see Nginx default home page on when you hit http://192.168.56.102:8081 in browser.
+
 -->  Now let's have one more example setup Jenkins on port 8082
 25.  docker search jenkins
 26.  docker pull jenkins
@@ -71,7 +74,7 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 36.  cd myscripts
 37.  sh initial_install.sh
 38.  exit
--->  Now if you want to save this image
+###  Push this image into docker repository.
 39.  docker tag jenkins nixvipin/jenkinsimage
 40.  docker image push nixvipin/jenkinsimage
 41.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage.
