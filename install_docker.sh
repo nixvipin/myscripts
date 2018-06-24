@@ -16,27 +16,35 @@ echo -e "\n\e[32m
 5.  docker images
 6.  docker search centos
 7.  cd
-8.  mkdir apacheserver
-9.  cd apacheserver
+8.  mkdir mydocker
+9.  cd mydocker
 10. vim Dockerfile
 
 #This is sample image
-FROM centos
+FROM centos:latest
 #Maintainer name
-MAINTAINER <YOUR_MAIL_ID>
+MAINTAINER <Your_Mail_ID>
 #Execute Run
 RUN yum install httpd -y
+COPY index.html /var/www/html
 #Export port
 EXPOSE 80
 #Status
-CMD ["echo ","Images Created"]
+CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 
+11.  vim index.html
 
-11.  docker build -t apacheserver:apacheserver .
-12.  docker images
-13.  docker ps -l
-14.  docker run -it apacheserver:apacheserver /bin/bash
-15.  docker ps -l
+<body style="background-color:powderblue;">
+
+<h1>This is test page</h1>
+<p>Hello! Docker</p>
+
+</body>
+
+12.  docker build /mydocker/ -t mydocker:1.0
+13.  docker run -d -p 8080:80 myapache:web1 /usr/sbin/httpd -D FOREGROUND
+14.  docker images
+15.  docker ps
 16.  Now let's setup Nginx container
 17.  docker pull nginx
 18.  docker run --name docker-nginx-new -p 8080:80 -e TERM=xterm -d nginx
