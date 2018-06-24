@@ -37,5 +37,21 @@ CMD ["echo ","Images Created"]
 13.  docker ps -l
 14.  docker run -it apacheserver:apacheserver /bin/bash
 15.  docker ps -l
+16.  Now let's setup Nginx container
+17.  docker pull nginx
+18.  docker run --name docker-nginx-new -p 8080:80 -e TERM=xterm -d nginx
+19.  docker exec -it CONTAINER_ID bash
+20.  You should be able to see Nginx default home page on when you hit http://192.168.56.102 in browser.
+21.  Now let's have one more example setup Jenkins on port 8080.
+22.  docker pull jenkins
+23.  docker run -p 8080:8080 -p 50000:50000 jenkins
+24.  docker run -d -p 8080:8080 -p 50000:50000 jenkins
+25.  docker images
+26.  docker ps -l
+27.  docker exec -it  CONTAINER_ID  bash
+28.  docker tag jenkins nixvipin/jenkinsimage
+29.  docker image push nixvipin/jenkinsimage
+30.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage.
+
 
 \e[0m\e"
