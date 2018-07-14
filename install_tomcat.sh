@@ -1,15 +1,16 @@
 #!/bin/bash
+TOMCAT_VERSION=8.5.32
+
 mkdir -p /data
 cd /data
-#wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
-wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
-tar -zxvf apache-tomcat-8.5.31.tar.gz
-mv apache-tomcat-8.5.31 apache-tomcat
+http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+tar -zxvf apache-tomcat-$TOMCAT_VERSION.tar.gz
+mv apache-tomcat-$TOMCAT_VERSION apache-tomcat
 cd apache-tomcat/bin
 sed -i.orig.bak 's/8080/8001/g' /data/apache-tomcat/conf/server.xml
 sed -i 's/8009/8010/g' /data/apache-tomcat/conf/server.xml
 sed -i 's/8005/8015/g' /data/apache-tomcat/conf/server.xml
-rm /data/apache-tomcat-8.5.31.tar.gz
+rm /data/apache-tomcat-$TOMCAT_VERSION.tar.gz
 cp -a /data/myscripts/employees.war /data/apache-tomcat/webapps/
 cd /data/apache-tomcat/bin
 ./startup.sh

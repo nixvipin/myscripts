@@ -2,6 +2,8 @@
 
 java -version
 PID=`ps -ef | grep /data/jenkins | grep -v grep | awk '{print $2}'`
+TOMCAT_VERSION=8.5.32
+
 
 if [ $? = 0 ]
 then
@@ -30,11 +32,10 @@ setup_tomcat()
 kill -9 $PID
 mkdir -p /data
 cd /data
-#wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
-wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
-tar -zxvf apache-tomcat-8.5.31.tar.gz
-mv /data/apache-tomcat-8.5.31 /data/jenkins
-rm /data/apache-tomcat-8.5.31.tar.gz
+wget http://www-us.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+tar -zxvf apache-tomcat-$TOMCAT_VERSION.tar.gz
+mv /data/apache-tomcat-$TOMCAT_VERSION /data/jenkins
+rm /data/apache-tomcat-$TOMCAT_VERSION.tar.gz
 sed -i.orig.bak 's/8080/8002/g' /data/jenkins/conf/server.xml
 echo -e "export JAVA_OPTS=\"-Xms128m -Xmx512m\"" > /data/jenkins/bin/setenv.sh
 chmod +x /data/jenkins/bin/setenv.sh
