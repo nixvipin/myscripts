@@ -86,8 +86,11 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 37.  cd myscripts
 38.  sh initial_install.sh
 39.  exit
+# Commit your changes. CONTEINR_ID you can get from 'docker ps'.
+40. docker commit <CONTEINR_ID> mydocker:1.0
+#Tag image
 ###  Push this image into docker repository.
-40.  docker tag jenkins nixvipin/jenkinsimage
-41.  docker image push nixvipin/jenkinsimage
-42.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage. \e[0m\e"
-
+41.  docker tag jenkins nixvipin/jenkinsimage
+# Push Image. Make sure you're log-in, otherwisr use 'docker login'.
+42.  docker image push nixvipin/jenkinsimage
+43.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage. \e[0m\e"
