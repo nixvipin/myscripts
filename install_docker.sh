@@ -90,3 +90,4 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 40.  docker tag jenkins nixvipin/jenkinsimage
 41.  docker image push nixvipin/jenkinsimage
 42.  You should be able to see images uploaded in your docker repository on hub.docker.com homepage. \e[0m\e"
+
