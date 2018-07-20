@@ -1,50 +1,46 @@
 #!/bin/bash
 
-
-
-rm -rf /tmp/Deploy_Project_Main_duplicate /tmp/My_Project_Main_duplicate
-
-cd /data/jenkins/bin
-./shutdown.sh
-cp  /data/myscripts/jenkins_jobs.zip /tmp/
-cd /tmp
-yum install unzip  -y
-unzip jenkins_jobs.zip
-
-if [ -d ~/.jenkins/jobs/My_Project_Main ]
-then
-mv ~/.jenkins/jobs/My_Project_Main /tmp/My_Project_Main_duplicate
-cp -rf /tmp/jenkins_jobs/My_Project_Main ~/.jenkins/jobs/
-else
-cp -rf jenkins_jobs/My_Project_Main ~/.jenkins/jobs/
-fi
-
-if [ -d ~/.jenkins/jobs/Deploy_Project_Main ]
-then
-mv ~/.jenkins/jobs/Deploy_Project_Main /tmp/Deploy_Project_Main_duplicate
-cd /tmp
-cp -rf jenkins_jobs/Deploy_Project_Main ~/.jenkins/jobs/
-else
-cp -rf jenkins_jobs/Deploy_Project_Main ~/.jenkins/jobs/
-fi
-
-
-rm -rf /tmp/jenkins_jobs
-rm /tmp/jenkins_jobs.zip
-
-install_plugins()
+build_setup()
 {
-cd ~/.jenkins/plugins/
-https://updates.jenkins-ci.org/latest/multiple-scms.hpi
-https://updates.jenkins-ci.org/latest/rebuild.hpi
-https://updates.jenkins-ci.org/latest/parameterized-trigger.hpi
+rm -rf ~/.jenkins/jobs/myproject_build
+unzip myproject_build.zip -d ~/.jenkins/jobs/myproject_build
 }
 
-install_plugins
+deploy_Setup()
+{
+rm -rf ~/.jenkins/jobs/myproject_deploy
+unzip myproject_deply.zip -d ~/.jenkins/jobs/myproject_deploy
+}
 
-
-cd /data/jenkins/bin/
+restart_jenkins()
+{
+cd /data/jenkins/bin
+./shutdown.sh
 ./startup.sh
+}
 
-sleep 5
-echo -e "\nJenkins jobs are loaded successfully\n"
+read -p "\1. Build Job setup\2.Deploy Job setup\3.Both Build and Deploy Job setup\4.Exit" INPUT
+
+case $INPUT in
+	1)
+		build_setup
+		restart_jenkins
+		;;
+	2)
+		deploy_Setup
+		restart_jenkins
+		break
+		;;
+	3)
+		build_setup		
+		deploy_Setup
+		restart_jenkins	
+		;;
+	4)	echo "See you next time!"
+		exit 1
+		;;
+	*)	echo "Sorry! Invalid input"
+		exit 1
+		;;
+esac
+
