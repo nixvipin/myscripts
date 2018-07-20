@@ -36,7 +36,6 @@ wget https://archive.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache
 tar -zxvf apache-tomcat-$TOMCAT_VERSION.tar.gz
 mv /data/apache-tomcat-$TOMCAT_VERSION /data/jenkins
 rm /data/apache-tomcat-$TOMCAT_VERSION.tar.gz
-sed -i.orig.bak 's/8080/8002/g' /data/jenkins/conf/server.xml
 echo -e "export JAVA_OPTS=\"-Xms128m -Xmx512m\"" > /data/jenkins/bin/setenv.sh
 chmod +x /data/jenkins/bin/setenv.sh
 }
@@ -63,7 +62,6 @@ start_jenkins()
 {
 cd /data/jenkins/bin
 ./startup.sh
-echo -e "\n\e[32mSet Nagios GUI console password.\e[0m\n"
 echo -e "\n\e[32mJenkins installation is complete - http://<Client_PublicIP>:8002/jenkins\e[0m\n"
 }
 
