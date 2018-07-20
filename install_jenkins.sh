@@ -32,7 +32,7 @@ setup_tomcat()
 kill -9 $PID
 mkdir -p /data
 cd /data
-wget http://www-us.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+wget https://archive.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 tar -zxvf apache-tomcat-$TOMCAT_VERSION.tar.gz
 mv /data/apache-tomcat-$TOMCAT_VERSION /data/jenkins
 rm /data/apache-tomcat-$TOMCAT_VERSION.tar.gz
@@ -44,8 +44,7 @@ chmod +x /data/jenkins/bin/setenv.sh
 set_war()
 {
 cd /data/jenkins/webapps
-#wget "https://updates.jenkins-ci.org/latest/jenkins.war"
-wget "https://updates.jenkins-ci.org/download/war/2.118/jenkins.war"
+wget "https://updates.jenkins-ci.org/latest/jenkins.war"
 }
 
 set_context_file()

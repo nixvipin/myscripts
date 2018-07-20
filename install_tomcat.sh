@@ -3,7 +3,7 @@ TOMCAT_VERSION=8.5.32
 
 mkdir -p /data
 cd /data
-wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+wget https://archive.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 tar -zxvf apache-tomcat-$TOMCAT_VERSION.tar.gz
 mv apache-tomcat-$TOMCAT_VERSION apache-tomcat
 cd apache-tomcat/bin
