@@ -5,24 +5,24 @@ read -p "You existing jobs will be wiped-out.. continue..?(y/n) " ans
 if [ $ans = y ]
 then
 cp -rfa ~/.jenkins/jobs ~/.jenkins/jobs_bak
-rm -rf  ~/.jenkins/jobs/*
+rm -rf  ~/.jenkins/jobs/myproject_build ~/.jenkins/jobs/myproject_deploy
 elif [ $ans = n ]
 then
 echo -e "\nSee you next time..\n"
 exit 1
 else
-echo "\nSupported inputs y/n\n"
+echo -e "\nSupported inputs only y/n..\n"
 exit 1
 fi
 
 build_setup()
 {
-unzip myproject_build.zip -d ~/.jenkins/jobs/myproject_build
+unzip -j myproject_build.zip -d ~/.jenkins/jobs/myproject_build
 }
 
 deploy_Setup()
 {
-unzip myproject_deploy.zip -d ~/.jenkins/jobs/myproject_deploy
+unzip -j myproject_deploy.zip -d ~/.jenkins/jobs/myproject_deploy
 }
 
 restart_jenkins()
