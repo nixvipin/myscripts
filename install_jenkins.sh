@@ -62,7 +62,7 @@ start_jenkins()
 {
 cd /data/jenkins/bin
 ./startup.sh
-echo -e "\n\e[32mJenkins installation is complete - http://<Client_PublicIP>:8002/jenkins\e[0m\n"
+echo -e "\n\e[32mJenkins installation is complete - http://<Client_PublicIP>:8080/jenkins\e[0m\n"
 }
 
 setup_jenkins()
