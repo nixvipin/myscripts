@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo -e "\n\e[32m ...Installing Docker Packages...\e[0m\e"
 yum install -y yum-utils device-mapper-persistent-data lvm2 -y
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install docker-ce -y
@@ -7,11 +8,11 @@ yum list docker-ce --showduplicates | sort -r
 systemctl start docker
 systemctl enable docker
 
-echo -e "\n\e[32m
+echo -e "\n\e[32mPlease follow below steps :
 
 1.  Log in on https://hub.docker.com/
 2.  Click on Create Repository.
-3.  Choose a name (e.g. mycloud_project) and a description for your repository and click Create.
+3.  Enter a project name and a description for your repository and click Create.
 4.  Execute on VM 'docker login' and enter your docker hub login details on your server
 5.  docker images
 6.  docker search centos
