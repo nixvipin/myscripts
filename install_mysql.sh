@@ -23,7 +23,7 @@ read -p "\nEnter MySQL root password which you entered above --> " my_password
 echo -e "\n========== Execute commands in\e[32m green\e[0m ==========\n
 
 
-mysql -uroot -p$my_password
+#\e[32mmysql -uroot -p$my_password\e[0m
 
 MariaDB [(none)]>\e[32m create database mydb;\e[0m
 Query OK, 1 row affected (0.00 sec)
@@ -33,7 +33,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 MariaDB [(none)]> \e[32m exit\e[0m
 Bye
-[root@server01 myscripts]#\e[32m mysql -umyuser -pmypass mydb \e[0m
+#\e[32m mysql -umyuser -pmypass mydb \e[0m
 
 MariaDB [mydb]>\e[32m CREATE TABLE EMPLOYEE(
     ->     id INT NOT NULL auto_increment,
