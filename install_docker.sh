@@ -63,4 +63,4 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 31.  docker ps
 32.  docker exec -it  CONTAINER_ID  bash
 33.  exit
-34.  Check uploaded images by login into browser on hub.docker.com. \e[0m\e"
+\e[0m\e"
