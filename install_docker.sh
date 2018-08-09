@@ -43,10 +43,10 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 15.  docker ps
 16.  docker exec -it <CONTAINER_ID> bash
 17.  exit
-18. docker commit <CONTEINR_ID> mydocker:1.0
+18.  docker commit <CONTEINR_ID> mydocker:1.0
 19.  docker tag mydocker:1.0 <DOCKER_USER_NAME>/mydockerimg
 20.  docker images
-21.  docker image push nixvipin/mydockerimg
+21.  docker image push <DOCKER_USER_NAME>/mydockerimg
 
 # Pull Ngnix image
 22.  docker pull nginx
@@ -62,17 +62,5 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 30.  You should be able to see Jenkins default home page on when you hit http://192.168.56.102:8082 in browser. 
 31.  docker ps
 32.  docker exec -it  CONTAINER_ID  bash
-33.  yum install git -y
-34.  mkdir /docker-data
-35.  cd /docker-data
-36.  git clone https://github.com/nixvipin/myscripts.git
-37.  cd myscripts
-38.  sh initial_install.sh
-39.  exit
-### Commit your changes. CONTEINR_ID you can get from 'docker ps'.
-40. docker commit <CONTEINR_ID> mydocker:1.0
-###  Push this image into docker repository.
-41.  docker tag jenkins nixvipin/jenkinsimage
-### Push image into docker hub repository.
-42.  docker image push nixvipin/jenkinsimage
-43.  Check uploaded. Login into browser on hub.docker.com. \e[0m\e"
+33.  exit
+34.  Check uploaded images by login into browser on hub.docker.com. \e[0m\e"
