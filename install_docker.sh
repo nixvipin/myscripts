@@ -30,7 +30,7 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 
 11.  vim index.html
 
-<body style="background-color:powderblue;">
+<body style=\"background-color:powderblue;\">
 
 <h1>This is my sample page</h1>
 <p>Hello! Docker</p>
