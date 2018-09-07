@@ -37,12 +37,37 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]\n
 -> docker images
 -> docker run -d -p 8080:80 mydocker:1.0 /usr/sbin/httpd -D FOREGROUND
 -> docker ps
+# You should see the Apache page on http://192.168.56.101:8080
+-> Login to the docker VM and edit the page by login into Docker container.
 -> docker exec -it <CONTAINER_ID> bash
+-> ps -ef | grep apache
+-> vi /var/www/html/index.html
+# You should see changed on http://192.168.56.101:8080
+# Stop the Apache service before exit and pushing the image into Docker Registry.
+-> pkill -9 httpd
+-> rm /run/httpd/httpd.pid
 -> exit
+# Commit the changes we did in container
+-> docker ps
 -> docker commit <CONTEINR_ID> mydocker:1.0
--> docker tag mydocker:1.0 <DOCKER_USER_NAME>/mydockerimg
+-> docker tag mydocker:1.0 <DOCKER_USER_NAME>/mydockernewimg
 -> docker images
 -> docker image push <DOCKER_USER_NAME>/mydockerimg\n
+-> Verify the Image on https://hub.docker.com/
+# To Re-use the container. Stop and remove container.
+-> docker ps
+-> docker stop <CONTAINER_ID>
+->  docker ps -a
+-> docker rm <CONTAINER_ID>
+# Remove  all images
+-> docker rmi $(docker images -q)
+# Download image we commited earlier
+-> docker pull <username>/mydockernewimg
+-> docker images
+#Create container with mounting /data into it and give some name to container.
+docker create -v /data --name mycont  nixvipin/mydockernewimg /usr/sbin/httpd -D FOREGROUND
+docker ps -a
+
 ##############################################
 #   DOWNLOAD NGINX IMAGE AND START CONTAINER #
 ##############################################\n
