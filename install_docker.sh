@@ -24,51 +24,53 @@ echo -e "\n\e[32mPlease follow below steps :\n
 -> mkdir /data/mydocker
 -> cd /data/mydocker
 -> vim Dockerfile
+#create own Dockerfile as per requirement
+
 \nFROM centos:latest
 MAINTAINER <Enter_Your_Mail_ID>
 RUN yum install httpd -y
 COPY index.html /var/www/html
 EXPOSE 80
-CMD ["/usr/sbin/httpd", "-D", "BACKGROUND"]\n
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]\n
+
 -> vim index.html
+#create a index page below.
+
 \n<h1>This is my sample page</h1>
 <p>Hello! Docker</p>\n
--> docker build -t mydocker:1.0 .
+
+# Build own Docker
+-> docker build -t mydockerimg .
+# See Docker Images on local server 0 (You should see 2 Images base and ours)
 -> docker images
--> docker run -d -p 8080:80 mydocker:1.0 /usr/sbin/httpd -D FOREGROUND
+# Run container (You should see SHA)
+-> docker run -d -p 8080:80 mydockerimg
+# Verify running container (You should see a container runnig)
 -> docker ps
-# You should see the Apache page on http://192.168.56.101:8080
+# Verify Apache page on http://192.168.56.101:8080 (You should see index.html page)
 -> Login to the docker VM and edit the page by login into Docker container.
--> docker exec -it <CONTAINER_ID> bash
--> ps -ef | grep apache
+-> docker exec -it <CONTAINER_ID> /bin/bash
+# See the running httpd service
+-> ps -ef | grep httpd
+# Edit index.html
 -> vi /var/www/html/index.html
 # You should see changed on http://192.168.56.101:8080
-# Now stop the Apache service before exit and pushing the image into Docker Registry.
--> pkill -9 httpd
--> rm /run/httpd/httpd.pid
-# Edit "/etc/httpd/conf/httpd.conf" and uncomment "ServerName localhost"
--> vi +95 /etc/httpd/conf/httpd.conf
+# Also create a test user in our container
+-> useradd mytest
+# Verify user is created
+-> cat /etc/passwd
+# Now exit container
 -> exit
-# Commit the changes we did in container
+# Commit the changes so we can push to Docker Registry.
 -> docker ps
--> docker commit <CONTEINR_ID> mydocker:1.0
--> docker tag mydocker:1.0 <DOCKER_USER_NAME>/mydockernewimg
+-> docker commit <CONTEINR_ID> mydockerimg
+# We need to need in order to push this container to Docker Registry.
+-> docker tag mydockerimg <DOCKER_USER_NAME>/mydockerremote
+# Verify tagged properly
 -> docker images
--> docker image push <DOCKER_USER_NAME>/mydockerimg\n
--> Verify the Image on https://hub.docker.com/
-# To Re-use the container. Stop and remove container.
--> docker ps
--> docker stop <CONTAINER_ID>
-->  docker ps -a
--> docker rm <CONTAINER_ID>
-# Remove  all images
--> docker rmi $(docker images -q)
-# Download image we commited earlier
--> docker pull <username>/mydockernewimg
--> docker images
-#Create container with mounting /data into it and give some name to container.
-docker create -v /data --name mycont  nixvipin/mydockernewimg /usr/sbin/httpd -D FOREGROUND
-docker ps -a
+# Push the tagged image
+-> docker image push <DOCKER_USER_NAME>/mydockerremote\n
+# Verify the Image on https://hub.docker.com/
 
 ##############################################
 #   DOWNLOAD NGINX IMAGE AND START CONTAINER #
@@ -76,5 +78,5 @@ docker ps -a
 -> docker pull nginx
 -> docker run --name docker-nginx-new -p 8081:80 -e TERM=xterm -d nginx
 -> docker exec -it <CONTAINER_ID> bash
-->  You should be able to see Nginx default home page on when you hit http://192.168.56.101:8081 in browser.
+-> You should be able to see Nginx default home page on when you hit http://192.168.56.101:8081 in browser.
 \e[0m\e"
