@@ -29,7 +29,7 @@ MAINTAINER <Enter_Your_Mail_ID>
 RUN yum install httpd -y
 COPY index.html /var/www/html
 EXPOSE 80
-CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]\n
+CMD ["/usr/sbin/httpd", "-D", "BACKGROUND"]\n
 -> vim index.html
 \n<h1>This is my sample page</h1>
 <p>Hello! Docker</p>\n
@@ -43,9 +43,11 @@ CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]\n
 -> ps -ef | grep apache
 -> vi /var/www/html/index.html
 # You should see changed on http://192.168.56.101:8080
-# Stop the Apache service before exit and pushing the image into Docker Registry.
+# Now stop the Apache service before exit and pushing the image into Docker Registry.
 -> pkill -9 httpd
 -> rm /run/httpd/httpd.pid
+# Edit "/etc/httpd/conf/httpd.conf" and uncomment "ServerName localhost"
+-> vi +95 /etc/httpd/conf/httpd.conf
 -> exit
 # Commit the changes we did in container
 -> docker ps
