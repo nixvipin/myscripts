@@ -26,6 +26,8 @@ Note: Replace IP Address with your server machine private IP
 
 7. Execute 'su - ansible' then 'ssh-keygen'  on client machine, press blank enter until you get shell prompt.
 
+8. Type 'exit'
+
 8. Execute 'passwd ansible' on both client and server and set password 'ansible'.
 
 9. Execute  'ssh-copy-id ansible@172.31.30.44' on your client machine. Replace IP with your server private IP address. Enter password 'ansible' (step 8).
