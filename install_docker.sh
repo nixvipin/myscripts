@@ -63,7 +63,7 @@ CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]\n
 -> exit
 # Commit the changes so we can push to Docker Registry.
 -> docker ps
--> docker commit <CONTEINR_ID> mydockerimg
+-> docker commit <CONTEINR_ID> mydockerimgremote:1.0
 # We need to need in order to push this container to Docker Registry.
 -> docker tag mydockerimg <DOCKER_USER_NAME>/mydockerremote
 # Verify tagged properly
