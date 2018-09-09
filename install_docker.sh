@@ -44,17 +44,17 @@ CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]\n
 # See Docker Images on local server 0 (You should see 2 Images base and ours)
 -> docker images
 # Run container (You should see SHA)
--> docker run -d -p 8080:80 mydockerimg
+-> docker run -d -p 8081:80 mydockerimg
 # Verify running container (You should see a container runnig)
 -> docker ps
-# Verify Apache page on http://192.168.56.101:8080 (You should see index.html page)
+# Verify Apache page on http://192.168.56.101:8081 (You should see index.html page)
 -> Login to the docker VM and edit the page by login into Docker container.
 -> docker exec -it <CONTAINER_ID> /bin/bash
 # See the running httpd service
 -> ps -ef | grep httpd
 # Edit index.html
 -> vi /var/www/html/index.html
-# You should see changed on http://192.168.56.101:8080
+# You should see changed on http://192.168.56.101:8081
 # Also create a test user in our container
 -> useradd mytest
 # Verify user is created
