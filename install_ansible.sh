@@ -56,6 +56,8 @@ Note: Replace IP Address with your server machine private IP
       become_user: root
 
 
+Note: Execute "yum install epel-release" on server01" if the above is failed.
+
 12. And your first playbook 'ansible-playbook nginx_install.yml' on client machine.
 
 13. Now go to server machine and see process is running or not 'ps -ef | grep nginx'.
