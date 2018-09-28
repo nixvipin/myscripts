@@ -1,10 +1,12 @@
 #!/bin/bash
 
+VER=3.5.4
+
 cd /data
-wget http://redrockdigimark.com/apachemirror/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
-tar -xzf apache-maven-3.5.3-bin.tar.gz
-mv apache-maven-3.5.3 maven
-rm apache-maven-3.5.3-bin.tar.gz
+wget http://mirrors.wuchna.com/apachemirror/maven/maven-3/$VER/binaries/apache-maven-VER-bin.tar.gz
+tar -xzf apache-maven-$VER-bin.tar.gz
+mv apache-maven-$VER maven
+rm apache-maven-$VER-bin.tar.gz
 
 echo -e "\n\e[32mAdd below 3 lines in /etc/profile file
 
