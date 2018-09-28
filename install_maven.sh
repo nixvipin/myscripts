@@ -3,7 +3,7 @@
 VER=3.5.4
 
 cd /data
-wget http://mirrors.wuchna.com/apachemirror/maven/maven-3/$VER/binaries/apache-maven-VER-bin.tar.gz
+wget http://mirrors.wuchna.com/apachemirror/maven/maven-3/$VER/binaries/apache-maven-$VER-bin.tar.gz
 tar -xzf apache-maven-$VER-bin.tar.gz
 mv apache-maven-$VER maven
 rm apache-maven-$VER-bin.tar.gz
