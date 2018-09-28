@@ -4,6 +4,12 @@ VER=3.5.4
 
 cd /data
 wget http://mirrors.wuchna.com/apachemirror/maven/maven-3/$VER/binaries/apache-maven-$VER-bin.tar.gz
+
+if [ $? != 0 ];
+then
+echo -e "\nDownload failed..\n"
+fi
+
 tar -xzf apache-maven-$VER-bin.tar.gz
 mv apache-maven-$VER maven
 rm apache-maven-$VER-bin.tar.gz
