@@ -6,8 +6,8 @@ yum -y install puppet-agent
 echo -e "\nMake the client entry in /etc/hosts file
 
 \e[32m
-172.31.30.44 server01
-172.31.31.22 puppet
+<REPLACE server01 private IP> server01
+<REPLACE client01 private IP> puppet
 \e[0m
 
 #Replace IPs with you Client and Server machines Private IP Address\n"
