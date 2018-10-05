@@ -1,15 +1,15 @@
 #!/bin/bash
 
-IPADDRESS=`ip a | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
+IPADDRESS=`ip a | grep -v docker | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
 
 read -p "Have you taken snapshop of your VM (y/n) > " ans
 
 if [ $ans = y ]
 then
-echo "\n\e[32mStarting Installtion.. \e[0m\n"
+echo -e "\n\e[32mStarting Installtion.. \e[0m\n"
 sleep 5
 else
-echo "\n\e[32mPlease take VM snapshot and come again..\e[0m\n"
+echo -e "\n\e[32mPlease take VM snapshot and come again..\e[0m\n"
 exit 1
 fi
 
