@@ -25,6 +25,7 @@ yum install vim tree ntpdate unzip -y
 
 ntpdate 1.ro.pool.ntp.org
 
+rm -f chef-server-core-12.15.8-1.el7.x86_64.rpm
 wget https://packages.chef.io/stable/el/7/chefdk-0.14.25-1.el7.x86_64.rpm
 rpm -ivh chefdk-0.14.25-1.el7.x86_64.rpm
 IPADDRESS=`ip a | grep -v docker | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
