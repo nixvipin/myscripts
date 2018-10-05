@@ -44,7 +44,7 @@ firewall-cmd --reload
 
 echo -e "\n\e[32m
 
-Add below line in /etc/hosts, ignore if already added.
+Add below line in /etc/hosts file, ignore if already present.
 
 $IPADDRESS `hostname`
 
