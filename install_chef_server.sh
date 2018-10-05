@@ -6,10 +6,10 @@ read -p "Have you taken snapshop of your VM (y/n) > " ans
 
 if [ $ans = y ]
 then
-echo -e "\n\e[32mStarting Installtion.. \e[0m\n"
+echo -e "\n\e[32mStarting Installation.. \e[0m\n"
 sleep 5
 else
-echo -e "\n\e[32mPlease take VM snapshot and come again..\e[0m\n"
+echo -e "\n\e[32mPlease take VM snapshot first..\e[0m\n"
 exit 1
 fi
 
@@ -18,6 +18,7 @@ read -p "Enter your Chef Server IP Address > " CHEF_SERVIP
 read -p "Enter your workstation/Node IP Address. > " WSIP
 
 yum  install ntpdate -y; ntpdate 1.ro.pool.ntp.org
+sh install_initial.sh
 
 wget https://packages.chef.io/files/stable/chef-server/12.15.8/el/7/chef-server-core-12.15.8-1.el7.x86_64.rpm
 rpm -ivh chef-server-core-12.15.8-1.el7.x86_64.rpm
