@@ -32,7 +32,7 @@ IPADDRESS=`ip a | grep -v docker | grep inet -w | tail -1 | awk '{print $2}' | a
 
 echo -e "\n\e[32m
 
-Add below line in /etc/hosts file.
+Add below line in /etc/hosts file, ignore if already present.
 
 $IPADDRESS `hostname`
 
