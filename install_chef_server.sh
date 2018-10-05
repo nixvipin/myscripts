@@ -21,6 +21,7 @@ read -p "Enter your workstation/Node IP Address. > " WSIP
 yum  install ntpdate -y; ntpdate 1.ro.pool.ntp.org
 sh install_initial.sh
 
+rm -f chef-server-core-12.15.8-1.el7.x86_64.rpm
 wget https://packages.chef.io/files/stable/chef-server/12.15.8/el/7/chef-server-core-12.15.8-1.el7.x86_64.rpm
 rpm -ivh chef-server-core-12.15.8-1.el7.x86_64.rpm
 chmod 600 ~/.netrc
