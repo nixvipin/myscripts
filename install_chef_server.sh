@@ -44,9 +44,12 @@ firewall-cmd --reload
 
 echo -e "\n\e[32m
 
-Add below line in /etc/hosts and start from step 1 below.
+Add below line in /etc/hosts, ignore if already added.
 
 $IPADDRESS `hostname`
+
+
+Follow steps below --> 
 
 1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://$IPADDRESS
 
