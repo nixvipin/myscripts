@@ -34,7 +34,10 @@ echo -e "\n\e[32m
 
 Add below line in /etc/hosts file, ignore if already present.
 
-$IPADDRESS `hostname`
+192.168.56.102  server01
+192.168.56.101  client01
+
+#Replace the IP or Hostname as per your environment.
 
 \e[0m\n"
 
