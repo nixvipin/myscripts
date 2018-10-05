@@ -47,6 +47,6 @@ $IPADDRESS `hostname`
 
 2. Download the Starter Kit for WorkStation. Administration > Choose Organization > Click Settings Icon > Download Starter Kit
 
-3. Once started kit downlaod complete. Use WinSCP and upload this Kit to your Workstation (\$WSIP) into /root/ directory.
+3. Once starter kit downlaod complete. Use WinSCP and upload this Kit to your Workstation ($WSIP) into /root/ directory.
 
 \e[0m\n"
