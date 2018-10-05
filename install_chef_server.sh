@@ -38,6 +38,10 @@ ssh $WSIP 'mkdir -p /root/chef-repo/.chef/'
 echo -e "\n\e[32mAgain enter below workstation root password..\e[0m\n"
 scp /root/.chef/chefadmin.pem /root/.chef/chefvalidator.pem root@$WSIP:/root/chef-repo/.chef/
 
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=443/tcp --permanent
+firewall-cmd --reload
+
 echo -e "\n\e[32m
 
 Add below line in /etc/hosts and start from step 1 below.
