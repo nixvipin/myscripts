@@ -45,86 +45,71 @@ echo -e "Follow Below steps to setup chef knife and chef slave node."
 
 echo -e "\n\e[32m
 
-1. cd /root/; unzip chef-starter.zip; cd chef-repo
+1. Extract start kit and setup knife node.
 
-2. tree
+#cd /root/
+#unzip chef-starter.zip
+#cd chef-repo
+#tree
+#cd /root/chef-repo/cookbooks
 
-3. cd /root/chef-repo/cookbooks; knife cookbook site download learn_chef_httpd
+2. Validate connectivity b/w chef knife and chef manage.
+#cat /root/chef-repo/.chef/knife.rb
+#knife client list
+#knife ssl fetch
+#ls -l /root/chef-repo/.chef/trusted_certs
+#knife ssl check
+#knife client list
+#knife user list
 
-4. tar -xvf learn_chef_httpd-0.2.0.tar.gz
+3. Downlaod a reciepe from https://chef.io
 
-5. All the required files are automatically created under this cookbook. We didn't require to make any modifications. Let's check our recipe description inside our recipe folder.
+#knife cookbook site download learn_chef_httpd
+#tar -xvf learn_chef_httpd-0.2.0.tar.gz
+#tree learn_chef_httpd
+#cat learn_chef_httpd/recipes/default.rb
+#knife cookbook upload learn_chef_httpd
 
-6. cat learn_chef_httpd/recipes/default.rb
+4. Adding a agent node.
 
-7. Validating the Connection b/w Server and Workstation. Before uploading the cookbook, we need to check and confirm the connection between our Chef server and Workstation. First of all, make sure you've proper Knife configuration file.
+#knife node list
+#knife bootstrap $AGENT_NODE --ssh-user $AGENT_USER --ssh-password $AGENT_PASSWORD --node-name $AGENT_HOST
+#knife node list
+#knife node show $AGENT_HOST
 
-8. cat /root/chef-repo/.chef/knife.rb
+5. Assign "learn_chef_httpd" recipe to the agent node
 
-9. knife client list
+-> Go to Chef Manage UI > Nodes > Action settings Icon > Edit Runlist.
+-> Drag and drop "learn_chef_httpd" recipe from "Available run list" to "Current run list".
+-> On agent node(server01) execute the below command.
 
-#An error is expected here. We need to fetch the certiticate first time.
+#chef-client
+#curl http://$WSIP
 
-10. knife ssl fetch
+6. Assign another recipes to the chef agent.
 
-11. ls -l /root/chef-repo/.chef/trusted_certs
-
-12. knife ssl check
-
-13. knife client list
-
-14. knife user list
-
-15. knife cookbook upload learn_chef_httpd
-
-16. Verify the cookbook from the Chef Server Management console. Chef Manage > Policy.
-
-17. Now let's Add a Node. Execute below commands on Workstation.
-
-18. knife bootstrap $AGENT_NODE --ssh-user $AGENT_USER --ssh-password $AGENT_PASSWORD --node-name $AGENT_HOST
-
-19. knife node list
-
-20. knife node show $AGENT_HOST
-
-21. Now verify it from the Management console "Nodes". Chef Manage > Nodes.
-
-22. You can get more information regarding the added node by selecting the node and viewing the Attributes section.
-
-23. Now add a cookbook to the node and manage its runlist from the Chef server. Chef Manage > Nodes > Action settings Icon > Edit Runlist. In the Available Recipes,  you can see our learn_chef_httpd recipe, you can drag that from the available packages to the current run list and save the runlist.
-
-24. Now login to your node and just run the command 'chef-client' to execute your runlist.
-
-25. You should be able to see your Node IP runnig a webserver. http://$WSIP/.
-
-26. Similarly, there you can add any number of nodes to your Chef Server depending on its configuration and hardware.
-
-27. Now let's add some Recipes. Execute below on Workstation
-
-28. cd /root/chef-repo/cookbooks; knife recipe list
-
-29. knife cookbook create file_create
-
-30. cd file_create/recipes/
-
-31. vim default.rb
+#cd /root/chef-repo/cookbooks
+#knife recipe list
+#knife cookbook create file_create
+#cd file_create/recipes/
+#vim default.rb
 
 file '/tmp/i_m_chef.txt' do
    mode '0600'
       owner 'root'
       end
 
-32. knife cookbook upload file_create
+#knife cookbook upload file_create
+-> Drag and drop "file_create" reciepe from the available packages to the current run list and save from Chef Manage UI.
+#Execute 'chef-client' on chef agent machine($WSIP).
+#ls -l /tmp/i_m_chef.txt
 
-33. Drag that from the available packages to the current run list and save the runlist in Chef Manage.
+7. Create new reciepe to create a user.
 
-34. Execute 'chef-client' on Node machine (In you case workstation).
-
-35. cd /root/chef-repo/cookbooks; knife recipe list
-
-36. knife cookbook create user_create
-
-37. vim user_create/recipes/default.rb
+#cd /root/chef-repo/cookbooks
+#knife recipe list
+#knife cookbook create user_create
+#vim user_create/recipes/default.rb
 
 user 'tcruise' do
   comment 'Tom Cruise'
@@ -133,17 +118,17 @@ user 'tcruise' do
   password 'redhat'
 end
 
-38. knife cookbook upload user_create
+#knife cookbook upload user_create
+-> Drag and drop "user_create" reciepe.
+#chef-client
+#grep -i tom /etc/passwd
 
-39. Drag that from the available packages to the current run list and save the runlist in Chef Manage.
+8. Create new reciepe to copy a file.
 
-40. chef-client
-
-41. knife cookbook create filecopy
-
-42. echo -e "My current time is: " > filecopy/templates/default/current_time.txt
-
-43. vim filecopy/recipes/default.rb
+#cd /root/chef-repo/cookbooks
+#knife cookbook create filecopy
+#echo -e "My current time is: " > filecopy/templates/default/current_time.txt
+#vim filecopy/recipes/default.rb
 
 execute 'date_cmd' do
   command 'echo `date` >> /tmp/current_time.txt'
@@ -155,50 +140,20 @@ template '/tmp/current_time.txt' do
 end
 
 
-44. knife cookbook upload filecopy
+#knife cookbook upload filecopy
+-> Drag and drop from Chef Manage UI
+#chef-client
+#cat /tmp/current_time.txt
 
-45. Drag that from the available packages to the current run list and save the runlist in Chef Manage.
+9. Create new reciepe to copy template file and start service.
 
-46. chef-client
+#cd /root/chef-repo/cookbooks/
+#chef generate cookbook httpd_deploy
+#chef generate template httpd_deploy index.html
+#echo -e "\nWelcome to Chef Apache Deployment\n" > ./httpd_deploy/templates/default/index.html.erb
+#cd  /root/chef-repo/cookbooks/httpd_deploy/recipes
+#vim default.rb
 
-47. There are many resource example avaialble at https://docs.chef.io/
-
-48. cd /root/chef-repo
-
-49. Execute below.
-
-vim hello.rb
-
-echo -e "package 'httpd'
-service 'httpd' do
-action [:enable, :start] end
-
-file '/var/www/html/index.html' do
-content 'Welcome to Apache in Chef'
-end"
-
-50. chef-apply hello.rb
-
-echo -e "\n\e[32mwe can verify it by running the server IP in the browser..\e[0m\n"
-
-51. cd cd /root/chef-repo/cookbooks/
-
-52. chef generate cookbook httpd_deploy
-
-53. chef generate template httpd_deploy index.html
-
-
-echo -e "\nWelcome to Chef Apache Deployment\n" > ./httpd_deploy/templates/default/index.html.erb
-
-54. cd  /root/chef-repo/cookbooks/httpd_deploy/recipes
-
-vim default.rb
-
-#
-# Cookbook Name:: httpd_deploy
-# Recipe:: default
-#
-# Copyright (c) 2016 The Authors, All Rights Reserved.
 package 'httpd'
 service 'httpd' do
 action [:enable, :start] end
@@ -207,10 +162,10 @@ template '/var/www/html/index.html' do
 source 'index.html.erb'
 end
 
-55. cd /root/chef-repo
-
-56. chef-client --local-mode --runlist 'recipe[httpd_deploy]'
-
-57. cat /var/www/html/index.html
+#knife cookbook upload httpd_deploy
+-> Drag and Drop from UI.
+#chef-client --runlist 'recipe[httpd_deploy]'
+#curl http://192.168.56.102
+-> In web brower type "http://192.168.56.102/"
 
 \e[0m\n"
