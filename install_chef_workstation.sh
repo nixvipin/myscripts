@@ -63,6 +63,8 @@ echo -e "\n\e[32m
 
 9. knife client list
 
+#An error is expected here. We need to fetch the certiticate first time.
+
 10. knife ssl fetch
 
 11. ls -l /root/chef-repo/.chef/trusted_certs
@@ -73,7 +75,7 @@ echo -e "\n\e[32m
 
 14. knife user list
 
-15. knife cookbook upload learn_chef_httpd.
+15. knife cookbook upload learn_chef_httpd
 
 16. Verify the cookbook from the Chef Server Management console. Chef Manage > Policy.
 
