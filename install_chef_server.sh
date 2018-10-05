@@ -2,6 +2,7 @@
 
 IPADDRESS=`ip a | grep -v docker | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
 
+echo -e "\n"
 read -p "Have you taken snapshop of your VM (y/n) > " ans
 
 if [ $ans = y ]
