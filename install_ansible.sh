@@ -56,7 +56,7 @@ Note: Replace IP Address with your server machine private IP
       become_user: root
 
 
-Note: Execute "yum install epel-release" on server01" if the above is failed.
+Note: Execute 'yum install epel-release -y' on 'server01' if the above is failed.
 
 12. And your first playbook 'ansible-playbook nginx_install.yml' on client machine.
 
