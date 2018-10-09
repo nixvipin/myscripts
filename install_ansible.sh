@@ -142,6 +142,6 @@ Note: Execute "yum install epel-release" on server01" if the above is failed.
 
 22. Now you should see variable changes on 'http://YourServerPublicIP'.
 
-23. That's it.
+23. That\'s it.
 
 \e[0m\n"
