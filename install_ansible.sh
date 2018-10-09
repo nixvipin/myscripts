@@ -32,7 +32,7 @@ Note: Replace IP Address with your server machine private IP
 
 9. Execute  'ssh-copy-id ansible@172.31.30.44' on your client machine. Replace IP with your server private IP address. Enter password 'ansible' (step 8).
 
-10. Execute  'ansible all -m ping' and 'ansible -m shell -a 'free -m' server01' and 'ansible -m ping server01' on your client machine.
+10. Execute  'ansible all -m ping' and 'ansible -m shell -a 'free -m' 'server01' and 'ansible -m ping server01' on your client machine.
 
 11. Now create a file 'vim nginx_install.yml' and copy contents below
 
