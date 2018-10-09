@@ -64,7 +64,7 @@ Note: Execute "yum install epel-release" on server01" if the above is failed.
 
 14. If the process is running hit your IP address in brower and see nginx default page 'http://YourServerPublicIP'.
 
-15. Create another yaml to start Nginx service in client machine(Ansible Tower) 'vim nginx_start.yml'. Jump to (step 16) if process Nginx is already running.
+15. Create another yaml to start Nginx service in client machine\(Ansible Tower\) 'vim nginx_start.yml'. Jump to \(step 16\) if process Nginx is already running.
 
 ---
 - hosts: server01
