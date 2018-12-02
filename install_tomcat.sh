@@ -14,4 +14,4 @@ rm /data/apache-tomcat-$TOMCAT_VERSION.tar.gz
 cp -a /data/myscripts/employees.war /data/apache-tomcat/webapps/
 cd /data/apache-tomcat/bin
 ./startup.sh
-echo -e "\n\e[32m ...Tomcat installation is complete... You should be able to access http://SERVERIP::8001/employees\e[0m\e\n"
+echo -e "\n\e[32m ...Tomcat installation is complete... You should be able to access http://<REPLACE_SERVER_PUBLICIP>:8001/employees\e[0m\e\n"
