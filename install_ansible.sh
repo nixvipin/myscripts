@@ -84,7 +84,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
             name: zlib
             state: latest
 
-#ansible-playbook -i hosts user_create.yml -vv
+#ansible-playbook -i hosts create_user.yml -vv
 
 -> Create a yaml to copy file.
 
