@@ -19,8 +19,7 @@ echo -e "\e[32m
 server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos ansible_ssh_pass=<REPLACE_CENTOSUSER_SERVER01_PASSWORD>
 
 #ansible -i hosts servers -m ping 
-#ansible -i hosts -m shell -a 'free -m' 'server01' 
-#'ansible -i hosts -m ping server01' 
+#ansible -i hosts -m shell -a 'free -m' 'server01'  
 
 -> Now install Nginx on server01 using ansible
 
@@ -31,7 +30,10 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
 - hosts: servers
   tasks:
     - name: Install YUM repo
-      command: yum install epel-release
+      become: yes
+      become_method: sudo
+      become_user: root
+      yum: pkg=epel-release state=installed
       
     - name: Installs nginx web server
       yum: pkg=nginx state=installed update_cache=true
