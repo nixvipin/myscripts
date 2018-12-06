@@ -51,7 +51,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
       become_user: root
 
 
-#ansible-playbook -i hosts nginx_install.yml
+#ansible-playbook -i hosts nginx_install.yml -vvvv
 #curl http://<REPLACE_SERVER01_PRIVATE_IP>
 
 -> Create another yaml to create a file
@@ -66,7 +66,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
             path: /tmp/etlhive.txt
             state: touch
 
-#ansible-playbook -i hosts create_file.yml -v
+#ansible-playbook -i hosts create_file.yml -vvv
 
 -> Create another yaml to create a user and install package in once.
 
@@ -102,7 +102,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
             src:  /tmp/index.html
             dest: /usr/share/nginx/html/index.html
 
-#ansible-playbook -i hosts copy_file.yml -vv
+#ansible-playbook -i hosts copy_file.yml -v
 #curl http://<REPLACE_SERVER01_PRIVATE_IP>
 
 -> Create a yaml to edit file
@@ -128,7 +128,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
         become_user: root
 
 
-#ansible-playbook -i hosts file_edit.yml -vvv
+#ansible-playbook -i hosts file_edit.yml
 #curl http://<REPLACE_SERVER01_PRIVATE_IP>
 
 \e[0m\n"
