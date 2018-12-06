@@ -73,6 +73,9 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
 #vim create_user.yml
 
 - hosts: server01
+  become: yes
+  become_method: sudo
+  become_user: root
   tasks:
       - name: Create user
         user:
