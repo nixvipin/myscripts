@@ -10,17 +10,17 @@ echo -e "\e[32m
 
 -> Execute below commands
 
-# cd /data
-# mkdir ansible
-# cd ansible
+#cd /data
+#mkdir ansible
+#cd ansible
 #vim hosts
 
 [servers]
 server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos ansible_ssh_pass=<REPLACE_CENTOSUSER_SERVER01_PASSWORD>
 
-#ansible servers -m ping -i hosts
-#ansible -m shell -a 'free -m' 'server01'
-#'ansible -m ping server01'
+#ansible -i hosts servers -m ping 
+#ansible -i hosts -m shell -a 'free -m' 'server01' 
+#'ansible -i hosts -m ping server01' 
 
 -> Now install Nginx on server01 using ansible
 
@@ -49,7 +49,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
       become_user: root
 
 
-#ansible-playbook nginx_install.yml
+#ansible-playbook -i hosts nginx_install.yml
 #curl http://<REPLACE_SERVER01_PRIVATE_IP>
 
 -> Create another yaml to create a file
@@ -90,7 +90,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
 #vim copy_file.yml
 
 ---
-- hosts: server01
+- hosts: servers
   tasks:
       - name: Nginx default home page
         become: yes
@@ -108,7 +108,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
 #vim file_edit.yml
 
 ---
-- hosts: server01
+- hosts: servers
   tasks:
       - lineinfile:
                     dest: /usr/share/nginx/html/index.html
@@ -126,7 +126,7 @@ server01 ansible_ssh_host=<REPLACE_SERVER_PRIVATE_IP> ansible_ssh_user=centos an
         become_user: root
 
 
-#ansible-playbook -i file_edit.yml -vvv
+#ansible-playbook -i hosts file_edit.yml -vvv
 #curl http://<REPLACE_SERVER01_PRIVATE_IP>
 
 \e[0m\n"
