@@ -15,12 +15,12 @@ echo -e "\nMake the client entry in /etc/hosts file
 echo -e "\e[32mYou will need sign the certificate.
 
 Execute below on server01 to send certificate request.
-1. puppet agent --test
+1. /opt/puppetlabs/bin/puppet agent --test
 
 Execute below on client01 to sign the certificate
-puppet cert list
-puppet cert sign "server01.us-west-2.compute.internal"
-puppet cert list --all
+/opt/puppetlabs/bin/puppet cert list
+/opt/puppetlabs/bin/puppet cert sign <REPLACE_AWS_FQDN>
+/opt/puppetlabs/bin/puppet cert list --all
 \e[0m"
 
 echo -e "\nThen create a file /etc/puppetlabs/code/environments/production/manifests/site.pp on puppet master and make below entry\n
