@@ -16,8 +16,8 @@ systemctl enable puppetserver
 echo -e "\nPlease make below entries in /etc/hosts file. For Example
 
 \e[32m
-172.31.30.44 server01
-172.31.31.22 puppet
+<REPLACE_SERVER01_PVT_IP> server01 <ADD_AWS_FQDN>
+<REPLACE_CLIENT01_PVT_IP> puppet client01 <ADD_AWS_FQDN>
 \e[0m
 
 # Replace IPs with you Server and Client Private IP Address repectively
