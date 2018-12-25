@@ -1,9 +1,8 @@
 #!/bin/bash
 
-java -version
 PID=`ps -ef | grep /data/jenkins | grep -v grep | awk '{print $2}'`
 TOMCAT_VERSION=8.5.32
-
+java -version
 
 if [ $? = 0 ]
 then
