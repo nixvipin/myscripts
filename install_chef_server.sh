@@ -46,8 +46,8 @@ echo -e "\n\e[32m
 
 Add below line in /etc/hosts file, ignore if already present.
 
-192.168.56.102  server01
-192.168.56.101  client01
+$WSIP  server01
+$CHEF_SERVIP  client01
 
 #Replace the IP or Hostname as per your environment.
 
