@@ -49,14 +49,4 @@ Add below line in /etc/hosts file, ignore if already present.
 $WSIP  server01
 $CHEF_SERVIP  client01
 
-#Replace the IP or Hostname as per your environment.
-
-Follow steps below --> 
-
-1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://$CHEF_SERVIP
-
-2. Download the Starter Kit for WorkStation. Administration > Choose Organization > Click Settings Icon > Download Starter Kit
-
-3. Once starter kit downlaod complete. Use WinSCP and upload this Kit to your Workstation ($WSIP) into /root/ directory.
-
 \e[0m\n"
