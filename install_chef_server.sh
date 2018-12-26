@@ -53,7 +53,7 @@ $CHEF_SERVIP  client01
 
 Follow steps below --> 
 
-1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://$IPADDRESS
+1. Now login to our Management console for our Chef server with the user/password  "chefadmin" created and password redhat --  http://$CHEF_SERVIP
 
 2. Download the Starter Kit for WorkStation. Administration > Choose Organization > Click Settings Icon > Download Starter Kit
 
