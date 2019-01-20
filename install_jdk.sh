@@ -21,7 +21,7 @@ if [ $? = 0 ]
 then
 echo "JAVA path already set on `whereis java`"
 else
-echo "JAVA_HOME=/usr/local/jdk8" >> /etc/profile
+echo "JAVA_HOME=/usr/local/jdk1.8.0_201" >> /etc/profile
 echo "PATH=$JAVA_HOME/bin:$PATH" >> /etc/profile
 export JAVA_HOME PATH >> /etc/profile
 source /etc/profile
