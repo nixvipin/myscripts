@@ -6,6 +6,7 @@ grep JAVA_HOME /etc/profile
 if [ $? = 0 ]
 then
 echo "JAVA path already set on `whereis java`"
+echo -e "\n\e[32mYou might need to execute below\nsource /etc/profile\njava -version\e[0m\e"
 else
   if [ ! -f /usr/bin/wget ]
   then
@@ -23,7 +24,7 @@ echo "JAVA_HOME=/usr/local/jdk1.8.0_201" >> /etc/profile
 echo "PATH=\$JAVA_HOME/bin:\$PATH" >> /etc/profile
 echo "export JAVA_HOME PATH" >> /etc/profile
 source /etc/profile
-java -version
+echo -e "\n\e[32mExecute below\nsource /etc/profile\njava -version\e[0m\e"
  if [ $? = 0 ]
  then
  echo "Java is installed on `whereis java`"
@@ -32,9 +33,4 @@ java -version
  fi
 fi
 
-echo -e "\n\e[32mExecute below
 
-source /etc/profile 
-java -version
-
-\e[0m\e"
