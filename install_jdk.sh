@@ -34,3 +34,9 @@ java -version
  fi
 fi
 
+echo -e "\n\e[32mExecute below
+
+source /etc/profile 
+java -version
+
+\e[0m\e"
