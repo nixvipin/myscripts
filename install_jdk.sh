@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-grep JAVA_HOME /etc/profile
+java -version || grep JAVA_HOME /etc/profile
 
 if [ $? = 0 ]
 then
