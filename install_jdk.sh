@@ -5,7 +5,7 @@ then
 echo "Installing wget " 
 yum install wget -y
 else
-echo "where is install in `whereis wget`"
+echo "wget is already installed in `whereis wget`"
 fi
 
 VER=8u201
