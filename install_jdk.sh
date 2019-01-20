@@ -6,7 +6,7 @@ grep JAVA_HOME /etc/profile
 if [ $? = 0 ]
 then
 echo "JAVA path already set on `whereis java`"
-echo -e "\n\e[32mYou might need to execute below\nsource /etc/profile\njava -version\e[0m\e"
+echo -e "\n\e[33mYou might need to execute below\nsource /etc/profile\njava -version\e[0m"
 else
   if [ ! -f /usr/bin/wget ]
   then
