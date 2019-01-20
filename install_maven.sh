@@ -1,9 +1,9 @@
 #!/bin/bash
 
-VER=3.5.4
+VER=3.6.0
 
 cd /data
-wget http://mirrors.wuchna.com/apachemirror/maven/maven-3/$VER/binaries/apache-maven-$VER-bin.tar.gz
+wget http://mirrors.estointernet.in/apache/maven/maven-3/$VER/binaries/apache-maven-$VER-bin.tar.gz
 
 if [ $? != 0 ];
 then
