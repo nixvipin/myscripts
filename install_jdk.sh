@@ -18,5 +18,13 @@ else
 echo "JAVA_HOME=/usr/local/jdk8" >> /etc/profile
 echo "PATH=$JAVA_HOME/bin:$PATH" >> /etc/profile
 export JAVA_HOME PATH >> /etc/profile
+source /etc/profile
+java -version
+ if [ $? = 0 ]
+ then
+ echo "Java is install on `whereis java`"
+ else
+ echo "Error installing Java"
+ fi
 fi
 
