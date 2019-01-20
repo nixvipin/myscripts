@@ -1,5 +1,7 @@
 #!/bin/bash
 
+yum install wget -y
+
 VER=8u201
 URL=https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-$VER-linux-x64.tar.gz
 
