@@ -1,19 +1,5 @@
 #!/bin/bash
 
-if [ ! -f /usr/bin/wget ]
-then
-echo "Installing wget " 
-yum install wget -y
-else
-echo "wget is already installed in `whereis wget`"
-fi
-
-VER=8u201
-URL=https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-$VER-linux-x64.tar.gz
-
-wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3a%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk8-downloads-2133151.html; oraclelicense=accept-securebackup-cookie;" "$URL" -O /tmp/jdk-$VER-linux-x64.tar.gz
-tar -xzf /tmp/jdk-$VER-linux-x64.tar.gz --directory=/usr/local/
-rm -f /tmp/jdk-$VER-linux-x64.tar.gz
 
 grep JAVA_HOME /etc/profile
 
@@ -21,6 +7,18 @@ if [ $? = 0 ]
 then
 echo "JAVA path already set on `whereis java`"
 else
+  if [ ! -f /usr/bin/wget ]
+  then
+  echo "Installing wget " 
+  yum install wget -y
+  else
+  echo "wget is already installed in `whereis wget`"
+  fi
+VER=8u201
+URL=https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-$VER-linux-x64.tar.gz
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3a%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk8-downloads-2133151.html; oraclelicense=accept-securebackup-cookie;" "$URL" -O /tmp/jdk-$VER-linux-x64.tar.gz
+tar -xzf /tmp/jdk-$VER-linux-x64.tar.gz --directory=/usr/local/
+rm -f /tmp/jdk-$VER-linux-x64.tar.gz
 echo "JAVA_HOME=/usr/local/jdk1.8.0_201" >> /etc/profile
 echo "PATH=\$JAVA_HOME/bin:\$PATH" >> /etc/profile
 echo "export JAVA_HOME PATH" >> /etc/profile
@@ -28,7 +26,7 @@ source /etc/profile
 java -version
  if [ $? = 0 ]
  then
- echo "Java is install on `whereis java`"
+ echo "Java is installed on `whereis java`"
  else
  echo "Error installing Java"
  fi
