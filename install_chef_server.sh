@@ -1,22 +1,6 @@
 #!/bin/bash
 
-IPADDRESS=`ip a | grep -v docker | grep inet -w | tail -1 | awk '{print $2}' | awk -F '/' '{print $1}'`
-
-echo -e "\n"
-read -p "Have you taken snapshop of your VM (y/n) > " ans
-
-if [ $ans = y ]
-then
-echo -e "\n\e[32mStarting Installation.. \e[0m\n"
-sleep 5
-else
-echo -e "\n\e[32mPlease take VM snapshot first..\e[0m\n"
-exit 1
-fi
-
 read -p "Enter your mail id > " MAIL_ID
-read -p "Enter your Chef Server IP Address > " CHEF_SERVIP
-read -p "Enter your workstation/Node IP Address. > " WSIP
 
 yum  install ntpdate -y; ntpdate 1.ro.pool.ntp.org
 sh install_initial.sh
@@ -33,20 +17,11 @@ chef-server-ctl reconfigure
 mkdir ~/.chef
 chef-server-ctl user-create chefadmin Tom Cruise $MAIL_ID 'redhat' --filename /root/.chef/chefadmin.pem
 chef-server-ctl org-create chef-organization 'Chef Oraganization' --association_user chefadmin --filename /root/.chef/chefvalidator.pem
-echo -e "\n\e[32mEnter below workstation root password..Type "yes" (if asked) \e[0m\n" 
-ssh $WSIP 'mkdir -p /root/chef-repo/.chef/'
-echo -e "\n\e[32mAgain enter below workstation root password..\e[0m\n"
-scp /root/.chef/chefadmin.pem /root/.chef/chefvalidator.pem root@$WSIP:/root/chef-repo/.chef/
 
-firewall-cmd --zone=public --add-port=80/tcp --permanent
-firewall-cmd --zone=public --add-port=443/tcp --permanent
-firewall-cmd --reload
+echo -e "\n\e[32mIn your workstation create a dir
 
-echo -e "\n\e[32m
-
-Add below line in /etc/hosts file, ignore if already present.
-
-$WSIP  server01
-$CHEF_SERVIP  client01
+mkdir -p /root/chef-repo/.chef/
+download /root/.chef/chefadmin.pem and /root/.chef/chefvalidator.pem (Use WinSCP to download)
+upload these files inside /root/chef-repo/.chef/ on workstation machine.
 
 \e[0m\n"
