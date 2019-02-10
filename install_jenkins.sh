@@ -42,7 +42,7 @@ chmod +x /data/jenkins/bin/setenv.sh
 set_war()
 {
 cd /data/jenkins/webapps
-wget "https://updates.jenkins-ci.org/latest/jenkins.war"
+wget "https://updates.jenkins-ci.org/latest/jenkins.war" --no-check-certificate
 }
 
 set_context_file()
