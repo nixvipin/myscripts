@@ -1,14 +1,4 @@
 #!/bin/bash
-read -p "Have you taken snapshop of your VM (y/n) > " ans
-
-if [ $ans = y ]
-then
-echo "Starting Installation.. "
-sleep 5
-else
-echo -e "\n\e[32mPlease take VM snapshot and come again..\e[0m\n"
-exit 1
-fi
 
 systemctl stop firewalld
 systemctl disable firewalld
@@ -16,7 +6,6 @@ systemctl disable firewalld
 read -p "Enter your agent-node IP Address > " AGENT_NODE
 read -p "Enter your agent-node hostname > " AGENT_HOST
 read -p "Enter your agent-node username > " AGENT_USER
-read -p "Enter your agent-node password > " AGENT_PASSWORD
 
 sh install_initial.sh
 yum install vim tree ntpdate unzip -y
@@ -71,7 +60,7 @@ echo -e "\n\e[32m
 4. Adding a agent node.
 
 #knife node list
-#knife bootstrap $AGENT_NODE --ssh-user $AGENT_USER --ssh-password $AGENT_PASSWORD --node-name $AGENT_HOST
+#knife bootstrap $AGENT_NODE --ssh-user $AGENT_USER --ssh-password <AGENT_NODE_PASSWORD> --node-name $AGENT_HOST
 #knife node list
 #knife node show $AGENT_HOST
 
