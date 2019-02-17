@@ -13,8 +13,6 @@ fi
 systemctl stop firewalld
 systemctl disable firewalld
 
-read -p "Enter your Chef Server IP Address > " CHEF_SERVIP
-read -p "Enter your workstation IP Address > " WSIP
 read -p "Enter your agent-node IP Address > " AGENT_NODE
 read -p "Enter your agent-node hostname > " AGENT_HOST
 read -p "Enter your agent-node username > " AGENT_USER
