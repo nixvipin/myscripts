@@ -25,7 +25,7 @@ read -p "install package(yes/no?) " ans1
 
 if [ $ans1 = yes ]
 then
-read -p "setup master or worker node " env
+read -p "setup master or worker node (master/worker) ? " env
 
 if [ $env = master ]
 then
@@ -84,8 +84,7 @@ systemctl start kubelet
 echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
-echo "Execute join 'kubeadm join ... ... ...' command manually which is copied from master"
+echo -e "\nExecute join 'kubeadm join ... ... ...' command manually which is copied from master\n"
 fi
-
 
 fi
