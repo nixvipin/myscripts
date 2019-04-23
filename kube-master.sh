@@ -84,9 +84,6 @@ systemctl start kubelet
 echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
-  mkdir -p $HOME/.kube
-  sudo cp -a /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
 echo -e "\nExecute join 'kubeadm join ... ... ...' command manually which is copied from master\n"
 fi
 
