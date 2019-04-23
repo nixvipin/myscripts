@@ -77,11 +77,13 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 """ > /etc/yum.repos.d/kubernetes.repo
-yum install kubeadm kubectl kubelet kubernetes-cni kube* -y
+
+#yum install kubeadm kubectl kubelet kubernetes-cni kube* -y
+yum install kubeadm -y
 systemctl enable kubelet
 systemctl start kubelet
 
-echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+#echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
 echo -e "\nExecute join 'kubeadm join ... ... ...' command manually which is copied from master\n"
