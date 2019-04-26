@@ -50,7 +50,7 @@ systemctl start kubelet
 echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
-kubeadm init --apiserver-advertise-address=0.0.0.0 --pod-network-cidr=$1  --v=2
+kubeadm init --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=$1 --v=2
 echo -e "\n\nCopy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.
 \n\n"
 mkdir -p $HOME/.kube
