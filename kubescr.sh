@@ -4,7 +4,7 @@ read -p "remove package(yes/no?) " ans
 
 if [ $ans = yes ];
 then
-# kubectl delete node --all
+ kubectl delete node --all
  docker stop $(docker ps -q)
  docker rm $(docker ps -a -q) -f
  docker rmi $(docker images -q) -f
@@ -44,7 +44,7 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 """ > /etc/yum.repos.d/kubernetes.repo
-yum install kubeadm kubectl kubelet #kubernetes-cni kube* -y
+yum install kubeadm kubectl kubelet -y
 systemctl enable kubelet
 systemctl start kubelet
 
@@ -79,8 +79,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 """ > /etc/yum.repos.d/kubernetes.repo
 
-#yum install kubeadm kubectl kubelet kubernetes-cni kube* -y
-yum install kubeadm -y
+yum install kubeadm kubectl kubelet -y
 systemctl enable kubelet
 systemctl start kubelet
 
