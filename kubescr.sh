@@ -19,6 +19,7 @@ then
  rm -rf /etc/kubernetes/
  rm -f /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
  systemctl daemon-reload
+kubectl taint nodes --all node-role.kubernetes.io/master-
 fi
 
 echo -e "\n"
@@ -57,7 +58,8 @@ echo -e "\n\nCopy the 'kubeadm join ... ... ...' command to your text editor. Th
 mkdir -p $HOME/.kube
 cp -a /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 kubectl get nodes
 kubectl get pods
 fi
