@@ -12,6 +12,7 @@ then
       systemctl stop $service
   done
  kubeadm reset -f
+ iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
  yum remove kubeadm kubectl kubelet kubernetes-cni kube* -y
  yum autoremove -y
  rm -rf ~/.kube
@@ -43,14 +44,14 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 """ > /etc/yum.repos.d/kubernetes.repo
-yum install kubeadm kubectl kubelet kubernetes-cni kube* -y
+yum install kubeadm kubectl kubelet #kubernetes-cni kube* -y
 systemctl enable kubelet
 systemctl start kubelet
 
-echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+#echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
-kubeadm init --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=$1 --v=2
+kubeadm init --pod-network-cidr=10.244.0.0/16  #--apiserver-advertise-address=$1 --v=2
 echo -e "\n\nCopy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.
 \n\n"
 mkdir -p $HOME/.kube
