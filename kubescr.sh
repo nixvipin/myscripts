@@ -13,8 +13,8 @@ then
   done
  kubeadm reset -f
  iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
- yum remove kubeadm kubectl kubelet kubernetes-cni kube* -y
- yum autoremove -y
+ yum remove kubeadm kubectl kubelet kubernetes-cni kube* -y -q
+ yum autoremove -y -q
  rm -rf ~/.kube
  rm -rf /etc/kubernetes/
  rm -f /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
@@ -52,7 +52,7 @@ systemctl start kubelet
 #echo "Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"" >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
-kubeadm init --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=$1 --v=2
+kubeadm init --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=$1 --v=5
 echo -e "\n\nCopy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.
 \n\n"
 mkdir -p $HOME/.kube
@@ -66,7 +66,7 @@ fi
 
 if [ $env = worker ]
 then
-yum update -y
+yum update -y -q
 setenforce 0
 sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 modprobe br_netfilter
@@ -81,7 +81,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 """ > /etc/yum.repos.d/kubernetes.repo
 
-yum install kubeadm kubectl kubelet -y
+yum install kubeadm kubectl kubelet -y -q
 systemctl enable kubelet
 systemctl start kubelet
 
